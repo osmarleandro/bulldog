@@ -1,0 +1,17 @@
+language: java
+
+install: sudo apt-get install -y gcc-arm-linux-gnueabihf 
+
+script: mvn clean install -DskipTests -Dcompiler.exec=arm-linux-gnueabi-gcc -Dlinker.exec=arm-linux-gnueabi-ld -Pcubieboard
+
+jdk:
+  - oraclejdk8
+  - oraclejdk7
+
+notifications:
+  email:
+    - pipistik.bunciak@gmail.com
+
+branches:
+  only:
+    - master

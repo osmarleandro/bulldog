@@ -6,6 +6,7 @@ target/
 # Hidden files
 .*
 !/.gitignore
+!/.travis.yml
 
 # Java Classes
 *.class
