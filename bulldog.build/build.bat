@@ -1,1 +1,0 @@
-..\bulldog.tools\gradle-1.12\bin\gradle -x test --daemon clean build distribution archiveDistributions

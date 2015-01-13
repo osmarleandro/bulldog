@@ -1,0 +1,122 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.bulldog</groupId>
+  <artifactId>bulldog-parent</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>bulldog-parent</name>
+  <url>http://px3.github.io</url>
+
+  <licenses>
+    <license>
+      <name>Apache License Version 2.0</name>
+      <url>http://repository.jboss.org/licenses/apache-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <organization>
+    <name>px3</name>
+    <url>http://px3.github.io</url>
+  </organization>
+
+  <scm>
+    <connection>scm:git:git@github.com:px3/Bulldog.git</connection>
+    <developerConnection>scm:git:git@github.com:px3/Bulldog.git</developerConnection>
+    <url>scm:git:git@github.com:px3/Bulldog.git</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <issueManagement>
+    <url>https://github.com/px3/Bulldog/issues</url>
+    <system>github</system>
+  </issueManagement>
+
+  <ciManagement>
+    <system>travis-ci</system>
+    <url>https://travis-ci.org/px3/bulldog</url>
+  </ciManagement>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <version.junit>4.10</version.junit>
+  </properties>
+
+  <modules>
+    <module>bulldog-core</module>
+    <module>bulldog-devices</module>
+    <module>bulldog-linux</module>
+    <module>bulldog-linux-native</module>
+  </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${version.junit}</version>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.2</version>
+          <configuration>
+            <source>1.7</source>
+            <target>1.7</target>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>native-maven-plugin</artifactId>
+          <version>1.0-alpha-8</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>2.5.3</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <!-- Separate profiles for every supported platform -->
+  <profiles>
+    <profile>
+      <id>cubieboard</id>
+      <modules>
+        <module>bulldog-board-cubieboard</module>
+        <module>bulldog-distro</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>raspberrypi</id>
+      <modules>
+        <module>bulldog-board-raspberrypi</module>
+        <module>bulldog-distro</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>beagleboneblack-softfp</id>
+      <modules>
+        <module>bulldog-board-beagleboneblack</module>
+        <module>bulldog-distro</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>beagleboneblack-hardfp</id>
+      <modules>
+        <module>bulldog-board-beagleboneblack</module>
+        <module>bulldog-distro</module>
+      </modules>
+    </profile>
+  </profiles>
+</project>
