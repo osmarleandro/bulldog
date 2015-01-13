@@ -1,11 +1,19 @@
-/bulldog.tools/
-/.metadata/
-target/
-.settings/
-.gradle/
-Debug/
-Release/
+# Build output
 build/
 bin/
-bulldog.repository/
-dist/**/sources/**
+target/
+
+# Hidden files
+.*
+!/.gitignore
+
+# Java Classes
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*

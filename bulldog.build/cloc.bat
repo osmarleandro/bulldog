@@ -1,1 +1,0 @@
-%~dp0../bulldog.tools/tools/cloc-1.60.exe ../ --exclude-dir ../bulldog.tools
