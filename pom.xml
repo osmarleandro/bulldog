@@ -39,7 +39,15 @@
     <system>travis-ci</system>
     <url>https://travis-ci.org/px3/bulldog</url>
   </ciManagement>
-
+  
+  <distributionManagement>
+    <repository>
+      <id>bintray-px3-bulldog-org.bulldog</id>
+      <name>px3-bulldog-org.bulldog</name>
+      <url>https://api.bintray.com/maven/px3/bulldog/org.bulldog</url>
+    </repository>
+  </distributionManagement>
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <version.junit>4.10</version.junit>
@@ -50,6 +58,10 @@
     <module>bulldog-devices</module>
     <module>bulldog-linux</module>
     <module>bulldog-linux-native</module>
+    <module>bulldog-board-cubieboard</module>
+    <module>bulldog-board-raspberrypi</module>
+    <module>bulldog-board-beagleboneblack</module>
+    <module>bulldog-distro</module>
   </modules>
 
   <dependencyManagement>
@@ -83,40 +95,18 @@
         <plugin>
           <artifactId>maven-assembly-plugin</artifactId>
           <version>2.5.3</version>
+          <configuration>
+            <archive>
+                    <manifest>
+                      <addClasspath>true</addClasspath>
+                      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                      <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                    </manifest>
+                  </archive>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
   </build>
-
-  <!-- Separate profiles for every supported platform -->
-  <profiles>
-    <profile>
-      <id>cubieboard</id>
-      <modules>
-        <module>bulldog-board-cubieboard</module>
-        <module>bulldog-distro</module>
-      </modules>
-    </profile>
-    <profile>
-      <id>raspberrypi</id>
-      <modules>
-        <module>bulldog-board-raspberrypi</module>
-        <module>bulldog-distro</module>
-      </modules>
-    </profile>
-    <profile>
-      <id>beagleboneblack-softfp</id>
-      <modules>
-        <module>bulldog-board-beagleboneblack</module>
-        <module>bulldog-distro</module>
-      </modules>
-    </profile>
-    <profile>
-      <id>beagleboneblack-hardfp</id>
-      <modules>
-        <module>bulldog-board-beagleboneblack</module>
-        <module>bulldog-distro</module>
-      </modules>
-    </profile>
-  </profiles>
+  
 </project>

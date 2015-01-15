@@ -36,23 +36,45 @@
     </dependency>
     <dependency>
       <groupId>org.bulldog</groupId>
-      <artifactId>bulldog-linux-native</artifactId>
+      <artifactId>bulldog-board-cubieboard</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.bulldog</groupId>
+      <artifactId>bulldog-board-raspberrypi</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.bulldog</groupId>
+      <artifactId>bulldog-board-beagleboneblack</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.bulldog</groupId>
+      <artifactId>bulldog-linux-native-cubieboard</artifactId>
+      <version>${project.version}</version>
+      <type>so</type>
+    </dependency>
+    <dependency>
+      <groupId>org.bulldog</groupId>
+      <artifactId>bulldog-linux-native-raspberrypi</artifactId>
+      <version>${project.version}</version>
+      <type>so</type>
+    </dependency>
+    <dependency>
+      <groupId>org.bulldog</groupId>
+      <artifactId>bulldog-linux-native-beagleboneblack-softfp</artifactId>
+      <version>${project.version}</version>
+      <type>so</type>
+    </dependency>
+    <dependency>
+      <groupId>org.bulldog</groupId>
+      <artifactId>bulldog-linux-native-beagleboneblack-hardfp</artifactId>
       <version>${project.version}</version>
       <type>so</type>
     </dependency>
   </dependencies>
 
-  <!-- Separate profiles for every supported platform -->
-  <profiles>
-    <profile>
-      <id>cubieboard</id>
-      <dependencies>
-        <dependency>
-          <groupId>org.bulldog</groupId>
-          <artifactId>bulldog-board-cubieboard</artifactId>
-          <version>${project.version}</version>
-        </dependency>
-      </dependencies>
       <build>
         <plugins>
           <plugin>
@@ -68,34 +90,8 @@
                   <descriptors>
                     <descriptor>src/assembly/cubieboard.xml</descriptor>
                   </descriptors>
-                  <archive>
-                    <manifest>
-                      <addClasspath>true</addClasspath>
-                      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                      <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                    </manifest>
-                  </archive>
                 </configuration>
               </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-    <profile>
-      <id>raspberrypi</id>
-      <dependencies>
-        <dependency>
-          <groupId>org.bulldog</groupId>
-          <artifactId>bulldog-board-raspberrypi</artifactId>
-          <version>${project.version}</version>
-        </dependency>
-      </dependencies>
-      <build>
-        <plugins>
-          <plugin>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <executions>
               <execution>
                 <id>distro-raspberrypi-assembly</id>
                 <phase>package</phase>
@@ -106,36 +102,10 @@
                   <descriptors>
                     <descriptor>src/assembly/raspberrypi.xml</descriptor>
                   </descriptors>
-                  <archive>
-                    <manifest>
-                      <addClasspath>true</addClasspath>
-                      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                      <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                    </manifest>
-                  </archive>
                 </configuration>
               </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-    <profile>
-      <id>beagleboneblack-softfp</id>
-      <dependencies>
-        <dependency>
-          <groupId>org.bulldog</groupId>
-          <artifactId>bulldog-board-beagleboneblack</artifactId>
-          <version>${project.version}</version>
-        </dependency>
-      </dependencies>
-      <build>
-        <plugins>
-          <plugin>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <executions>
               <execution>
-                <id>distro-beagleboneblack-softfp-assembly</id>
+                <id>distro-beagleboneblack-assembly</id>
                 <phase>package</phase>
                 <goals>
                   <goal>single</goal>
@@ -143,58 +113,12 @@
                 <configuration>
                   <descriptors>
                     <descriptor>src/assembly/beagleboneblack-softfp.xml</descriptor>
-                  </descriptors>
-                  <archive>
-                    <manifest>
-                      <addClasspath>true</addClasspath>
-                      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                      <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                    </manifest>
-                  </archive>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-    <profile>
-      <id>beagleboneblack-hardfp</id>
-      <dependencies>
-        <dependency>
-          <groupId>org.bulldog</groupId>
-          <artifactId>bulldog-board-beagleboneblack</artifactId>
-          <version>${project.version}</version>
-        </dependency>
-      </dependencies>
-      <build>
-        <plugins>
-          <plugin>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>distro-beagleboneblack-hardfp-assembly</id>
-                <phase>package</phase>
-                <goals>
-                  <goal>single</goal>
-                </goals>
-                <configuration>
-                  <descriptors>
                     <descriptor>src/assembly/beagleboneblack-hardfp.xml</descriptor>
                   </descriptors>
-                  <archive>
-                    <manifest>
-                      <addClasspath>true</addClasspath>
-                      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                      <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                    </manifest>
-                  </archive>
                 </configuration>
               </execution>
             </executions>
           </plugin>
         </plugins>
       </build>
-    </profile>
-  </profiles>
 </project>

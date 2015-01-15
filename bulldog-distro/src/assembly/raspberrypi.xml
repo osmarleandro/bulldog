@@ -6,25 +6,23 @@
     <format>jar</format>
   </formats>
   <includeBaseDirectory>false</includeBaseDirectory>
-  <moduleSets>
-    <moduleSet>
-    
-      <!-- Enable access to all projects in the current multimodule build! -->
-      <useAllReactorProjects>true</useAllReactorProjects>
-      
-      <!-- Now, select which projects to include in this module-set. -->
+  <dependencySets>
+    <dependencySet>
+          
+      <!-- Now, select which projects to include. -->
       <includes>
         <include>org.bulldog:bulldog-core</include>
         <include>org.bulldog:bulldog-devices</include>
         <include>org.bulldog:bulldog-linux</include>
-        <include>org.bulldog:bulldog-linux-native:so</include>
+        <include>org.bulldog:bulldog-linux-native-raspberrypi:so</include>
         <include>org.bulldog:bulldog-board-raspberrypi</include>
       </includes>
       
-      <binaries>
-<!--        <outputDirectory>lib</outputDirectory> -->
+      <useProjectArtifact>false</useProjectArtifact>
+      
+        <outputDirectory>/</outputDirectory>
         <unpack>false</unpack>
-      </binaries>
-    </moduleSet>
-  </moduleSets>
+
+    </dependencySet>
+  </dependencySets>
 </assembly>

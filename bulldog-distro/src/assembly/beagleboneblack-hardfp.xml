@@ -6,25 +6,22 @@
     <format>jar</format>
   </formats>
   <includeBaseDirectory>false</includeBaseDirectory>
-  <moduleSets>
-    <moduleSet>
+  <dependencySets>
+    <dependencySet>
     
-      <!-- Enable access to all projects in the current multimodule build! -->
-      <useAllReactorProjects>true</useAllReactorProjects>
-      
-      <!-- Now, select which projects to include in this module-set. -->
+      <!-- Now, select which projects to include in this dependency-set. -->
       <includes>
         <include>org.bulldog:bulldog-core</include>
         <include>org.bulldog:bulldog-devices</include>
         <include>org.bulldog:bulldog-linux</include>
-        <include>org.bulldog:bulldog-linux-native:so</include>
         <include>org.bulldog:bulldog-board-beagleboneblack</include>
+        <include>org.bulldog:bulldog-linux-native-beagleboneblack-hardfp:so</include>
       </includes>
 
-      <binaries>
-<!--        <outputDirectory>modules/maven-assembly-plugin</outputDirectory>-->
+<useProjectArtifact>false</useProjectArtifact>
+        <outputDirectory>/</outputDirectory>
         <unpack>false</unpack>
-      </binaries>
-    </moduleSet>
-  </moduleSets>
+
+    </dependencySet>
+  </dependencySets>
 </assembly>

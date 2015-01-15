@@ -31,9 +31,8 @@
     </dependency>
     <dependency>
       <groupId>org.bulldog</groupId>
-      <artifactId>bulldog-linux-native</artifactId>
+      <artifactId>bulldog-linux-native-cubieboard</artifactId>
       <version>${project.version}</version>
-      <scope>runtime</scope>
       <type>so</type>
     </dependency>
   </dependencies>
