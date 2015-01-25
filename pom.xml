@@ -39,7 +39,7 @@
     <system>travis-ci</system>
     <url>https://travis-ci.org/px3/bulldog</url>
   </ciManagement>
-  
+
   <distributionManagement>
     <repository>
       <id>bintray-px3-bulldog-org.bulldog</id>
@@ -47,10 +47,16 @@
       <url>https://api.bintray.com/maven/px3/bulldog/org.bulldog</url>
     </repository>
   </distributionManagement>
-  
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <version.junit>4.10</version.junit>
+    <version.assembly.plugin>2.5.3</version.assembly.plugin>
+    <version.jar.plugin>2.5</version.jar.plugin>
+    <version.source.plugin>2.4</version.source.plugin>
+    <version.javadoc.plugin>2.10.1</version.javadoc.plugin>
+    <version.compiler.plugin>3.2</version.compiler.plugin>
+    <version.native.plugin>1.0-alpha-8</version.native.plugin>
   </properties>
 
   <modules>
@@ -81,7 +87,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.2</version>
+          <version>${version.compiler.plugin}</version>
           <configuration>
             <source>1.7</source>
             <target>1.7</target>
@@ -90,23 +96,98 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>native-maven-plugin</artifactId>
-          <version>1.0-alpha-8</version>
+          <version>${version.native.plugin}</version>
         </plugin>
         <plugin>
           <artifactId>maven-assembly-plugin</artifactId>
-          <version>2.5.3</version>
+          <version>${version.assembly.plugin}</version>
           <configuration>
             <archive>
-                    <manifest>
-                      <addClasspath>true</addClasspath>
-                      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                      <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                    </manifest>
-                  </archive>
+              <manifest>
+                <addClasspath>true</addClasspath>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>${version.source.plugin}</version>
+          <configuration>
+            <archive>
+              <index>true</index>
+              <manifest>
+                <addDefaultSpecificationEntries>
+                  true
+                </addDefaultSpecificationEntries>
+                <addDefaultImplementationEntries>
+                  true
+                </addDefaultImplementationEntries>
+              </manifest>
+              <manifestEntries>
+                <Implementation-URL>${project.url}</Implementation-URL>
+                <Java-Version>${java.version}</Java-Version>
+                <Java-Vendor>${java.vendor}</Java-Vendor>
+                <Os-Name>${os.name}</Os-Name>
+                <Os-Arch>${os.arch}</Os-Arch>
+                <Os-Version>${os.version}</Os-Version>
+                <Scm-Url>${project.scm.url}</Scm-Url>
+                <Scm-Connection>${project.scm.connection}</Scm-Connection>
+                <Scm-Revision>${buildNumber}</Scm-Revision>
+                <Build-Timestamp>${build.datetime}</Build-Timestamp>
+              </manifestEntries>
+            </archive>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${version.jar.plugin}</version>
+          <configuration>
+            <archive>
+              <index>true</index>
+              <manifest>
+                <addDefaultSpecificationEntries>
+                  true
+                </addDefaultSpecificationEntries>
+                <addDefaultImplementationEntries>
+                  true
+                </addDefaultImplementationEntries>
+              </manifest>
+              <manifestEntries>
+                <Implementation-URL>${project.url}</Implementation-URL>
+                <Java-Version>${java.version}</Java-Version>
+                <Java-Vendor>${java.vendor}</Java-Vendor>
+                <Os-Name>${os.name}</Os-Name>
+                <Os-Arch>${os.arch}</Os-Arch>
+                <Os-Version>${os.version}</Os-Version>
+                <Scm-Url>${project.scm.url}</Scm-Url>
+                <Scm-Connection>${project.scm.connection}</Scm-Connection>
+                <Scm-Revision>${buildNumber}</Scm-Revision>
+                <Build-Timestamp>${build.datetime}</Build-Timestamp>
+              </manifestEntries>
+            </archive>
           </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
+
+    <plugins>
+      <!-- Attach source jar to all builds. Runs during the package phase. -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
-  
 </project>
