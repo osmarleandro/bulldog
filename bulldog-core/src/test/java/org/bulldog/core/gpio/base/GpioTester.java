@@ -108,6 +108,11 @@ public final class GpioTester {
 		} catch(IllegalArgumentException ex) {}
 		
 		Signal signal = output.getAppliedSignal();
+		
+		/*
+		 * Omit until race-condition is fixed.
+		 * TODO: https://github.com/px3/bulldog/issues/13
+		 
 		output.blinkTimes(10, 3);
 		for(int i = 0; i < 3; i++) {
 			BulldogUtil.sleepMs(5);
@@ -116,6 +121,8 @@ public final class GpioTester {
 			BulldogUtil.sleepMs(5);
 			TestCase.assertEquals(signal,  output.getAppliedSignal());
 		}
+		
+		*/
 		TestCase.assertFalse(output.isBlinking());
 				
 		BulldogUtil.sleepMs(10);

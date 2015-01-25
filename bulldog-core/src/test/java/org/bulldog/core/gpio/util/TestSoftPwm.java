@@ -7,7 +7,9 @@ import org.bulldog.core.gpio.DigitalOutput;
 import org.bulldog.core.gpio.Pin;
 import org.bulldog.core.mocks.MockedDigitalOutput;
 import org.bulldog.core.util.BulldogUtil;
+
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class TestSoftPwm {
@@ -22,6 +24,7 @@ public class TestSoftPwm {
 	}
 	
 	@Test
+	@Ignore("Disabled until https://github.com/px3/bulldog/issues/12 is fixed")
 	public void testSoftPwm() {
 		DigitalOutput output  = pin.as(DigitalOutput.class);
 		SoftPwm pwm = new SoftPwm(output);

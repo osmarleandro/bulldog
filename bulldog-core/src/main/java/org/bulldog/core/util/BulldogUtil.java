@@ -11,7 +11,7 @@ public final class BulldogUtil {
 		try {
 			Thread.sleep(ms);
 		} catch(Exception ex) {
-			
+			ex.printStackTrace();
 		}
 	}
 	
