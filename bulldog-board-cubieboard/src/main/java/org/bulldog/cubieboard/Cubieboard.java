@@ -18,7 +18,7 @@ public class Cubieboard extends AbstractBoard {
 	
 	public static Cubieboard getInstance() {
 		if(instance == null) {
-			LinuxLibraryLoader.loadNativeLibrary();
+			LinuxLibraryLoader.loadNativeLibrary(NAME.toLowerCase());
 			instance = new Cubieboard();
 		}
 		

@@ -36,10 +36,81 @@
     </dependency>
     <dependency>
       <groupId>org.bulldog</groupId>
-      <artifactId>bulldog-linux-native</artifactId>
+      <artifactId>bulldog-linux-native-beagleboneblack-hardfp</artifactId>
       <version>${project.version}</version>
-      <scope>runtime</scope>
+      <scope>compile</scope>
+      <type>so</type>
+    </dependency>
+    <dependency>
+      <groupId>org.bulldog</groupId>
+      <artifactId>bulldog-linux-native-beagleboneblack-softfp</artifactId>
+      <version>${project.version}</version>
+      <scope>compile</scope>
       <type>so</type>
     </dependency>
   </dependencies>
+  
+    <!-- Package the *.so library so we can load it directly from classpath -->
+  <build>
+    <plugins>
+      <!-- RETRIEVE THE JNI NATIVE LIBRARY DEPENDENCY -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy</id>
+            <phase>validate</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>org.bulldog</groupId>
+                  <artifactId>bulldog-linux-native-beagleboneblack-softfp</artifactId>
+                  <version>${project.version}</version>
+                  <type>so</type>
+                  <overWrite>true</overWrite>
+                  <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                  <destFileName>bulldog-linux-native-beagleboneblack-softfp.so</destFileName>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>org.bulldog</groupId>
+                  <artifactId>bulldog-linux-native-beagleboneblack-hardfp</artifactId>
+                  <version>${project.version}</version>
+                  <type>so</type>
+                  <overWrite>true</overWrite>
+                  <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                  <destFileName>bulldog-linux-native-beagleboneblack-hardfp.so</destFileName>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- EMBED THE JNI NATIVE LIBRARY INSIDE THE JAR -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>embed-jni-native-resource</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>add-resource</goal>
+            </goals>
+            <configuration>
+              <resources>
+                <resource>
+                  <directory>${project.build.directory}/lib</directory>
+                  <targetPath>lib</targetPath>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>

@@ -1,6 +1,6 @@
 <assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
-  <id>raspberrypi</id>
+  <id>beagleboneblack</id>
   <formats>
     <format>jar</format>
   </formats>
@@ -8,12 +8,12 @@
   <dependencySets>
     <dependencySet>
 
-      <!-- Now, select which projects to include. -->
+      <!-- Now, select which projects to include in this dependency-set. -->
       <includes>
         <include>org.bulldog:bulldog-core</include>
         <include>org.bulldog:bulldog-devices</include>
         <include>org.bulldog:bulldog-linux</include>
-        <include>org.bulldog:bulldog-board-raspberrypi</include>
+        <include>org.bulldog:bulldog-board-beagleboneblack</include>
       </includes>
 
       <useProjectArtifact>false</useProjectArtifact>
