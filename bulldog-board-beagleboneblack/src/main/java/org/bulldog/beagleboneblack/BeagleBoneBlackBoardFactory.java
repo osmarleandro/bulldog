@@ -13,7 +13,7 @@ public class BeagleBoneBlackBoardFactory implements BoardFactory {
 
 	@Override
 	public Board createBoard() {
-		LinuxLibraryLoader.loadNativeLibrary();
+		LinuxLibraryLoader.loadNativeLibrary("beagleboneblack");
 		return new BeagleBoneBlack();
 	}
 

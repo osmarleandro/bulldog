@@ -57,6 +57,8 @@
     <version.javadoc.plugin>2.10.1</version.javadoc.plugin>
     <version.compiler.plugin>3.2</version.compiler.plugin>
     <version.native.plugin>1.0-alpha-8</version.native.plugin>
+    <version.helper.plugin>1.9.1</version.helper.plugin>
+    <version.dependency.plugin>2.9</version.dependency.plugin>
   </properties>
 
   <modules>
@@ -104,7 +106,6 @@
           <configuration>
             <archive>
               <manifest>
-                <addClasspath>true</addClasspath>
                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
               </manifest>
@@ -119,12 +120,8 @@
             <archive>
               <index>true</index>
               <manifest>
-                <addDefaultSpecificationEntries>
-                  true
-                </addDefaultSpecificationEntries>
-                <addDefaultImplementationEntries>
-                  true
-                </addDefaultImplementationEntries>
+                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
               </manifest>
               <manifestEntries>
                 <Implementation-URL>${project.url}</Implementation-URL>
@@ -149,12 +146,8 @@
             <archive>
               <index>true</index>
               <manifest>
-                <addDefaultSpecificationEntries>
-                  true
-                </addDefaultSpecificationEntries>
-                <addDefaultImplementationEntries>
-                  true
-                </addDefaultImplementationEntries>
+                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
               </manifest>
               <manifestEntries>
                 <Implementation-URL>${project.url}</Implementation-URL>
@@ -170,6 +163,16 @@
               </manifestEntries>
             </archive>
           </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>${version.dependency.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>${version.helper.plugin}</version>
         </plugin>
       </plugins>
     </pluginManagement>
