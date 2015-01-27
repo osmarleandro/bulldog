@@ -10,16 +10,15 @@ extern "C" {
 /*
  * Class:     org_bulldog_linux_jni_NativeSpi
  * Method:    spiOpen
- * Signature: (Ljava/lang/String;III)I
+ * Signature: (Ljava/lang/String;IIIZ)I
  */
 JNIEXPORT jint JNICALL Java_org_bulldog_linux_jni_NativeSpi_spiOpen
   (JNIEnv *, jclass, jstring, jint, jint, jint, jboolean);
 
-
 /*
  * Class:     org_bulldog_linux_jni_NativeSpi
- * Method:    spiOpen
- * Signature: (Ljava/lang/String;III)I
+ * Method:    spiConfig
+ * Signature: (IIIIZ)I
  */
 JNIEXPORT jint JNICALL Java_org_bulldog_linux_jni_NativeSpi_spiConfig
   (JNIEnv *, jclass, jint, jint, jint, jint, jboolean);
@@ -35,7 +34,7 @@ JNIEXPORT jint JNICALL Java_org_bulldog_linux_jni_NativeSpi_spiClose
 /*
  * Class:     org_bulldog_linux_jni_NativeSpi
  * Method:    spiTransfer
- * Signature: (IJJIIII)I
+ * Signature: (ILjava/nio/ByteBuffer;Ljava/nio/ByteBuffer;IIII)I
  */
 JNIEXPORT jint JNICALL Java_org_bulldog_linux_jni_NativeSpi_spiTransfer
   (JNIEnv *, jclass, jint, jobject, jobject, jint, jint, jint, jint);

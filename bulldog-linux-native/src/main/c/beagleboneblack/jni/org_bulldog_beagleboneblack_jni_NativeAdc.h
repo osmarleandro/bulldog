@@ -25,6 +25,12 @@ extern "C" {
 #define org_bulldog_beagleboneblack_jni_NativeAdc_BBBIO_ADC_STEP_AVG_8 3L
 #undef org_bulldog_beagleboneblack_jni_NativeAdc_BBBIO_ADC_STEP_AVG_16
 #define org_bulldog_beagleboneblack_jni_NativeAdc_BBBIO_ADC_STEP_AVG_16 4L
+#undef org_bulldog_beagleboneblack_jni_NativeAdc_BBBIO_ADC_WORK_MODE_BUSY_POLLING
+#define org_bulldog_beagleboneblack_jni_NativeAdc_BBBIO_ADC_WORK_MODE_BUSY_POLLING 1L
+#undef org_bulldog_beagleboneblack_jni_NativeAdc_BBBIO_ADC_WORK_MODE_TIMER_INT
+#define org_bulldog_beagleboneblack_jni_NativeAdc_BBBIO_ADC_WORK_MODE_TIMER_INT 2L
+#undef org_bulldog_beagleboneblack_jni_NativeAdc_SYSCLOCK_HZ
+#define org_bulldog_beagleboneblack_jni_NativeAdc_SYSCLOCK_HZ 1714285.0f
 /*
  * Class:     org_bulldog_beagleboneblack_jni_NativeAdc
  * Method:    setup
@@ -44,7 +50,7 @@ JNIEXPORT void JNICALL Java_org_bulldog_beagleboneblack_jni_NativeAdc_teardown
 /*
  * Class:     org_bulldog_beagleboneblack_jni_NativeAdc
  * Method:    fetchSamples
- * Signature: (I)[F
+ * Signature: (I)V
  */
 JNIEXPORT void JNICALL Java_org_bulldog_beagleboneblack_jni_NativeAdc_fetchSamples
   (JNIEnv *, jclass, jint);
@@ -60,7 +66,7 @@ JNIEXPORT void JNICALL Java_org_bulldog_beagleboneblack_jni_NativeAdc_configureM
 /*
  * Class:     org_bulldog_beagleboneblack_jni_NativeAdc
  * Method:    configureChannel
- * Signature: (IIIIILjava/nio/FloatBuffer;I)V
+ * Signature: (IIIIILjava/nio/IntBuffer;I)V
  */
 JNIEXPORT void JNICALL Java_org_bulldog_beagleboneblack_jni_NativeAdc_configureChannel
   (JNIEnv *, jclass, jint, jint, jint, jint, jint, jobject, jint);

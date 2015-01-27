@@ -14,11 +14,11 @@ extern "C" {
 #undef org_bulldog_linux_jni_NativeSerial_SERIAL_DEFAULT_TIMEOUT
 #define org_bulldog_linux_jni_NativeSerial_SERIAL_DEFAULT_TIMEOUT 5L
 #undef org_bulldog_linux_jni_NativeSerial_PARENB
-#define org_bulldog_linux_jni_NativeSerial_PARENB 1024i64
+#define org_bulldog_linux_jni_NativeSerial_PARENB 256L
 #undef org_bulldog_linux_jni_NativeSerial_PARODD
-#define org_bulldog_linux_jni_NativeSerial_PARODD 4096i64
+#define org_bulldog_linux_jni_NativeSerial_PARODD 512L
 #undef org_bulldog_linux_jni_NativeSerial_CMSPAR
-#define org_bulldog_linux_jni_NativeSerial_CMSPAR 1099511627776i64
+#define org_bulldog_linux_jni_NativeSerial_CMSPAR 1073741824L
 /*
  * Class:     org_bulldog_linux_jni_NativeSerial
  * Method:    serialOpen

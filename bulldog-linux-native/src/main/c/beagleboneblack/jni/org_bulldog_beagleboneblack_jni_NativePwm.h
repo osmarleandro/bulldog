@@ -18,7 +18,7 @@ JNIEXPORT jint JNICALL Java_org_bulldog_beagleboneblack_jni_NativePwm_setup
 /*
  * Class:     org_bulldog_beagleboneblack_jni_NativePwm
  * Method:    teardown
- * Signature: ()I
+ * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_org_bulldog_beagleboneblack_jni_NativePwm_teardown
   (JNIEnv *, jclass);
