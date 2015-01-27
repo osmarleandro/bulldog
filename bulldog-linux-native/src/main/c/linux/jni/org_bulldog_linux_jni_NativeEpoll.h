@@ -7,28 +7,34 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-#undef org_bulldog_linux_jni_NativeEpoll_POLLERR
-#define org_bulldog_linux_jni_NativeEpoll_POLLERR 8L
-#undef org_bulldog_linux_jni_NativeEpoll_POLLHUP
-#define org_bulldog_linux_jni_NativeEpoll_POLLHUP 16L
-#undef org_bulldog_linux_jni_NativeEpoll_POLLNVAL
-#define org_bulldog_linux_jni_NativeEpoll_POLLNVAL 32L
-#undef org_bulldog_linux_jni_NativeEpoll_POLLIN
-#define org_bulldog_linux_jni_NativeEpoll_POLLIN 1L
-#undef org_bulldog_linux_jni_NativeEpoll_POLLPRI
-#define org_bulldog_linux_jni_NativeEpoll_POLLPRI 2L
-#undef org_bulldog_linux_jni_NativeEpoll_POLLOUT
-#define org_bulldog_linux_jni_NativeEpoll_POLLOUT 4L
-#undef org_bulldog_linux_jni_NativeEpoll_POLLRDNORM
-#define org_bulldog_linux_jni_NativeEpoll_POLLRDNORM 64L
-#undef org_bulldog_linux_jni_NativeEpoll_POLLWRNORM
-#define org_bulldog_linux_jni_NativeEpoll_POLLWRNORM 4L
-#undef org_bulldog_linux_jni_NativeEpoll_POLLRDBAND
-#define org_bulldog_linux_jni_NativeEpoll_POLLRDBAND 128L
-#undef org_bulldog_linux_jni_NativeEpoll_POLLWRBAND
-#define org_bulldog_linux_jni_NativeEpoll_POLLWRBAND 256L
-#undef org_bulldog_linux_jni_NativeEpoll_POLLNORM
-#define org_bulldog_linux_jni_NativeEpoll_POLLNORM 64L
+#undef org_bulldog_linux_jni_NativeEpoll_EPOLLIN
+#define org_bulldog_linux_jni_NativeEpoll_EPOLLIN 1L
+#undef org_bulldog_linux_jni_NativeEpoll_EPOLLPRI
+#define org_bulldog_linux_jni_NativeEpoll_EPOLLPRI 2L
+#undef org_bulldog_linux_jni_NativeEpoll_EPOLLOUT
+#define org_bulldog_linux_jni_NativeEpoll_EPOLLOUT 4L
+#undef org_bulldog_linux_jni_NativeEpoll_EPOLLRDNORM
+#define org_bulldog_linux_jni_NativeEpoll_EPOLLRDNORM 64L
+#undef org_bulldog_linux_jni_NativeEpoll_EPOLLRDBAND
+#define org_bulldog_linux_jni_NativeEpoll_EPOLLRDBAND 128L
+#undef org_bulldog_linux_jni_NativeEpoll_EPOLLWRNORM
+#define org_bulldog_linux_jni_NativeEpoll_EPOLLWRNORM 256L
+#undef org_bulldog_linux_jni_NativeEpoll_EPOLLWRBAND
+#define org_bulldog_linux_jni_NativeEpoll_EPOLLWRBAND 512L
+#undef org_bulldog_linux_jni_NativeEpoll_EPOLLMSG
+#define org_bulldog_linux_jni_NativeEpoll_EPOLLMSG 1024L
+#undef org_bulldog_linux_jni_NativeEpoll_EPOLLERR
+#define org_bulldog_linux_jni_NativeEpoll_EPOLLERR 8L
+#undef org_bulldog_linux_jni_NativeEpoll_EPOLLHUP
+#define org_bulldog_linux_jni_NativeEpoll_EPOLLHUP 16L
+#undef org_bulldog_linux_jni_NativeEpoll_EPOLLRDHUP
+#define org_bulldog_linux_jni_NativeEpoll_EPOLLRDHUP 8192L
+#undef org_bulldog_linux_jni_NativeEpoll_EPOLLWAKEUP
+#define org_bulldog_linux_jni_NativeEpoll_EPOLLWAKEUP 536870912L
+#undef org_bulldog_linux_jni_NativeEpoll_EPOLLONESHOT
+#define org_bulldog_linux_jni_NativeEpoll_EPOLLONESHOT 1073741824L
+#undef org_bulldog_linux_jni_NativeEpoll_EPOLLET
+#define org_bulldog_linux_jni_NativeEpoll_EPOLLET -2147483648L
 #undef org_bulldog_linux_jni_NativeEpoll_EPOLL_CTL_ADD
 #define org_bulldog_linux_jni_NativeEpoll_EPOLL_CTL_ADD 1L
 #undef org_bulldog_linux_jni_NativeEpoll_EPOLL_CTL_DEL
@@ -56,13 +62,13 @@ JNIEXPORT jint JNICALL Java_org_bulldog_linux_jni_NativeEpoll_addFile
  * Method:    removeFile
  * Signature: (II)I
  */
-JNIEXPORT jint JNICALL Java_org_bulldog_linux_jni_NativeEpoll_removeFile(
-		JNIEnv * , jclass , jint , jint );
+JNIEXPORT jint JNICALL Java_org_bulldog_linux_jni_NativeEpoll_removeFile
+  (JNIEnv *, jclass, jint, jint);
 
 /*
  * Class:     org_bulldog_linux_jni_NativeEpoll
  * Method:    waitForInterrupt
- * Signature: (I)[Lorg/bulldog/beagleboneblack/jni/NativePollResult;
+ * Signature: (I)[Lorg/bulldog/linux/jni/NativePollResult;
  */
 JNIEXPORT jobjectArray JNICALL Java_org_bulldog_linux_jni_NativeEpoll_waitForInterrupt
   (JNIEnv *, jclass, jint);
@@ -82,7 +88,6 @@ JNIEXPORT void JNICALL Java_org_bulldog_linux_jni_NativeEpoll_stopWait
  */
 JNIEXPORT void JNICALL Java_org_bulldog_linux_jni_NativeEpoll_shutdown
   (JNIEnv *, jclass, jint);
-
 
 #ifdef __cplusplus
 }

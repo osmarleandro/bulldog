@@ -58,10 +58,10 @@ JNIEXPORT void JNICALL Java_org_bulldog_beagleboneblack_jni_NativeGpio_digitalWr
 /*
  * Class:     org_bulldog_beagleboneblack_jni_NativeGpio
  * Method:    enableGpio
- * Signature: (III)V
+ * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_org_bulldog_beagleboneblack_jni_NativeGpio_enableGpio
-  (JNIEnv * env, jclass clazz);
+  (JNIEnv *, jclass);
 
 #ifdef __cplusplus
 }

@@ -7,14 +7,19 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
+#undef org_bulldog_linux_jni_NativeTools_OPEN_READ_ONLY
+#define org_bulldog_linux_jni_NativeTools_OPEN_READ_ONLY 0L
+#undef org_bulldog_linux_jni_NativeTools_OPEN_WRITE_ONLY
+#define org_bulldog_linux_jni_NativeTools_OPEN_WRITE_ONLY 1L
+#undef org_bulldog_linux_jni_NativeTools_OPEN_READ_WRITE
+#define org_bulldog_linux_jni_NativeTools_OPEN_READ_WRITE 2L
 /*
  * Class:     org_bulldog_linux_jni_NativeTools
  * Method:    getJavaDescriptor
- * Signature: (I)[Ljava/io/FileDescriptor
+ * Signature: (I)Ljava/io/FileDescriptor;
  */
 JNIEXPORT jobject JNICALL Java_org_bulldog_linux_jni_NativeTools_getJavaDescriptor
-(JNIEnv *, jclass, jint);
+  (JNIEnv *, jclass, jint);
 
 /*
  * Class:     org_bulldog_linux_jni_NativeTools
