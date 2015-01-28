@@ -2,13 +2,14 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.bulldog</groupId>
+  <groupId>io.silverspoon</groupId>
   <artifactId>bulldog-parent</artifactId>
   <version>0.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>bulldog-parent</name>
-  <url>http://px3.github.io</url>
+  <name>${project.groupId}:${project.artifactId}</name>
+  <description>Java GPIO Library for BeagleBonBlack, Raspberry Pi and CubieBoard.</description>
+  <url>http://silverspoon.io</url>
 
   <licenses>
     <license>
@@ -19,16 +20,41 @@
   </licenses>
 
   <organization>
-    <name>px3</name>
-    <url>http://px3.github.io</url>
+    <name>silverspoon.io</name>
+    <url>http://silverspoon.io</url>
   </organization>
+
+  <developers>
+    <developer>
+      <id>sbunciak</id>
+      <name>Stefan Bunciak</name>
+      <email>pipistik.bunciak@gmail.com</email>
+      <url>https://github.com/sbunciak</url>
+    </developer>
+    <developer>
+      <id>pmacik</id>
+      <name>Pavel Macik</name>
+      <email>pavel.macik@gmail.com</email>
+      <url>https://github.com/pmacik</url>
+    </developer>
+  </developers>
 
   <scm>
     <connection>scm:git:git@github.com:px3/Bulldog.git</connection>
     <developerConnection>scm:git:git@github.com:px3/Bulldog.git</developerConnection>
-    <url>scm:git:git@github.com:px3/Bulldog.git</url>
-    <tag>HEAD</tag>
+    <url>git@github.com:px3/Bulldog.git</url>
   </scm>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
 
   <issueManagement>
     <url>https://github.com/px3/Bulldog/issues</url>
@@ -39,14 +65,6 @@
     <system>travis-ci</system>
     <url>https://travis-ci.org/px3/bulldog</url>
   </ciManagement>
-
-  <distributionManagement>
-    <repository>
-      <id>bintray-px3-bulldog-org.bulldog</id>
-      <name>px3-bulldog-org.bulldog</name>
-      <url>https://api.bintray.com/maven/px3/bulldog/org.bulldog</url>
-    </repository>
-  </distributionManagement>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -59,6 +77,8 @@
     <version.native.plugin>1.0-alpha-8</version.native.plugin>
     <version.helper.plugin>1.9.1</version.helper.plugin>
     <version.dependency.plugin>2.9</version.dependency.plugin>
+    <version.gpg.plugin>1.5</version.gpg.plugin>
+    <version.release.plugin>2.5</version.release.plugin>
   </properties>
 
   <modules>
@@ -174,9 +194,31 @@
           <artifactId>build-helper-maven-plugin</artifactId>
           <version>${version.helper.plugin}</version>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>${version.javadoc.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>${version.gpg.plugin}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>${version.release.plugin}</version>
+          <configuration>
+            <autoVersionSubmodules>true</autoVersionSubmodules>
+            <useReleaseProfile>false</useReleaseProfile>
+            <releaseProfiles>release</releaseProfiles>
+            <goals>deploy</goals>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
 
+    <!-- Generate sources by default -->
     <plugins>
       <!-- Attach source jar to all builds. Runs during the package phase. -->
       <plugin>
@@ -193,4 +235,43 @@
       </plugin>
     </plugins>
   </build>
+
+  <!-- Release profile - create javadocs and sign jars. -->
+  <profiles>
+    <profile>
+      <id>release</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

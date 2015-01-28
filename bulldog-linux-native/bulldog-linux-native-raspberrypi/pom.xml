@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.bulldog</groupId>
+    <groupId>io.silverspoon</groupId>
     <artifactId>bulldog-linux-native</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
@@ -12,9 +12,11 @@
   <artifactId>bulldog-linux-native-raspberrypi</artifactId>
   <packaging>so</packaging>
 
-  <name>bulldog-linux-native-raspberrypi</name>
+  <name>${project.groupId}:${project.artifactId}</name>
 
   <build>
+    <!-- Use shared *.c sources from parent project for sources generation -->
+    <sourceDirectory>..</sourceDirectory>
     <plugins>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -41,7 +43,7 @@
               </includes>
             </source>
           </sources>
-          
+
           <compilerExecutable>${compiler.exec}</compilerExecutable>
           <linkerExecutable>${linker.exec}</linkerExecutable>
           <compilerStartOptions>
