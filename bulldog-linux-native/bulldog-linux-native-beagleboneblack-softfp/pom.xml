@@ -12,7 +12,8 @@
   <artifactId>bulldog-linux-native-beagleboneblack-softfp</artifactId>
   <packaging>so</packaging>
 
-  <name>bulldog-linux-native-beagleboneblack-softfp</name>
+  <name>${project.groupId}:${project.artifactId}</name>
+  
   <build>
     <plugins>
       <plugin>

@@ -12,7 +12,7 @@
   <artifactId>bulldog-core</artifactId>
   <packaging>jar</packaging>
 
-  <name>bulldog-core</name>
+  <name>${project.groupId}:${project.artifactId}</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

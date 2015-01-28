@@ -12,7 +12,7 @@
   <artifactId>bulldog-linux-native-raspberrypi</artifactId>
   <packaging>so</packaging>
 
-  <name>bulldog-linux-native-raspberrypi</name>
+  <name>${project.groupId}:${project.artifactId}</name>
 
   <build>
     <plugins>

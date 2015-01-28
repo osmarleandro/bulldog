@@ -12,7 +12,7 @@
   <artifactId>bulldog-board-beagleboneblack</artifactId>
   <packaging>jar</packaging>
 
-  <name>bulldog-board-beagleboneblack</name>
+  <name>${project.groupId}:${project.artifactId}</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

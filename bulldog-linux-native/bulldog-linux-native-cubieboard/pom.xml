@@ -12,7 +12,7 @@
   <artifactId>bulldog-linux-native-cubieboard</artifactId>
   <packaging>so</packaging>
 
-  <name>bulldog-linux-native-cubieboard</name>
+  <name>${project.groupId}:${project.artifactId}</name>
 
   <build>
     <plugins>
