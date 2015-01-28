@@ -15,6 +15,8 @@
   <name>${project.groupId}:${project.artifactId}</name>
 
   <build>
+    <!-- Use shared *.c sources from parent project for sources generation -->
+    <sourceDirectory>..</sourceDirectory>
     <plugins>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -41,7 +43,7 @@
               </includes>
             </source>
           </sources>
-          
+
           <compilerExecutable>${compiler.exec}</compilerExecutable>
           <linkerExecutable>${linker.exec}</linkerExecutable>
           <compilerStartOptions>

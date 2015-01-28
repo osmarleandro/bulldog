@@ -13,8 +13,10 @@
   <packaging>so</packaging>
 
   <name>${project.groupId}:${project.artifactId}</name>
-  
+
   <build>
+    <!-- Use shared *.c sources from parent project for sources generation -->
+    <sourceDirectory>..</sourceDirectory>
     <plugins>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>

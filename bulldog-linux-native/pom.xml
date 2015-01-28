@@ -37,8 +37,23 @@
     </dependency>
   </dependencies>
 
-  <!-- Generate native header files -->
   <build>
+    <!-- Generate sources jar -->
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <configuration>
+            <includes>
+              <include>**/*.c</include>
+              <include>**/*.h</include>
+            </includes>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <!-- Generate native header files -->
     <plugins>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
