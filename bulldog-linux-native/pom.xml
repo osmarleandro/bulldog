@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.bulldog</groupId>
+    <groupId>io.silverspoon</groupId>
     <artifactId>bulldog-parent</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
@@ -31,7 +31,7 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.bulldog</groupId>
+      <groupId>io.silverspoon</groupId>
       <artifactId>bulldog-linux</artifactId>
       <version>${project.version}</version>
     </dependency>
@@ -54,12 +54,12 @@
             </goals>
             <configuration>
               <javahClassNames>
-                <javahClassName>org.bulldog.linux.jni.NativeEpoll</javahClassName>
-                <javahClassName>org.bulldog.linux.jni.NativeI2c</javahClassName>
-                <javahClassName>org.bulldog.linux.jni.NativeMmap</javahClassName>
-                <javahClassName>org.bulldog.linux.jni.NativeSpi</javahClassName>
-                <javahClassName>org.bulldog.linux.jni.NativeSerial</javahClassName>
-                <javahClassName>org.bulldog.linux.jni.NativeTools</javahClassName>
+                <javahClassName>io.silverspoon.bulldog.linux.jni.NativeEpoll</javahClassName>
+                <javahClassName>io.silverspoon.bulldog.linux.jni.NativeI2c</javahClassName>
+                <javahClassName>io.silverspoon.bulldog.linux.jni.NativeMmap</javahClassName>
+                <javahClassName>io.silverspoon.bulldog.linux.jni.NativeSpi</javahClassName>
+                <javahClassName>io.silverspoon.bulldog.linux.jni.NativeSerial</javahClassName>
+                <javahClassName>io.silverspoon.bulldog.linux.jni.NativeTools</javahClassName>
               </javahClassNames>
               <javahVerbose>true</javahVerbose>
               <javahOutputDirectory>src/main/c/linux/jni</javahOutputDirectory>
@@ -75,9 +75,9 @@
             </goals>
             <configuration>
               <javahClassNames>
-                <javahClassName>org.bulldog.beagleboneblack.jni.NativeAdc</javahClassName>
-                <javahClassName>org.bulldog.beagleboneblack.jni.NativeGpio</javahClassName>
-                <javahClassName>org.bulldog.beagleboneblack.jni.NativePwm</javahClassName>
+                <javahClassName>io.silverspoon.bulldog.beagleboneblack.jni.NativeAdc</javahClassName>
+                <javahClassName>io.silverspoon.bulldog.beagleboneblack.jni.NativeGpio</javahClassName>
+                <javahClassName>io.silverspoon.bulldog.beagleboneblack.jni.NativePwm</javahClassName>
               </javahClassNames>
               <javahVerbose>true</javahVerbose>
               <javahOutputDirectory>src/main/c/beagleboneblack/jni</javahOutputDirectory>
