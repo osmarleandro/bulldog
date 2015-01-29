@@ -1,5 +1,19 @@
-Summary
-=======
+#Bulldog GPIO Library for Java
+
+##Table of Contents
+- [Summary](#summary)
+- [Usage](#usage)
+  - [Maven](#maven)
+  - [Distribution Jar](#distribution-jar)
+  - [Example](#example)
+- [Building Bulldog](#building-bulldog)
+  - [Prerequisites](#prerequisites)
+  - [Build](#build)
+  - [Continuous Integration](#continuous-integration)
+- [Contribution Guidelines](#contribution-guidelines)
+
+##Summary
+
 Bulldog is a Java library providing Java (IoT) Developers with GPIO and low-level IO capabilities of embedded linux platforms (RaspberryPi, CubieBoard, BeagleBoneBlack).
 
 Our version of Bulldog library is supposed to be part of Silverspoon IoT Platform: http://silverspoon.io (currently under development) thus it had to be mavenized. For information regarding the former version of Bulldog library see its website: http://www.libbulldog.org.
@@ -15,10 +29,10 @@ Bulldog currently supports the following features:
 
 _Note: features will be re-considered in the near future, some of them may be dropped/no longer supported._
 
-Usage
-=====
-Maven
------
+##Usage
+
+###Maven
+
 Stable versions are synced with Maven Central. You just need to add a dependency to bulldog board implementation (dependening on the target device):
 
     <dependencies>
@@ -41,16 +55,16 @@ To use our developemnt (SNAPSHOT) versions you also need to add the following re
        </repository>
       </repositories>
 
-Distribution Jar
-----------------
+###Distribution Jar
+
 If you don't want to use Maven, you can download our distribution (uber-jar) from [Maven Central](http://search.maven.org/#search|ga|1|g%3A%22io.silverspoon%22%20AND%20a%3A%22bulldog-distro%22).
 Afterward, just compile & execute your Java code from command line:
 
     javac -cp bulldog-distro-0.1.0-<board>.jar:. BulldogLED.java
     java -cp bulldog-distro-0.1.0-<board>.jar:. BulldogLED
 
-Example
--------
+###Example
+
 The following steps can all be performed on your target device (e.g. RaspberryPi).
 
 - Connect a LED diode to your RaspberyPi (you can follow this [tutorial](https://projects.drogon.net/raspberry-pi/gpio-examples/tux-crossing/gpio-examples-1-a-single-led)). 
@@ -120,11 +134,10 @@ mvn exec:java
 
 _Note: For more see bulldog-examples project._
 
-Building Bulldog
-================
+##Building Bulldog
 
-Prerequisites
---------------
+###Prerequisites
+
 - ARM C/C++ Cross Compiler (4.8+)
 - Maven 3+
 
@@ -137,8 +150,8 @@ Ubuntu (13.04+)
 
     sudo apt-get install gcc-4.8-arm-linux-gnueabihf
 
-Build
------
+###Build
+
 Fedora (default)
 
     mvn clean install
@@ -148,12 +161,12 @@ Ubuntu - need to overide compiler/linker binary:
     mvn clean install -Dcompiler.exec=arm-linux-gnueabihf-gcc-4.8 -Dlinker.exec=arm-linux-gnueabihf-ld
 
 
-Continuous Integration
-----------------------
+###Continuous Integration
+
 CI server hosted on Travis-ci.org: [![Build Status](https://travis-ci.org/px3/bulldog.svg?branch=master)](https://travis-ci.org/px3/bulldog)
 
 
-Contribution Guidelines
-=======================
-- If you fiund a bug, or have a feature request you think we should consider, please report it [here](https://github.com/px3/bulldog/issues).
+##Contribution Guidelines
+
+- If you find a bug, or have a feature request you think we should consider, please report it [here](https://github.com/px3/bulldog/issues).
 - We use [gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) as a development workflow, so If you want to contribute to our code base create your own fork & send a pull request to the devel branch.
