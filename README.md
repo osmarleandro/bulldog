@@ -1,59 +1,159 @@
-Bulldog
+Summary
 =======
+Bulldog is a Java library providing Java (IoT) Developers with GPIO and low-level IO capabilities of embedded linux platforms (RaspberryPi, CubieBoard, BeagleBoneBlack).
 
-Bulldog is a Java library for the Beaglebone Black and the Raspberry PI.
+Our version of Bulldog library is supposed to be part of Silverspoon IoT Platform: http://silverspoon.io (currently under development) thus it had to be mavenized. For information regarding the former version of Bulldog library see its website: http://www.libbulldog.org.
 
-Visit its website: http://www.libbulldog.org
+Bulldog currently supports the following features:
 
-It is currently under development, but many features are already usable and stable.
+ - Digital Input/Output on Pins (GPIOs)
+ - Native Interrupts via epoll (easily usable on DigitalInputs)
+ - Native PWM, ADC
+ - I2C, SPI
+ - All UARTs (including dynamic setup via capemgr on request)
+ - A few devices: Simple button API, Incremental Rotary Encoder, Servos, LCD, ...
 
-**Intention :**
+_Note: features will be re-considered in the near future, some of them may be dropped/no longer supported._
 
-Bulldog provides GPIO and low-level IO capabilities for embedded linux systems. It currently only supports the BeagleBone Black but is written with portability in mind.
+Usage
+=====
+Maven
+-----
+Stable versions are synced with Maven Central. You just need to add a dependency to bulldog board implementation (dependening on the target device):
 
-  It's major concept for GPIO is the PinFeature API.
-```java
-  DigitalOutput output = board.getPin("P8_12").as(DigitalOutput.class);
-  DigitalInput input = board.getPin("P8_11").as(DigitalInput.class);
+    <dependencies>
+      <dependency>
+        <groupId>io.silverspoon</groupId>
+        <artifactId>bulldog-board-${board}</artifactId>
+        <version>${version.bulldog}</version>
+      </dependency>
+    </dependencies>
+
+To use our developemnt (SNAPSHOT) versions you also need to add the following repository to your settings.xml:
+
+     <repositories>
+       <repository>
+          <id>sonatype-public-repository</id>
+          <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>        
+       </repository>
+      </repositories>
+
+Distribution Jar
+----------------
+If you don't want to use Maven, you can download our distribution (uber-jar) from [Maven Central](http://search.maven.org/#search|ga|1|g%3A%22io.silverspoon%22%20AND%20a%3A%22bulldog-distro%22).
+Afterward, just compile & execute your Java code from command line:
+
+    javac -cp bulldog-distro-0.1.0-<board>.jar:. BulldogLED.java
+    java -cp bulldog-distro-0.1.0-<board>.jar:. BulldogLED
+
+Example
+-------
+The following steps can all be performed on your target device (e.g. RaspberryPi).
+
+- Connect a LED diode to your RaspberyPi (you can follow this [tutorial](https://projects.drogon.net/raspberry-pi/gpio-examples/tux-crossing/gpio-examples-1-a-single-led)). 
+
+- Create new maven project and add an appropriate maven dependency:
+
+```
+<dependencies>
+  <dependency>
+    <groupId>io.silverspoon</groupId>
+    <artifactId>bulldog-board-raspberrypi</artifactId>
+    <version>0.1.0</version>
+  </dependency>
+</dependencies>
 ```
 
-See the __bulldog.examples__ project to get an idea.
+- Author the following code:
 
-That way, the responsibilities are encapsulated and we don't have a Pin-Class that takes too many responsibilities. It is also easily extensible.
-
-**Supports :**
-
-Bulldog currently supports the following features on the BeagleBoneBlack:
- 1. Digital Input/Output on Pins
- 2. Native Interrupts via epoll (easily usable on DigitalInputs)
- 3. Native PWM
- 4. Native ADC
- 5. I2C
- 6. All UARTs (including dynamic setup via capemgr on request)
- 7. SPI
- 8. A few devices: Simple button API, Incremental Rotary Encoder, Servos
-
-**Build :**
-
-You'll need gradle installed and a cross compiler for arm. You'll have to adjust the toolchain path in bulldog.build/gradle.properties
-Afterwards, just run this command to build all the distributions and javadocs 
 ```java
-   gradle -x test --daemon clean build docs distribution archiveDistributions
-```
-It will produce a single jar called ```bulldog.<boardname>.jar``` and a native library called ```libbulldog-linux.so```. The latter can be found in the bulldog.linux.native build directory. Alternatively, you can find them prebuilt in the ```dist``` directory.
+import io.silverspoon.bulldog.core.gpio.DigitalOutput;
+import io.silverspoon.bulldog.core.platform.Board;
+import io.silverspoon.bulldog.core.platform.Platform;
+import io.silverspoon.bulldog.core.util.BulldogUtil;
+import io.silverspoon.bulldog.raspberrypi.RaspiNames;
+  
+public class BulldogLED {
+  
+  public static void main(String[] args) {
+    //Detect the board we are running on
+    Board board = Platform.createBoard();
     
-**Usage :**
+    //Set up a digital output
+    DigitalOutput output = board.getPin(RaspiNames.P1_11).as(DigitalOutput.class);
 
-You can just reference the jar in your classpath. Make sure the native library ```libbulldog-linux.so``` is in the same directory as ```bulldog.<boardname>.jar```. You can find the most recent binaries in the ```dist``` directory.
+    // Blink the LED
+    output.high();
+    BulldogUtil.sleepMs(1000);
+    output.low();
+    }
+}
+```
+- Configure maven-exec-plugin
 
-For API usage see the __bulldog.examples__ project.
+```
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>exec-maven-plugin</artifactId>
+      <version>1.3.2</version>
+      <configuration>
+        <mainClass>com.example.BulldogLED</mainClass>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
+```
+
+- Compile & execute:
+
+```
+mvn clean package
+mvn exec:java
+```
+
+- If you have done everything well, your LED diode should come on, and after 1 second go off again.
+
+_Note: For more see bulldog-examples project._
+
+Building Bulldog
+================
+
+Prerequisites
+--------------
+- ARM C/C++ Cross Compiler (4.8+)
+- Maven 3+
+
+Fedora (20+)
+
+    sudo yum install glibc-devel.i686
+    sudo yum install gcc-arm-linux-gnu
+
+Ubuntu (13.04+)
+
+    sudo apt-get install gcc-4.8-arm-linux-gnueabihf
+
+Build
+-----
+Fedora (default)
+
+    mvn clean install
+
+Ubuntu - need to overide compiler/linker binary:
+
+    mvn clean install -Dcompiler.exec=arm-linux-gnueabihf-gcc-4.8 -Dlinker.exec=arm-linux-gnueabihf-ld
 
 
-**External reference :**
-
-To achieve high pin toggling speeds and maximum performance, it uses VegetableAvenger's excellent BBIOlib: https://github.com/VegetableAvenger/BBBIOlib
-The only working lib that was found for the 3.8 kernel!
-
-Thanks VegetableAvenger!
+Continuous Integration
+----------------------
+CI server hosted on Travis-ci.org: [![Build Status](https://travis-ci.org/px3/bulldog.svg?branch=master)](https://travis-ci.org/px3/bulldog)
 
 
+Contribution Guidelines
+=======================
+- If you fiund a bug, or have a feature request you think we should consider, please report it [here](https://github.com/px3/bulldog/issues).
+- We use [gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) as a development workflow, so If you want to contribute to our code base create your own fork & send a pull request to the devel branch.
