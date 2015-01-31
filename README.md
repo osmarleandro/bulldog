@@ -35,25 +35,29 @@ _Note: features will be re-considered in the near future, some of them may be dr
 
 Stable versions are synced with Maven Central. You just need to add a dependency to bulldog board implementation (dependening on the target device):
 
-    <dependencies>
-      <dependency>
-        <groupId>io.silverspoon</groupId>
-        <artifactId>bulldog-board-${board}</artifactId>
-        <version>${version.bulldog}</version>
-      </dependency>
-    </dependencies>
+```xml
+<dependencies>
+  <dependency>
+    <groupId>io.silverspoon</groupId>
+    <artifactId>bulldog-board-${board}</artifactId>
+    <version>${version.bulldog}</version>
+  </dependency>
+</dependencies>
+```
 
 To use our developemnt (SNAPSHOT) versions you also need to add the following repository to your settings.xml:
 
-     <repositories>
-       <repository>
-          <id>sonatype-public-repository</id>
-          <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>        
-       </repository>
-      </repositories>
+```xml
+<repositories>
+  <repository>
+    <id>sonatype-public-repository</id>
+    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    <snapshots>
+      <enabled>true</enabled>
+    </snapshots>        
+  </repository>
+</repositories>
+```
 
 ###Distribution Jar
 
@@ -71,7 +75,7 @@ The following steps can all be performed on your target device (e.g. RaspberryPi
 
 - Create new maven project and add an appropriate maven dependency:
 
-```
+```xml
 <dependencies>
   <dependency>
     <groupId>io.silverspoon</groupId>
@@ -108,7 +112,7 @@ public class BulldogLED {
 ```
 - Configure maven-exec-plugin
 
-```
+```xml
 <build>
   <plugins>
     <plugin>
