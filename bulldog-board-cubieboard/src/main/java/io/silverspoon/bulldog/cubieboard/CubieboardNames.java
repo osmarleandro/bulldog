@@ -1,11 +1,10 @@
 package io.silverspoon.bulldog.cubieboard;
 
 public class CubieboardNames {
-
-    // PB
-    public static final String PB18 = "PB18";
-
-    // PG
+	// PB
+	public static final String PB10 = "PB10";
+	public static final String PB18 = "PB18";
+	// PG
 	public static final String PG0 = "PG0";
 	public static final String PG1 = "PG1";
 	public static final String PG2 = "PG2";
@@ -18,9 +17,8 @@ public class CubieboardNames {
 	public static final String PG9 = "PG9";
 	public static final String PG10 = "PG10";
 	public static final String PG11 = "PG10";
-
-    // PH
-    public static final String PH14 = "PH14";
-    public static final String PH15 = "PH15";
-    public static final String PH20 = "PH20";
+	// PH
+	public static final String PH7 = "PH7";
+	public static final String PH14 = "PH14";
+	public static final String PH15 = "PH15";
 }

@@ -86,7 +86,7 @@ JNIEXPORT jint JNICALL Java_io_silverspoon_bulldog_linux_jni_NativeEpoll_removeF
 /*
  * Class:     io_silverspoon_bulldog_linux_jni_NativeEpoll
  * Method:    waitForInterrupt
- * Signature: (I)[Lio_silverspoon/bulldog/beagleboneblack/jni/NativePollResult;
+ * Signature: (I)[Lio/silverspoon/bulldog/beagleboneblack/jni/NativePollResult;
  */
 JNIEXPORT jobjectArray JNICALL Java_io_silverspoon_bulldog_linux_jni_NativeEpoll_waitForInterrupt(
 		JNIEnv * env, jclass clazz, jint epollfd) {
@@ -96,7 +96,7 @@ JNIEXPORT jobjectArray JNICALL Java_io_silverspoon_bulldog_linux_jni_NativeEpoll
 	int pollSize = 0;
 	int arrayIndex = 0;
 
-	jclass nativePollResult = (*env)->FindClass(env,"io_silverspoon/bulldog/linux/jni/NativePollResult");
+	jclass nativePollResult = (*env)->FindClass(env,"io/silverspoon/bulldog/linux/jni/NativePollResult");
 	jmethodID constructor = (*env)->GetMethodID(env, nativePollResult, "<init>","(II[B)V");
 	jobjectArray pollResults;
 	jbyteArray fileData;
