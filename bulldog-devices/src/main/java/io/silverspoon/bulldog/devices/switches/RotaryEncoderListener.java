@@ -4,8 +4,8 @@ import io.silverspoon.bulldog.core.gpio.event.ValueChangedListener;
 
 public interface RotaryEncoderListener extends ValueChangedListener<Integer> {
 
-	void turnedClockwise();
+   void turnedClockwise();
 
-	void turnedCounterclockwise();
+   void turnedCounterclockwise();
 
 }

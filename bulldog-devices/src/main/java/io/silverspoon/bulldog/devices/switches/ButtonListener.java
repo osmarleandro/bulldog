@@ -2,7 +2,7 @@ package io.silverspoon.bulldog.devices.switches;
 
 public interface ButtonListener {
 
-	void buttonPressed();
+   void buttonPressed();
 
-	void buttonReleased();
+   void buttonReleased();
 }

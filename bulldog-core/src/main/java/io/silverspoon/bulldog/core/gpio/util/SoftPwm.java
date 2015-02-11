@@ -14,92 +14,92 @@ import io.silverspoon.bulldog.core.util.DaemonThreadFactory;
 
 public class SoftPwm extends AbstractPwm implements Runnable {
 
-	private static final long NANOSECONDS_PER_SECOND = 1000000000;
-	
-	private ScheduledExecutorService executorService;
-	private DigitalOutput output;
-	
-	private int dutyInNanoseconds;
-	private int periodInNanoseconds;
-	private ScheduledFuture<?> future;
-	
-	public SoftPwm(Pin pin) {
-		super(pin);
-		if(!pin.hasFeature(DigitalOutput.class)) {
-			throw new IllegalArgumentException("The pin must be able to act as a DigitalOutput");
-		}
-		
-		this.output = pin.getFeature(DigitalOutput.class);
-		pin.getFeatures().add(this);
-	}
+   private static final long NANOSECONDS_PER_SECOND = 1000000000;
 
-	public SoftPwm(DigitalOutput output) {
-		this(output.getPin());
-	}
+   private ScheduledExecutorService executorService;
+   private DigitalOutput output;
 
-	private void createScheduler() {
-		if(executorService != null) { return; }
-		executorService = Executors.newScheduledThreadPool(1, new DaemonThreadFactory());
-		future = executorService.scheduleAtFixedRate(this, 0, periodInNanoseconds, TimeUnit.NANOSECONDS);
-	}
+   private int dutyInNanoseconds;
+   private int periodInNanoseconds;
+   private ScheduledFuture<?> future;
 
-	private void terminateScheduler() {
-		if(executorService == null) { return; }
-		if(future != null) {
-			future.cancel(true);
-			future = null;
-		}
-		executorService.shutdownNow();
-		try {
-			executorService.awaitTermination(1000, TimeUnit.MICROSECONDS);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		executorService = null;
-	}
+   public SoftPwm(Pin pin) {
+      super(pin);
+      if (!pin.hasFeature(DigitalOutput.class)) {
+         throw new IllegalArgumentException("The pin must be able to act as a DigitalOutput");
+      }
 
-	@Override
-	public void run() {
-		output.applySignal(Signal.High);
-		BulldogUtil.sleepNs(dutyInNanoseconds);
-		output.applySignal(Signal.Low);
-	}
-	
-	@Override
-	public void setupImpl() {
-		output.setup();
-	}
+      this.output = pin.getFeature(DigitalOutput.class);
+      pin.getFeatures().add(this);
+   }
 
+   public SoftPwm(DigitalOutput output) {
+      this(output.getPin());
+   }
 
-	@Override
-	public void teardownImpl() {
-		terminateScheduler();
-		output.teardown();
-	}
+   private void createScheduler() {
+      if (executorService != null) {
+         return;
+      }
+      executorService = Executors.newScheduledThreadPool(1, new DaemonThreadFactory());
+      future = executorService.scheduleAtFixedRate(this, 0, periodInNanoseconds, TimeUnit.NANOSECONDS);
+   }
 
-	@Override
-	protected void setPwmImpl(double frequency, double duty) {
-		periodInNanoseconds = (int) ((1.0 / frequency) * NANOSECONDS_PER_SECOND);
-		dutyInNanoseconds = (int) (periodInNanoseconds * duty);
-	}
+   private void terminateScheduler() {
+      if (executorService == null) {
+         return;
+      }
+      if (future != null) {
+         future.cancel(true);
+         future = null;
+      }
+      executorService.shutdownNow();
+      try {
+         executorService.awaitTermination(1000, TimeUnit.MICROSECONDS);
+      } catch (InterruptedException e) {
+         e.printStackTrace();
+      }
+      executorService = null;
+   }
 
+   @Override
+   public void run() {
+      output.applySignal(Signal.High);
+      BulldogUtil.sleepNs(dutyInNanoseconds);
+      output.applySignal(Signal.Low);
+   }
 
-	@Override
-	protected void enableImpl() {
-		if(!isActivatedFeature()) {
-			activate();
-		}
+   @Override
+   public void setupImpl() {
+      output.setup();
+   }
 
-		blockPin();
-		createScheduler();
-	}
+   @Override
+   public void teardownImpl() {
+      terminateScheduler();
+      output.teardown();
+   }
 
+   @Override
+   protected void setPwmImpl(double frequency, double duty) {
+      periodInNanoseconds = (int) ((1.0 / frequency) * NANOSECONDS_PER_SECOND);
+      dutyInNanoseconds = (int) (periodInNanoseconds * duty);
+   }
 
-	@Override
-	protected void disableImpl() {
-		terminateScheduler();
-		unblockPin();
-	}
+   @Override
+   protected void enableImpl() {
+      if (!isActivatedFeature()) {
+         activate();
+      }
 
+      blockPin();
+      createScheduler();
+   }
+
+   @Override
+   protected void disableImpl() {
+      terminateScheduler();
+      unblockPin();
+   }
 
 }

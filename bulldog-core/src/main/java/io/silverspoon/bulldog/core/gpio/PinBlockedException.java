@@ -17,34 +17,40 @@
 package io.silverspoon.bulldog.core.gpio;
 
 // TODO: Auto-generated Javadoc
+
 /**
  * The Class PinBlockedException.
  */
 public class PinBlockedException extends RuntimeException {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 6737984685844582750L;
-	
-	/** The blocker. */
-	private PinFeature blocker;
-	
-	/**
-	 * Instantiates a new pin blocked exception.
-	 *
-	 * @param blocker the blocker
-	 */
-	public PinBlockedException(PinFeature blocker) {
-		super(String.format("Pin %s is currently blocked by %s", blocker.getPin().getName(), blocker.getName()));
-		this.blocker = blocker;
-	}
-	
-	/**
-	 * Gets the blocker.
-	 *
-	 * @return the blocker
-	 */
-	public PinFeature getBlocker() {
-		return blocker;
-	}
+   /**
+    * The Constant serialVersionUID.
+    */
+   private static final long serialVersionUID = 6737984685844582750L;
+
+   /**
+    * The blocker.
+    */
+   private PinFeature blocker;
+
+   /**
+    * Instantiates a new pin blocked exception.
+    *
+    * @param blocker
+    *       the blocker
+    */
+   public PinBlockedException(PinFeature blocker) {
+      super(String.format("Pin %s is currently blocked by %s", blocker.getPin().getName(), blocker.getName()));
+      this.blocker = blocker;
+   }
+
+   /**
+    * Gets the blocker.
+    *
+    * @return the blocker
+    */
+   public PinFeature getBlocker() {
+      return blocker;
+   }
 
 }

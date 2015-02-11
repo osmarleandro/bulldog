@@ -24,21 +24,21 @@ package io.silverspoon.bulldog.core.gpio.event;
  * component's {@code addThresholdListener} method. When
  * the threshold event occurs, that object's appropriate
  * method is invoked.
- *
  */
 public interface ThresholdListener {
 
-	/**
-	 * Callback method that is triggered when the threshold is reached.
-	 */
-	void thresholdReached();
+   /**
+    * Callback method that is triggered when the threshold is reached.
+    */
+   void thresholdReached();
 
-	/**
-	 * Checks if the threshold is reached.
-	 *
-	 * @param thresholdValue the threshold value
-	 * @return true, if is threshold reached - false otherwise
-	 */
-	boolean isThresholdReached(double thresholdValue);
+   /**
+    * Checks if the threshold is reached.
+    *
+    * @param thresholdValue
+    *       the threshold value
+    * @return true, if is threshold reached - false otherwise
+    */
+   boolean isThresholdReached(double thresholdValue);
 
 }

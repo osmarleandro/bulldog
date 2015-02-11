@@ -4,6 +4,6 @@ import io.silverspoon.bulldog.linux.jni.NativePollResult;
 
 public interface LinuxEpollListener {
 
-	void processEpollResults(NativePollResult[] results);
-	
+   void processEpollResults(NativePollResult[] results);
+
 }

@@ -7,28 +7,26 @@ import io.silverspoon.bulldog.core.io.bus.i2c.I2cSignalType;
 
 public class RaspberryPiI2cPinFeature extends AbstractI2cPinFeature {
 
-	public RaspberryPiI2cPinFeature(I2cBus bus, Pin pin, I2cSignalType signalType) {
-		super(pin, signalType);
-	}
+   public RaspberryPiI2cPinFeature(I2cBus bus, Pin pin, I2cSignalType signalType) {
+      super(pin, signalType);
+   }
 
+   @Override
+   public boolean isBlocking() {
+      return false;
+   }
 
-	@Override
-	public boolean isBlocking() {
-		return false;
-	}
+   @Override
+   protected void setupImpl() {
+   }
 
-	@Override
-	protected void setupImpl() {
-	}
+   @Override
+   protected void teardownImpl() {
+   }
 
-	@Override
-	protected void teardownImpl() {
-	}
+   @Override
+   public I2cBus getI2cBus() {
+      return null;
+   }
 
-	@Override
-	public I2cBus getI2cBus() {
-		return null;
-	}
-
-	
 }
