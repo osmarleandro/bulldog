@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public final class BulldogUtil {
 
-   public static void sleepMs(int ms) {
+   public static void sleepMs(final long ms) {
       try {
          Thread.sleep(ms);
       } catch (Exception ex) {
@@ -15,13 +15,13 @@ public final class BulldogUtil {
       }
    }
 
-   public static void sleepNs(int ns) {
-      long start = System.nanoTime();
-      long end = 0;
-
+   public static void sleepNs(final long ns) {
+      final long start = System.nanoTime();
+      final long end = start + ns;
+      long now = 0;
       do {
-         end = System.nanoTime();
-      } while (start + ns >= end);
+         now = System.nanoTime();
+      } while (now < end);
    }
 
    public static String bytesToString(byte[] bytes, String encoding) {
