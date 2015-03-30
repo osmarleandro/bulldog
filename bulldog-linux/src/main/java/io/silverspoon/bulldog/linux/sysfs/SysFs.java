@@ -7,6 +7,7 @@ import java.io.FileWriter;
 
 import io.silverspoon.bulldog.core.util.BulldogUtil;
 
+@Deprecated
 public class SysFs {
 
    private static final int WAIT_TIMEOUT_MS = 5000;

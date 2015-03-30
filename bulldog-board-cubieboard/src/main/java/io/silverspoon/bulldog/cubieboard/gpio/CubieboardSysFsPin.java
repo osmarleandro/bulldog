@@ -2,6 +2,9 @@ package io.silverspoon.bulldog.cubieboard.gpio;
 
 import io.silverspoon.bulldog.linux.sysfs.SysFsPin;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class CubieboardSysFsPin extends SysFsPin {
    private static final String directory = "/sys/class/gpio";
 
@@ -15,8 +18,8 @@ public class CubieboardSysFsPin extends SysFsPin {
    }
 
    @Override
-   public String getPinDirectory() {
-      return directory + "/gpio" + fsName + "/";
+   public Path getPinDirectory() {
+      return Paths.get(directory, "/gpio" + fsName + "/");
    }
 
    @Override
