@@ -31,14 +31,7 @@
       </dependency>
       <dependency>
          <groupId>io.silverspoon</groupId>
-         <artifactId>bulldog-linux-native-beagleboneblack-hardfp</artifactId>
-         <version>${project.version}</version>
-         <scope>compile</scope>
-         <type>so</type>
-      </dependency>
-      <dependency>
-         <groupId>io.silverspoon</groupId>
-         <artifactId>bulldog-linux-native-beagleboneblack-softfp</artifactId>
+         <artifactId>bulldog-linux-native-beagleboneblack</artifactId>
          <version>${project.version}</version>
          <scope>compile</scope>
          <type>so</type>

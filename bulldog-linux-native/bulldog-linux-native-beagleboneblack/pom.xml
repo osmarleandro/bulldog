@@ -7,7 +7,7 @@
       <version>0.1.1-SNAPSHOT</version>
       <relativePath>../pom.xml</relativePath>
    </parent>
-   <artifactId>bulldog-linux-native-beagleboneblack-hardfp</artifactId>
+   <artifactId>bulldog-linux-native-beagleboneblack</artifactId>
    <packaging>so</packaging>
    <name>${project.groupId}:${project.artifactId}</name>
    <build>

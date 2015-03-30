@@ -12,8 +12,7 @@
    <modules>
       <module>bulldog-linux-native-cubieboard</module>
       <module>bulldog-linux-native-raspberrypi</module>
-      <module>bulldog-linux-native-beagleboneblack-softfp</module>
-      <module>bulldog-linux-native-beagleboneblack-hardfp</module>
+      <module>bulldog-linux-native-beagleboneblack</module>
    </modules>
    <name>${project.groupId}:${project.artifactId}</name>
    <properties>
