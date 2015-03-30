@@ -41,7 +41,7 @@ public class Cubieboard extends AbstractBoard {
 
    private void createPins() {
       // PB
-      getPins().add(createDigitalIOPin(CubieboardNames.PB10, 66, "B", 10, "66_pb16", false));
+      getPins().add(createDigitalIOPin(CubieboardNames.PB10, 66, "B", 10, "66_pb10", false));
       getPins().add(createDigitalIOPin(CubieboardNames.PB18, 3, "B", 18, "3_pb18", false));
       // PG
       getPins().add(createDigitalIOPin(CubieboardNames.PG0, 9, "G", 0, "9_pg0", false));
