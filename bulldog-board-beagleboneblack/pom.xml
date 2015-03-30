@@ -55,21 +55,12 @@
                      <artifactItems>
                         <artifactItem>
                            <groupId>io.silverspoon</groupId>
-                           <artifactId>bulldog-linux-native-beagleboneblack-softfp</artifactId>
+                           <artifactId>bulldog-linux-native-beagleboneblack</artifactId>
                            <version>${project.version}</version>
                            <type>so</type>
                            <overWrite>true</overWrite>
                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
-                           <destFileName>bulldog-linux-native-beagleboneblack-softfp.so</destFileName>
-                        </artifactItem>
-                        <artifactItem>
-                           <groupId>io.silverspoon</groupId>
-                           <artifactId>bulldog-linux-native-beagleboneblack-hardfp</artifactId>
-                           <version>${project.version}</version>
-                           <type>so</type>
-                           <overWrite>true</overWrite>
-                           <outputDirectory>${project.build.directory}/lib</outputDirectory>
-                           <destFileName>bulldog-linux-native-beagleboneblack-hardfp.so</destFileName>
+                           <destFileName>bulldog-linux-native-beagleboneblack.so</destFileName>
                         </artifactItem>
                      </artifactItems>
                   </configuration>
