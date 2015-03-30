@@ -1,15 +1,18 @@
 package io.silverspoon.bulldog.linux.sysfs;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-
 import io.silverspoon.bulldog.core.Signal;
 import io.silverspoon.bulldog.core.util.BulldogUtil;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+
 public class SysFsPin {
 
-   private SysFs sysfsUtil = new SysFs();
    private String directory = "/sys/class/gpio";
    private int pin = 0;
 
@@ -18,19 +21,17 @@ public class SysFsPin {
    }
 
    public boolean isExported() {
-      return new File(getPinDirectory()).exists();
+      return Files.exists(getPinDirectory());
    }
 
    public void exportIfNecessary() {
       if (!isExported()) {
-         sysfsUtil.echoAndWait(directory + "/export", getPin(), 10);
-         File file = new File(this.getValueFilePath());
+         echoToFile(getPinString(), Paths.get(directory, "/export"));
+         
          long startTime = System.currentTimeMillis();
-         long delta = 0;
-         while (!file.exists()) {
+         while (!Files.exists(getValueFilePath())) {
             BulldogUtil.sleepMs(10);
-            delta = System.currentTimeMillis() - startTime;
-            if (delta >= 10000) {
+            if ((System.currentTimeMillis() - startTime) >= 10000) {
                throw new RuntimeException("Could not create pin - waited 10 seconds. Aborting.");
             }
          }
@@ -39,46 +40,52 @@ public class SysFsPin {
 
    public void unexport() {
       if (isExported()) {
-         sysfsUtil.echo(directory + "/unexport", getPin());
+         echoToFile(getPinString(), Paths.get(directory, "/unexport"));
       }
    }
 
    public void setEdge(String edge) {
-      sysfsUtil.echo(getPinDirectory() + "edge", edge);
+      echoToFile(edge, Paths.get(getPinDirectory() + "/edge"));
    }
 
    public void setDirection(String direction) {
-      sysfsUtil.echo(getPinDirectory() + "direction", direction);
+      echoToFile(direction, Paths.get(getPinDirectory() + "/direction"));
    }
 
-   public String getPinDirectory() {
-      return directory + "/gpio" + getPin() + "/";
+   public Path getPinDirectory() {
+      return Paths.get(directory, "/gpio", getPinString());
    }
 
-   public String getValueFilePath() {
-      return getPinDirectory() + "value";
+   public Path getValueFilePath() {
+      return Paths.get(getPinDirectory() + "/value");
    }
 
-   private int getPin() {
-      return pin;
+   private String getPinString() {
+      return String.valueOf(pin);
    }
 
-   public FileInputStream getValueInputStream() throws FileNotFoundException {
-      FileInputStream stream = new FileInputStream(getValueFilePath());
-      return stream;
+   public String getBaseDirectory() {
+      return directory;
    }
 
    public Signal getValue() {
       try {
-         String value = BulldogUtil.convertStreamToString(getValueInputStream());
-         return Signal.fromString(value.trim());
-      } catch (FileNotFoundException e) {
-         throw new RuntimeException(e);
+         return Signal.fromString(new String(Files.readAllBytes(getValueFilePath())));
+      } catch (IOException e) {
+         System.err.format("IOException: %s%n", e);
       }
+      return null;
    }
 
    public void setValue(Signal signal) {
-      sysfsUtil.echo(getPinDirectory() + "value", signal == Signal.High ? "1" : "0");
+      echoToFile(String.valueOf(signal.getNumericValue()), getPinDirectory());
    }
 
+   private void echoToFile(String value, Path file) {
+      try (BufferedWriter writer = Files.newBufferedWriter(file, Charset.forName("UTF-8"), StandardOpenOption.TRUNCATE_EXISTING)) {
+         writer.write(value);
+      } catch (IOException x) {
+         System.err.format("IOException: %s%n", x);
+      }
+   }
 }

@@ -16,7 +16,7 @@ public class CpuInfo {
       for (String info : infos) {
          String[] tokens = info.split(":");
          if (tokens.length >= 2) {
-            System.out.println(tokens[0].trim() + " : " + tokens[1].trim());
+            // System.out.println(tokens[0].trim() + " : " + tokens[1].trim());
             properties.put(tokens[0].trim(), tokens[1].trim());
          }
       }

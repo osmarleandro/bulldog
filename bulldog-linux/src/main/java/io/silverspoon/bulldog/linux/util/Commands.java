@@ -3,6 +3,7 @@ package io.silverspoon.bulldog.linux.util;
 import java.io.IOException;
 import java.io.InputStream;
 
+@Deprecated
 public class Commands {
 
    public static String cat(String filename) {
