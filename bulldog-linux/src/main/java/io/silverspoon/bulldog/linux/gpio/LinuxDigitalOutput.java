@@ -7,39 +7,39 @@ import io.silverspoon.bulldog.linux.sysfs.SysFsPin;
 
 public class LinuxDigitalOutput extends AbstractDigitalOutput {
 
-	private SysFsPin sysFsPin;
-	
-	public LinuxDigitalOutput(Pin pin) {
-		super(pin);
-		sysFsPin = createSysFsPin(pin);
-	}
+   private SysFsPin sysFsPin;
 
-    protected SysFsPin createSysFsPin(Pin pin) {
-        return new SysFsPin(pin.getAddress());
-    }
+   public LinuxDigitalOutput(Pin pin) {
+      super(pin);
+      sysFsPin = createSysFsPin(pin);
+   }
 
-    @Override
-	protected void setupImpl() {
-		exportPinIfNecessary();
-	}
+   protected SysFsPin createSysFsPin(Pin pin) {
+      return new SysFsPin(pin.getAddress());
+   }
 
-	@Override
-	protected void teardownImpl() {
-		unexportPin();
-	}
-	
-	protected void exportPinIfNecessary() {
-		sysFsPin.exportIfNecessary();
-		sysFsPin.setDirection("out");
-	}
-	
-	protected void unexportPin() {
-		sysFsPin.unexport();
-	}
+   @Override
+   protected void setupImpl() {
+      exportPinIfNecessary();
+   }
 
-	@Override
-	protected void applySignalImpl(Signal signal) {
-		sysFsPin.setValue(signal);
-	}
+   @Override
+   protected void teardownImpl() {
+      unexportPin();
+   }
+
+   protected void exportPinIfNecessary() {
+      sysFsPin.exportIfNecessary();
+      sysFsPin.setDirection("out");
+   }
+
+   protected void unexportPin() {
+      sysFsPin.unexport();
+   }
+
+   @Override
+   protected void applySignalImpl(Signal signal) {
+      sysFsPin.setValue(signal);
+   }
 
 }

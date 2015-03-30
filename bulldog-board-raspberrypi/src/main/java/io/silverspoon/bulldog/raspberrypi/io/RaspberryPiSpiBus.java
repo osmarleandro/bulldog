@@ -5,8 +5,8 @@ import io.silverspoon.bulldog.linux.io.LinuxSpiBus;
 
 public class RaspberryPiSpiBus extends LinuxSpiBus {
 
-	public RaspberryPiSpiBus(String name, String deviceFilePath, Board board) {
-		super(name, deviceFilePath, board);
-	}
+   public RaspberryPiSpiBus(String name, String deviceFilePath, Board board) {
+      super(name, deviceFilePath, board);
+   }
 
 }

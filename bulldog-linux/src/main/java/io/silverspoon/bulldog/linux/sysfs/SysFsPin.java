@@ -1,84 +1,91 @@
 package io.silverspoon.bulldog.linux.sysfs;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-
 import io.silverspoon.bulldog.core.Signal;
 import io.silverspoon.bulldog.core.util.BulldogUtil;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+
 public class SysFsPin {
 
-	private SysFs sysfsUtil = new SysFs();
-	private String directory = "/sys/class/gpio";
-	private int pin = 0;
-	
-	public SysFsPin(int pin) {
-		this.pin = pin;
-	}
-	
-	public boolean isExported() {
-		return new File(getPinDirectory()).exists();
-	}
-	
-	public void exportIfNecessary() {
-		if(!isExported()) {
-			sysfsUtil.echoAndWait(directory + "/export", getPin(), 10);
-			File file = new File(this.getValueFilePath());
-			long startTime = System.currentTimeMillis();
-			long delta = 0;
-			while(!file.exists()) {
-				BulldogUtil.sleepMs(10);
-				delta = System.currentTimeMillis() - startTime;
-				if(delta >= 10000) {
-					throw new RuntimeException("Could not create pin - waited 10 seconds. Aborting.");
-				}
-			}
-		}
-	}
-	
-	public void unexport() {
-		if(isExported()) {
-			sysfsUtil.echo(directory + "/unexport", getPin());
-		}
-	}
-	
-	public void setEdge(String edge) {
-		sysfsUtil.echo(getPinDirectory() + "edge", edge);
-	}
-	
-	public void setDirection(String direction) {
-		sysfsUtil.echo(getPinDirectory() + "direction", direction);
-	}
-	
-	public String getPinDirectory() {
-		return  directory + "/gpio" + getPin() + "/";
-	}
-	
-	public String getValueFilePath() {
-		return getPinDirectory() + "value";
-	}
-	
-	private int getPin() {
-		return pin;
-	}
-	
-	public FileInputStream getValueInputStream() throws FileNotFoundException {
-		FileInputStream stream = new FileInputStream(getValueFilePath());
-		return stream;
-	}
-	
-	public Signal getValue() {
-		try {
-			String value = BulldogUtil.convertStreamToString(getValueInputStream());
-			return Signal.fromString(value.trim());
-		} catch (FileNotFoundException e) {
-			throw new RuntimeException(e);
-		}
-	}
-	
-	public void setValue(Signal signal)  {
-		sysfsUtil.echo(getPinDirectory() + "value", signal == Signal.High ? "1" : "0");
-	}
+   private String directory = "/sys/class/gpio";
+   private int pin = 0;
 
+   public SysFsPin(int pin) {
+      this.pin = pin;
+   }
+
+   public boolean isExported() {
+      return Files.exists(getPinDirectory());
+   }
+
+   public void exportIfNecessary() {
+      if (!isExported()) {
+         echoToFile(getPinString(), Paths.get(directory, "/export"));
+         
+         long startTime = System.currentTimeMillis();
+         while (!Files.exists(getValueFilePath())) {
+            BulldogUtil.sleepMs(10);
+            if ((System.currentTimeMillis() - startTime) >= 10000) {
+               throw new RuntimeException("Could not create pin - waited 10 seconds. Aborting.");
+            }
+         }
+      }
+   }
+
+   public void unexport() {
+      if (isExported()) {
+         echoToFile(getPinString(), Paths.get(directory, "/unexport"));
+      }
+   }
+
+   public void setEdge(String edge) {
+      echoToFile(edge, Paths.get(getPinDirectory() + "/edge"));
+   }
+
+   public void setDirection(String direction) {
+      echoToFile(direction, Paths.get(getPinDirectory() + "/direction"));
+   }
+
+   public Path getPinDirectory() {
+      return Paths.get(directory, "/gpio", getPinString());
+   }
+
+   public Path getValueFilePath() {
+      return Paths.get(getPinDirectory() + "/value");
+   }
+
+   private String getPinString() {
+      return String.valueOf(pin);
+   }
+
+   public String getBaseDirectory() {
+      return directory;
+   }
+
+   public Signal getValue() {
+      try {
+         return Signal.fromString(new String(Files.readAllBytes(getValueFilePath())));
+      } catch (IOException e) {
+         System.err.format("IOException: %s%n", e);
+      }
+      return null;
+   }
+
+   public void setValue(Signal signal) {
+      echoToFile(String.valueOf(signal.getNumericValue()), getPinDirectory());
+   }
+
+   private void echoToFile(String value, Path file) {
+      try (BufferedWriter writer = Files.newBufferedWriter(file, Charset.forName("UTF-8"), StandardOpenOption.TRUNCATE_EXISTING)) {
+         writer.write(value);
+      } catch (IOException x) {
+         System.err.format("IOException: %s%n", x);
+      }
+   }
 }

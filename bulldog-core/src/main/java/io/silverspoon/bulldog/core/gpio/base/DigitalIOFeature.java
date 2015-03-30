@@ -13,230 +13,235 @@ import io.silverspoon.bulldog.core.gpio.event.InterruptListener;
 
 public class DigitalIOFeature extends AbstractPinFeature implements DigitalIO {
 
-	private static final String NAME_FORMAT = "Digital IO on Pin %s";
-	private DigitalOutput output;
-	private DigitalInput input;
-	
-	public DigitalIOFeature(Pin pin, DigitalInput input, DigitalOutput output) {
-		super(pin);
-		this.output = output;
-		this.input = input;
-	}
+   private static final String NAME_FORMAT = "Digital IO on Pin %s";
+   private DigitalOutput output;
+   private DigitalInput input;
 
-	@Override
-	public Signal read() {
-		setupInputIfNecessary();
-		return input.read();
-	}
+   public DigitalIOFeature(Pin pin, DigitalInput input, DigitalOutput output) {
+      super(pin);
+      this.output = output;
+      this.input = input;
+   }
 
-	private void setupInputIfNecessary() {
-		if(!input.isSetup()) {
-			if(output.isSetup()) { output.teardown(); }
-			input.setup();
-		}
-	}
-	
-	private void setupOutputIfNecessary() {
-		if(!output.isSetup()) {
-			if(input.isSetup()) { input.teardown(); };
-			output.setup();
-		}
-	}
+   @Override
+   public Signal read() {
+      setupInputIfNecessary();
+      return input.read();
+   }
 
-	@Override
-	public Signal readDebounced(int debounceMilliseconds) {
-		setupInputIfNecessary();
-		return input.readDebounced(debounceMilliseconds);
-	}
+   private void setupInputIfNecessary() {
+      if (!input.isSetup()) {
+         if (output.isSetup()) {
+            output.teardown();
+         }
+         input.setup();
+      }
+   }
 
-	@Override
-	public void disableInterrupts() {
-		setupInputIfNecessary();
-		input.disableInterrupts();
-	}
+   private void setupOutputIfNecessary() {
+      if (!output.isSetup()) {
+         if (input.isSetup()) {
+            input.teardown();
+         }
+         ;
+         output.setup();
+      }
+   }
 
-	@Override
-	public void enableInterrupts() {
-		setupInputIfNecessary();
-		input.enableInterrupts();
-	}
+   @Override
+   public Signal readDebounced(int debounceMilliseconds) {
+      setupInputIfNecessary();
+      return input.readDebounced(debounceMilliseconds);
+   }
 
-	@Override
-	public boolean areInterruptsEnabled() {
-		setupInputIfNecessary();
-		return input.areInterruptsEnabled();
-	}
+   @Override
+   public void disableInterrupts() {
+      setupInputIfNecessary();
+      input.disableInterrupts();
+   }
 
-	@Override
-	public void setInterruptDebounceMs(int milliSeconds) {
-		setupInputIfNecessary();
-		input.setInterruptDebounceMs(milliSeconds);
-	}
+   @Override
+   public void enableInterrupts() {
+      setupInputIfNecessary();
+      input.enableInterrupts();
+   }
 
-	@Override
-	public int getInterruptDebounceMs() {
-		setupInputIfNecessary();
-		return input.getInterruptDebounceMs();
-	}
+   @Override
+   public boolean areInterruptsEnabled() {
+      setupInputIfNecessary();
+      return input.areInterruptsEnabled();
+   }
 
-	@Override
-	public void setInterruptTrigger(Edge edge) {
-		setupInputIfNecessary();
-		input.setInterruptTrigger(edge);
-	}
+   @Override
+   public void setInterruptDebounceMs(int milliSeconds) {
+      setupInputIfNecessary();
+      input.setInterruptDebounceMs(milliSeconds);
+   }
 
-	@Override
-	public Edge getInterruptTrigger() {
-		setupInputIfNecessary();
-		return input.getInterruptTrigger();
-	}
+   @Override
+   public int getInterruptDebounceMs() {
+      setupInputIfNecessary();
+      return input.getInterruptDebounceMs();
+   }
 
-	@Override
-	public void fireInterruptEvent(InterruptEventArgs args) {
-		setupInputIfNecessary();
-		input.fireInterruptEvent(args);
-	}
+   @Override
+   public void setInterruptTrigger(Edge edge) {
+      setupInputIfNecessary();
+      input.setInterruptTrigger(edge);
+   }
 
-	@Override
-	public void addInterruptListener(InterruptListener listener) {
-		setupInputIfNecessary();
-		input.addInterruptListener(listener);
-	}
+   @Override
+   public Edge getInterruptTrigger() {
+      setupInputIfNecessary();
+      return input.getInterruptTrigger();
+   }
 
-	@Override
-	public void removeInterruptListener(InterruptListener listener) {
-		setupInputIfNecessary();
-		input.removeInterruptListener(listener);
-	}
+   @Override
+   public void fireInterruptEvent(InterruptEventArgs args) {
+      setupInputIfNecessary();
+      input.fireInterruptEvent(args);
+   }
 
-	@Override
-	public void clearInterruptListeners() {
-		setupInputIfNecessary();
-		input.clearInterruptListeners();
-	}
+   @Override
+   public void addInterruptListener(InterruptListener listener) {
+      setupInputIfNecessary();
+      input.addInterruptListener(listener);
+   }
 
-	@Override
-	public List<InterruptListener> getInterruptListeners() {
-		setupInputIfNecessary();
-		return input.getInterruptListeners();
-	}
+   @Override
+   public void removeInterruptListener(InterruptListener listener) {
+      setupInputIfNecessary();
+      input.removeInterruptListener(listener);
+   }
 
-	@Override
-	public String getName() {
-		return String.format(NAME_FORMAT, getPin().getName());
-	}
+   @Override
+   public void clearInterruptListeners() {
+      setupInputIfNecessary();
+      input.clearInterruptListeners();
+   }
 
-	@Override
-	public void write(Signal signal) {
-		setupOutputIfNecessary();
-		output.write(signal);
-	}
+   @Override
+   public List<InterruptListener> getInterruptListeners() {
+      setupInputIfNecessary();
+      return input.getInterruptListeners();
+   }
 
-	@Override
-	public void applySignal(Signal signal) {
-		setupOutputIfNecessary();
-		output.applySignal(signal);
-	}
+   @Override
+   public String getName() {
+      return String.format(NAME_FORMAT, getPin().getName());
+   }
 
-	@Override
-	public Signal getAppliedSignal() {
-		setupOutputIfNecessary();
-		return output.getAppliedSignal();
-	}
+   @Override
+   public void write(Signal signal) {
+      setupOutputIfNecessary();
+      output.write(signal);
+   }
 
-	@Override
-	public void high() {
-		setupOutputIfNecessary();
-		output.high();
-	}
+   @Override
+   public void applySignal(Signal signal) {
+      setupOutputIfNecessary();
+      output.applySignal(signal);
+   }
 
-	@Override
-	public void low() {
-		setupOutputIfNecessary();
-		output.low();
-	}
+   @Override
+   public Signal getAppliedSignal() {
+      setupOutputIfNecessary();
+      return output.getAppliedSignal();
+   }
 
-	@Override
-	public void toggle() {
-		setupOutputIfNecessary();
-		output.toggle();
-	}
+   @Override
+   public void high() {
+      setupOutputIfNecessary();
+      output.high();
+   }
 
-	@Override
-	public boolean isHigh() {
-		setupOutputIfNecessary();
-		return output.isHigh();
-	}
+   @Override
+   public void low() {
+      setupOutputIfNecessary();
+      output.low();
+   }
 
-	@Override
-	public boolean isLow() {
-		setupOutputIfNecessary();
-		return output.isLow();
-	}
+   @Override
+   public void toggle() {
+      setupOutputIfNecessary();
+      output.toggle();
+   }
 
-	@Override
-	public void startBlinking(int periodLengthMilliseconds) {
-		setupOutputIfNecessary();
-		output.startBlinking(periodLengthMilliseconds);
-	}
+   @Override
+   public boolean isHigh() {
+      setupOutputIfNecessary();
+      return output.isHigh();
+   }
 
-	@Override
-	public void startBlinking(int periodLengthMilliseconds,
-			int durationMilliseconds) {
-		setupOutputIfNecessary();
-		output.startBlinking(periodLengthMilliseconds, durationMilliseconds);
-		
-	}
+   @Override
+   public boolean isLow() {
+      setupOutputIfNecessary();
+      return output.isLow();
+   }
 
-	@Override
-	public void blinkTimes(int periodLengthMilliseconds, int times) {
-		setupOutputIfNecessary();
-		output.blinkTimes(periodLengthMilliseconds, times);
-	}
+   @Override
+   public void startBlinking(int periodLengthMilliseconds) {
+      setupOutputIfNecessary();
+      output.startBlinking(periodLengthMilliseconds);
+   }
 
-	@Override
-	public void stopBlinking() {
-		setupOutputIfNecessary();
-		output.stopBlinking();
-	}
-	
-	@Override
-	public boolean isBlinking() {
-		setupOutputIfNecessary();
-		return output.isBlinking();
-	}
+   @Override
+   public void startBlinking(int periodLengthMilliseconds,
+         int durationMilliseconds) {
+      setupOutputIfNecessary();
+      output.startBlinking(periodLengthMilliseconds, durationMilliseconds);
 
-	@Override
-	public void awaitBlinkingStopped() {
-		setupOutputIfNecessary();
-		output.awaitBlinkingStopped();
-	}
-	
-	@Override
-	protected void setupImpl() {
-	}
+   }
 
-	@Override
-	protected void teardownImpl() {
-		if(isInputActive()) {
-			input.teardown();
-		} else if(isOutputActive()) {
-			output.teardown();
-		}
-	}
-	
-	public boolean isBlocking() {
-		return getPin().getBlocker() == this || getPin().getBlocker() == output || getPin().getBlocker() == input;
-	}
+   @Override
+   public void blinkTimes(int periodLengthMilliseconds, int times) {
+      setupOutputIfNecessary();
+      output.blinkTimes(periodLengthMilliseconds, times);
+   }
 
-	@Override
-	public boolean isInputActive() {
-		return input.isSetup();
-	}
+   @Override
+   public void stopBlinking() {
+      setupOutputIfNecessary();
+      output.stopBlinking();
+   }
 
-	@Override
-	public boolean isOutputActive() {
-		return output.isSetup();
-	}
-	
+   @Override
+   public boolean isBlinking() {
+      setupOutputIfNecessary();
+      return output.isBlinking();
+   }
+
+   @Override
+   public void awaitBlinkingStopped() {
+      setupOutputIfNecessary();
+      output.awaitBlinkingStopped();
+   }
+
+   @Override
+   protected void setupImpl() {
+   }
+
+   @Override
+   protected void teardownImpl() {
+      if (isInputActive()) {
+         input.teardown();
+      } else if (isOutputActive()) {
+         output.teardown();
+      }
+   }
+
+   public boolean isBlocking() {
+      return getPin().getBlocker() == this || getPin().getBlocker() == output || getPin().getBlocker() == input;
+   }
+
+   @Override
+   public boolean isInputActive() {
+      return input.isSetup();
+   }
+
+   @Override
+   public boolean isOutputActive() {
+      return output.isSetup();
+   }
+
 }

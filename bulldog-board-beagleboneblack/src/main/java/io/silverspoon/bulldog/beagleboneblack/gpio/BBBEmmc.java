@@ -5,24 +5,24 @@ import io.silverspoon.bulldog.core.gpio.base.AbstractPinFeature;
 
 public class BBBEmmc extends AbstractPinFeature {
 
-	private static final String NAME_FORMAT = "EMMC on Pin %s - (you need to disable this feature at boot time)";
-	
-	public BBBEmmc(Pin pin) {
-		super(pin);
-	}
+   private static final String NAME_FORMAT = "EMMC on Pin %s - (you need to disable this feature at boot time)";
 
-	@Override
-	public String getName() {
-		return String.format(NAME_FORMAT, getPin().getName());
-	}
+   public BBBEmmc(Pin pin) {
+      super(pin);
+   }
 
-	@Override
-	protected void setupImpl() {
-		blockPin();
-	}
+   @Override
+   public String getName() {
+      return String.format(NAME_FORMAT, getPin().getName());
+   }
 
-	@Override
-	protected void teardownImpl() {
-	}
+   @Override
+   protected void setupImpl() {
+      blockPin();
+   }
+
+   @Override
+   protected void teardownImpl() {
+   }
 
 }

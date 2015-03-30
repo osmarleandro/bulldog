@@ -6,15 +6,15 @@ import io.silverspoon.bulldog.linux.util.LinuxLibraryLoader;
 
 public class RaspberryPiBoardFactory implements BoardFactory {
 
-	@Override
-	public boolean isCompatibleWithPlatform() {
-		return true;
-	}
+   @Override
+   public boolean isCompatibleWithPlatform() {
+      return true;
+   }
 
-	@Override
-	public Board createBoard() {
-		LinuxLibraryLoader.loadNativeLibrary("raspberrypi");
-		return new RaspberryPi();
-	}
+   @Override
+   public Board createBoard() {
+      LinuxLibraryLoader.loadNativeLibrary("raspberrypi");
+      return new RaspberryPi();
+   }
 
 }

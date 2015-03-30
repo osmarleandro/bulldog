@@ -12,100 +12,100 @@ import io.silverspoon.bulldog.core.gpio.event.InterruptListener;
 
 public class IncrementalRotaryEncoder {
 
-	private DigitalInput interruptSignalA;
-	private DigitalInput interruptSignalB;
-	private boolean signalA = false;
-	private boolean signalB = false;
-	private volatile int position = 0;
-	private List<RotaryEncoderListener> listeners = Collections
-			.synchronizedList(new ArrayList<RotaryEncoderListener>());
+   private DigitalInput interruptSignalA;
+   private DigitalInput interruptSignalB;
+   private boolean signalA = false;
+   private boolean signalB = false;
+   private volatile int position = 0;
+   private List<RotaryEncoderListener> listeners = Collections
+         .synchronizedList(new ArrayList<RotaryEncoderListener>());
 
-	public IncrementalRotaryEncoder(DigitalInput signalA, DigitalInput signalB) {
-		this.interruptSignalA = signalA;
-		this.interruptSignalB = signalB;
+   public IncrementalRotaryEncoder(DigitalInput signalA, DigitalInput signalB) {
+      this.interruptSignalA = signalA;
+      this.interruptSignalB = signalB;
 
-		initializeClockwiseInterrupt(signalA);
-		initializeCounterClockwiseInterrupt(signalB);
-	}
+      initializeClockwiseInterrupt(signalA);
+      initializeCounterClockwiseInterrupt(signalB);
+   }
 
-	private void initializeCounterClockwiseInterrupt(DigitalInput counterClockwise) {
-		this.interruptSignalA.setInterruptTrigger(Edge.Both);
-		counterClockwise.addInterruptListener(new InterruptListener() {
+   private void initializeCounterClockwiseInterrupt(DigitalInput counterClockwise) {
+      this.interruptSignalA.setInterruptTrigger(Edge.Both);
+      counterClockwise.addInterruptListener(new InterruptListener() {
 
-			@Override
-			public void interruptRequest(InterruptEventArgs args) {
-				signalB = args.getEdge() == Edge.Rising;
-				if (signalB && !(interruptSignalA.read() == Signal.High)) {
-					position--;
-					fireValueChanged(position - 1, position);
-					fireCounterclockwiseTurn();
-				}
-			}
+         @Override
+         public void interruptRequest(InterruptEventArgs args) {
+            signalB = args.getEdge() == Edge.Rising;
+            if (signalB && !(interruptSignalA.read() == Signal.High)) {
+               position--;
+               fireValueChanged(position - 1, position);
+               fireCounterclockwiseTurn();
+            }
+         }
 
-		});
-	}
+      });
+   }
 
-	private void initializeClockwiseInterrupt(DigitalInput clockwise) {
-		this.interruptSignalB.setInterruptTrigger(Edge.Both);
-		clockwise.addInterruptListener(new InterruptListener() {
+   private void initializeClockwiseInterrupt(DigitalInput clockwise) {
+      this.interruptSignalB.setInterruptTrigger(Edge.Both);
+      clockwise.addInterruptListener(new InterruptListener() {
 
-			@Override
-			public void interruptRequest(InterruptEventArgs args) {
-				signalA = args.getEdge() == Edge.Rising;
-				if (signalA && !(interruptSignalB.read() == Signal.High)) {
-					position++;
-					fireValueChanged(position - 1, position);
-					fireClockwiseTurn();
-				}
-			}
+         @Override
+         public void interruptRequest(InterruptEventArgs args) {
+            signalA = args.getEdge() == Edge.Rising;
+            if (signalA && !(interruptSignalB.read() == Signal.High)) {
+               position++;
+               fireValueChanged(position - 1, position);
+               fireClockwiseTurn();
+            }
+         }
 
-		});
-	}
+      });
+   }
 
-	public int getValue() {
-		return position;
-	}
+   public int getValue() {
+      return position;
+   }
 
-	public void addListener(RotaryEncoderListener listener) {
-		this.listeners.add(listener);
-	}
+   public void addListener(RotaryEncoderListener listener) {
+      this.listeners.add(listener);
+   }
 
-	public void removeListener(RotaryEncoderListener listener) {
-		this.listeners.remove(listener);
-	}
+   public void removeListener(RotaryEncoderListener listener) {
+      this.listeners.remove(listener);
+   }
 
-	public void clearListeners() {
-		this.listeners.clear();
-	}
+   public void clearListeners() {
+      this.listeners.clear();
+   }
 
-	protected void fireValueChanged(int oldValue, int newValue) {
-		synchronized (listeners) {
-			for (RotaryEncoderListener listener : listeners) {
-				listener.valueChanged(oldValue, newValue);
-			}
-		}
-	}
+   protected void fireValueChanged(int oldValue, int newValue) {
+      synchronized (listeners) {
+         for (RotaryEncoderListener listener : listeners) {
+            listener.valueChanged(oldValue, newValue);
+         }
+      }
+   }
 
-	protected void fireClockwiseTurn() {
-		synchronized (listeners) {
-			for (RotaryEncoderListener listener : listeners) {
-				listener.turnedClockwise();
-			}
-		}
-	}
+   protected void fireClockwiseTurn() {
+      synchronized (listeners) {
+         for (RotaryEncoderListener listener : listeners) {
+            listener.turnedClockwise();
+         }
+      }
+   }
 
-	protected void fireCounterclockwiseTurn() {
-		synchronized (listeners) {
-			for (RotaryEncoderListener listener : listeners) {
-				listener.turnedCounterclockwise();
-			}
-		}
-	}
+   protected void fireCounterclockwiseTurn() {
+      synchronized (listeners) {
+         for (RotaryEncoderListener listener : listeners) {
+            listener.turnedCounterclockwise();
+         }
+      }
+   }
 
-	protected void setPosition(int position) {
-		int oldPosition = this.position;
-		this.position = position;
-		fireValueChanged(oldPosition, position);
-	}
+   protected void setPosition(int position) {
+      int oldPosition = this.position;
+      this.position = position;
+      fireValueChanged(oldPosition, position);
+   }
 
 }

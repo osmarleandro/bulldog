@@ -7,17 +7,17 @@ import io.silverspoon.bulldog.linux.io.LinuxEpollListener;
 
 public class RaspiDigitalInput extends LinuxDigitalInput implements LinuxEpollListener {
 
-	public RaspiDigitalInput(Pin pin) {
-		super(pin);
-	}
-	
-	public Signal read() {
-		return getSysFsPin().getValue();
-	}
+   public RaspiDigitalInput(Pin pin) {
+      super(pin);
+   }
 
-	public void setup() {
-		super.setup();
-	}
-	
+   public Signal read() {
+      return getSysFsPin().getValue();
+   }
+
+   public void setup() {
+      super.setup();
+   }
+
 }
 

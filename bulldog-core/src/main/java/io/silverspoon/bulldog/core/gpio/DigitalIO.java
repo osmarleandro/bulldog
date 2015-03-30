@@ -32,18 +32,18 @@ package io.silverspoon.bulldog.core.gpio;
  */
 public interface DigitalIO extends DigitalInput, DigitalOutput {
 
-	/**
-	 * Checks if the pin is currently used as an input.
-	 *
-	 * @return true, if the pin is currently used as an input.
-	 */
-	boolean isInputActive();
+   /**
+    * Checks if the pin is currently used as an input.
+    *
+    * @return true, if the pin is currently used as an input.
+    */
+   boolean isInputActive();
 
-	/**
-	 * Checks if the pin is currently used as an output.
-	 *
-	 * @return true, if the pin is currently used as an output.
-	 */
-	boolean isOutputActive();
+   /**
+    * Checks if the pin is currently used as an output.
+    *
+    * @return true, if the pin is currently used as an output.
+    */
+   boolean isOutputActive();
 
 }

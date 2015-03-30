@@ -1,7 +1,7 @@
 package io.silverspoon.bulldog.core;
 
 public enum Edge {
-	Rising,
-	Falling,
-	Both
+   Rising,
+   Falling,
+   Both
 }

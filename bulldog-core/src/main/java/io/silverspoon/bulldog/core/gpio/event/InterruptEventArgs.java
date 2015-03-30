@@ -5,14 +5,14 @@ import io.silverspoon.bulldog.core.gpio.Pin;
 
 public class InterruptEventArgs {
 
-	private Edge edge;
-	
-	public InterruptEventArgs(Pin pin, Edge edge) {
-		this.edge = edge;
-	}
-	
-	public Edge getEdge() {
-		return edge;
-	}
-	
+   private Edge edge;
+
+   public InterruptEventArgs(Pin pin, Edge edge) {
+      this.edge = edge;
+   }
+
+   public Edge getEdge() {
+      return edge;
+   }
+
 }

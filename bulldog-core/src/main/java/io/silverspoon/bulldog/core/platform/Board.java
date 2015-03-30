@@ -10,25 +10,33 @@ import io.silverspoon.bulldog.core.io.serial.SerialPort;
 
 public interface Board extends PinProvider {
 
-	String getName();
-	
-	List<I2cBus> getI2cBuses();
-	I2cBus getI2cBus(String name);
-	
-	List<SpiBus> getSpiBuses();
-	SpiBus getSpiBus(String name);
-	
-	List<SerialPort> getSerialPorts();
-	SerialPort getSerialPort(String name);
-	
-	List<IOPort> getAllIOPorts();
-	IOPort getIOPortByAlias(String alias);
-	IOPort getIOPortByName(String name);
-	
-	Properties getProperties();
-	void setProperty(String propertyName, String value);
-	String getProperty(String propertyName);
-	boolean hasProperty(String propertyName);
-	
-	void shutdown();
+   String getName();
+
+   List<I2cBus> getI2cBuses();
+
+   I2cBus getI2cBus(String name);
+
+   List<SpiBus> getSpiBuses();
+
+   SpiBus getSpiBus(String name);
+
+   List<SerialPort> getSerialPorts();
+
+   SerialPort getSerialPort(String name);
+
+   List<IOPort> getAllIOPorts();
+
+   IOPort getIOPortByAlias(String alias);
+
+   IOPort getIOPortByName(String name);
+
+   Properties getProperties();
+
+   void setProperty(String propertyName, String value);
+
+   String getProperty(String propertyName);
+
+   boolean hasProperty(String propertyName);
+
+   void shutdown();
 }
