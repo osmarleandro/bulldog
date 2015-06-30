@@ -173,4 +173,4 @@ CI server hosted on Travis-ci.org: [![Build Status](https://travis-ci.org/px3/bu
 ##Contribution Guidelines
 
 - If you find a bug, or have a feature request you think we should consider, please report it [here](https://github.com/px3/bulldog/issues).
-- We use [gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) as a development workflow, so If you want to contribute to our code base create your own fork & send a pull request to the devel branch.
+- We use [gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) as a development workflow, so If you want to contribute to our code base create your own fork & send a pull request to the devel branch or ask to join our community to be able to commit directly to devel branch.
