@@ -225,7 +225,7 @@ void BBBIO_ADCTSC_module_ctrl(unsigned int work_type, unsigned int clkdiv)
 
 	if((clkdiv < 1) || (clkdiv > 65535)) {
 #ifdef BBBIO_LIB_DBG
-		fprintf(stderr, "BBBIO_ADCTSC_module_ctrl : Clock Divider value error [%d]\n");
+		fprintf(stderr, "BBBIO_ADCTSC_module_ctrl : Clock Divider value error [%d]\n", clkdiv);
 #endif
 		clkdiv = 1;
 	}
@@ -428,21 +428,21 @@ unsigned int BBBIO_ADCTSC_work(unsigned int fetch_size)
 					buf_data = *reg_data;
 					chn_ID = (buf_data >> 16) & 0xF;
 					chn_ptr = &ADCTSC.channel[chn_ID];
-	
+
 					if((chn_ptr->buffer_size > chn_ptr->buffer_count) && (fetch_size > chn_ptr->buffer_count)) {
 						*(chn_ptr->buffer_save_ptr) = buf_data & 0xFFF;
 						chn_ptr->buffer_save_ptr++;
 						chn_ptr->buffer_count ++;
 					}
 					else {
-						tmp_channel_en &= ~(1 << chn_ID);	// SW Disable this channel 
+						tmp_channel_en &= ~(1 << chn_ID);	// SW Disable this channel
 					}
 				}
 				tv.tv_sec = 0;
 				tv.tv_usec = 40;
 				select(0, NULL, NULL, NULL, &tv);
 			}
-			// switch to next FIFO 
+			// switch to next FIFO
 			FIFO_ptr = FIFO_ptr->next;
 		}
 	}
