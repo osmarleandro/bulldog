@@ -20,3 +20,9 @@ branches:
   only:
     - master
     - devel
+
+env:
+  global:
+    - secure: "IeXelQyTKuQ+wZlmGU7N4ScTwvERLl2T+VvohkR0VQ80vcLB/FSOMacb0lJQzz+E4DbJ2n6lhmdMSoOXbfHnwCR7qrr3IBTONFJxiFa/TtzSmouPJT8ibTZMAxsobyo3ifVdkbm8G1zMQ94C07YQOzqytwizfS4MhK/zW2K4Etk="
+    - secure: "EGXXWhx3ooFynwKhEGnrrN1wGmwv1udZGDgrP+8KVa5Iw6f0bJuP+lf0uU2YM8xxgAkZAkp/pzNfwGUxu6q2ybRJnav/2+rMh0SqkQs1K3W7M5Co3jNfR9H3+DreMHk1d63OKTJgr85R7fTwZAHsD0ipQ//Xu7MjQ1AuAT3liuY="
+
