@@ -1,12 +1,20 @@
 language: java
 
+before_install: "git clone -b travis `git config --get remote.origin.url` target/travis"
+
 install: 
   - sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu trusty main universe"
   - sudo apt-get update -q
   - sudo apt-get install -y gcc-4.8-arm-linux-gnueabihf 
 
+script: "
+if [ ${TRAVIS_PULL_REQUEST} = 'false' ];
+then
+    mvn clean deploy --settings target/travis/settings.xml -Dcompiler.exec=arm-linux-gnueabihf-gcc-4.8 -Dlinker.exec=arm-linux-gnueabihf-ld;  
+else
+    mvn clean verify --settings target/travis/settings.xml -Dcompiler.exec=arm-linux-gnueabihf-gcc-4.8 -Dlinker.exec=arm-linux-gnueabihf-ld;
+fi"
 
-script: mvn clean install -Dcompiler.exec=arm-linux-gnueabihf-gcc-4.8 -Dlinker.exec=arm-linux-gnueabihf-ld
 
 jdk:
   - oraclejdk8
@@ -23,6 +31,6 @@ branches:
 
 env:
   global:
-    - secure: "IeXelQyTKuQ+wZlmGU7N4ScTwvERLl2T+VvohkR0VQ80vcLB/FSOMacb0lJQzz+E4DbJ2n6lhmdMSoOXbfHnwCR7qrr3IBTONFJxiFa/TtzSmouPJT8ibTZMAxsobyo3ifVdkbm8G1zMQ94C07YQOzqytwizfS4MhK/zW2K4Etk="
-    - secure: "EGXXWhx3ooFynwKhEGnrrN1wGmwv1udZGDgrP+8KVa5Iw6f0bJuP+lf0uU2YM8xxgAkZAkp/pzNfwGUxu6q2ybRJnav/2+rMh0SqkQs1K3W7M5Co3jNfR9H3+DreMHk1d63OKTJgr85R7fTwZAHsD0ipQ//Xu7MjQ1AuAT3liuY="
+    - secure: "hnucaNeYQ+nZoim1B5VtYJafeJWfkK2d7z143fqPkfqfnC/j1kzIq79mPOiX760dj6dRxcGkgvx+aTkJdVFGqvZ0MHx10QSSTT9jtnh1NGUZmCci1N/xAU7av4U+jlmQjSHqkjBQN9wM6HSgtrmsN7ZmS35S15LYmo2nwC3Fgwk="
+    - secure: "bHdtnPWr5GWviREAFx3PbK7FilknxucQuQLi/dNNig6Cu7kDGChYNMpLF+pcT7ZTaBy21sLnFYRRJQW/DvNokUpB9JYDM8QeLzXSIV2MfLZMVvVlkG7laTu5EcaMo/yGPZNITtStoi5en18PYEwo4EW9xEIS1axuQXmv6ryiZ68="
 
