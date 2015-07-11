@@ -16,7 +16,7 @@
 
 Bulldog is a Java library providing Java (IoT) Developers with GPIO and low-level IO capabilities of embedded linux platforms (RaspberryPi, CubieBoard, BeagleBoneBlack).
 
-Our version of Bulldog library is supposed to be part of Silverspoon IoT Platform: http://silverspoon.io (currently under development) thus it had to be mavenized. For information regarding the former version of Bulldog library see its website: http://www.libbulldog.org.
+Bulldog library is a part of the Silverspoon IoT Platform: http://silverspoon.io.
 
 Bulldog currently supports the following features:
 
@@ -26,8 +26,6 @@ Bulldog currently supports the following features:
  - I2C, SPI
  - All UARTs (including dynamic setup via capemgr on request)
  - A few devices: Simple button API, Incremental Rotary Encoder, Servos, LCD, ...
-
-_Note: features will be re-considered in the near future, some of them may be dropped/no longer supported._
 
 ##Usage
 
@@ -45,7 +43,7 @@ Stable versions are synced with Maven Central. You just need to add a dependency
 </dependencies>
 ```
 
-To use our developemnt (SNAPSHOT) versions you also need to add the following repository to your settings.xml:
+With the latest development version (0.2.0-SNAPSHOT) you can put all the board implementations on your classpath and Bulldog will automatically select the correct one according to the platform you are using! To use our development (SNAPSHOT) versions you also need to add the following repository to your settings.xml:
 
 ```xml
 <repositories>
@@ -64,8 +62,8 @@ To use our developemnt (SNAPSHOT) versions you also need to add the following re
 If you don't want to use Maven, you can download our distribution (uber-jar) from [Maven Central](http://search.maven.org/#search|ga|1|g%3A%22io.silverspoon%22%20AND%20a%3A%22bulldog-distro%22).
 Afterward, just compile & execute your Java code from command line:
 
-    javac -cp bulldog-distro-0.1.0-<board>.jar:. BulldogLED.java
-    java -cp bulldog-distro-0.1.0-<board>.jar:. BulldogLED
+    javac -cp bulldog-distro-0.1.2-<board>.jar:. BulldogLED.java
+    java -cp bulldog-distro-0.1.2-<board>.jar:. BulldogLED
 
 ###Example
 
