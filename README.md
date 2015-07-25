@@ -6,10 +6,9 @@
   - [Maven](#maven)
   - [Distribution Jar](#distribution-jar)
   - [Example](#example)
-- [Building Bulldog](#building-bulldog)
-  - [Prerequisites](#prerequisites)
-  - [Build](#build)
-  - [Continuous Integration](#continuous-integration)
+- [Building Bulldog (x86, x86_64)](#building-bulldog-x86,x86_64)
+- [Building Bulldog (ARM)](#building-bulldog-arm)
+- [Continuous Integration](#continuous-integration)
 - [Contribution Guidelines](#contribution-guidelines)
 
 ##Summary
@@ -136,7 +135,7 @@ mvn exec:java
 
 _Note: For more see bulldog-examples project._
 
-##Building Bulldog
+##Building Bulldog (x86, x86_64)
 
 ###Prerequisites
 
@@ -162,11 +161,20 @@ Ubuntu - need to overide compiler/linker binary:
 
     mvn clean install -Dcompiler.exec=arm-linux-gnueabihf-gcc-4.8 -Dlinker.exec=arm-linux-gnueabihf-ld
 
+##Building Bulldog (ARM)
 
-###Continuous Integration
+###Prerequisites
+
+- ARM C/C++ Compiler (4.8+)
+- Maven 3+
+
+###Build
+
+    mvn clean install -Pnative-compile
+
+##Continuous Integration
 
 CI server hosted on Travis-ci.org: [![Build Status](https://travis-ci.org/px3/bulldog.svg?branch=master)](https://travis-ci.org/px3/bulldog)
-
 
 ##Contribution Guidelines
 
