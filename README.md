@@ -6,7 +6,7 @@
   - [Maven](#maven)
   - [Distribution Jar](#distribution-jar)
   - [Example](#example)
-- [Building Bulldog (x86, x86_64)](#building-bulldog-x86,x86_64)
+- [Building Bulldog (x86, x86_64)](#building-bulldog-x86-x86_64)
 - [Building Bulldog (ARM)](#building-bulldog-arm)
 - [Continuous Integration](#continuous-integration)
 - [Contribution Guidelines](#contribution-guidelines)
