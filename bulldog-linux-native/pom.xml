@@ -101,7 +101,8 @@
       <!-- enforces to use local c compiler instead of cross-compiler -->
       <id>native-compile</id>
       <properties>
-        <compiler.exec>gcc</compiler.exec>
+        <!-- we need version 4.8+ -->
+        <compiler.exec>gcc-4.8</compiler.exec>
         <linker.exec>ld</linker.exec>
       </properties>
     </profile>
