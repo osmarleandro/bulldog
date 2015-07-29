@@ -168,6 +168,10 @@ Ubuntu - need to overide compiler/linker binary:
 - ARM C/C++ Compiler (4.8+)
 - Maven 3+
 
+Raspbian
+
+    sudo apt-get install gcc-4.8
+
 ###Build
 
     mvn clean install -Pnative-compile
