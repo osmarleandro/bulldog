@@ -1,7 +1,10 @@
 package io.silverspoon.bulldog.raspberrypi.bcm;
 
-
-class BCM2835 extends AbstractBCM {
+/**
+ * BCM2835 implementation of {@link io.silverspoon.bulldog.raspberrypi.bcm.AbstractBCM}
+ * Used by RaspberryPi A, B and B+
+ */
+public class BCM2835 extends AbstractBCM {
 
    public static final int BCM_PERI_BASE = 0x20000000;
    public static final int GPIO_BASE = (BCM_PERI_BASE + 0x200000);
@@ -17,7 +20,6 @@ class BCM2835 extends AbstractBCM {
 
    public static final int GPIO_SET = 7 * 4;
    public static final int GPIO_CLEAR = 10 * 4;
-
 
    @Override
    public int getBCMPeriBase() {
