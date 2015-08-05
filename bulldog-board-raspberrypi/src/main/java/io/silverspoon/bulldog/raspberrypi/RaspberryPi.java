@@ -5,6 +5,8 @@ import io.silverspoon.bulldog.core.gpio.base.DigitalIOFeature;
 import io.silverspoon.bulldog.core.platform.AbstractBoard;
 import io.silverspoon.bulldog.linux.io.LinuxSpiBus;
 import io.silverspoon.bulldog.linux.sysinfo.CpuInfo;
+import io.silverspoon.bulldog.raspberrypi.bcm.AbstractBCM;
+import io.silverspoon.bulldog.raspberrypi.bcm.BCMFactory;
 import io.silverspoon.bulldog.raspberrypi.gpio.RaspiDigitalInput;
 import io.silverspoon.bulldog.raspberrypi.gpio.RaspiDigitalOutput;
 import io.silverspoon.bulldog.raspberrypi.gpio.RaspiPwm;
@@ -13,6 +15,7 @@ import io.silverspoon.bulldog.raspberrypi.io.RaspberryPiI2cBus;
 public class RaspberryPi extends AbstractBoard {
 
    private static final String NAME = "Raspberry Pi";
+   public static final AbstractBCM BCM = BCMFactory.getBCM();
 
    RaspberryPi() {
       super();
@@ -106,7 +109,7 @@ public class RaspberryPi extends AbstractBoard {
    @Override
    public void cleanup() {
       super.cleanup();
-      BCM2835.cleanup();
+      BCM.cleanup();
    }
 
 }
