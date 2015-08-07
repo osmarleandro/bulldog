@@ -73,24 +73,6 @@
               <javahOutputDirectory>src/main/c/linux/jni</javahOutputDirectory>
             </configuration>
           </execution>
-          <!-- We had to move bbb jni classes to bulldog-linux to avoid cyclic dependencies -->
-          <execution>
-            <id>javah-bbb</id>
-            <inherited>false</inherited>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>javah</goal>
-            </goals>
-            <configuration>
-              <javahClassNames>
-                <javahClassName>io.silverspoon.bulldog.beagleboneblack.jni.NativeAdc</javahClassName>
-                <javahClassName>io.silverspoon.bulldog.beagleboneblack.jni.NativeGpio</javahClassName>
-                <javahClassName>io.silverspoon.bulldog.beagleboneblack.jni.NativePwm</javahClassName>
-              </javahClassNames>
-              <javahVerbose>true</javahVerbose>
-              <javahOutputDirectory>src/main/c/beagleboneblack/jni</javahOutputDirectory>
-            </configuration>
-          </execution>
         </executions>
       </plugin>
     </plugins>
