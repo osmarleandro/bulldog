@@ -1,6 +1,8 @@
 package io.silverspoon.bulldog.linux.util;
 
-
+/**
+ * Thrown when MMap in native parts fails.
+ */
 public class MMapFailedException extends RuntimeException {
 
    public MMapFailedException() {
