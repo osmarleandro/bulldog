@@ -47,9 +47,15 @@ JNIEXPORT jobject JNICALL Java_io_silverspoon_bulldog_linux_jni_NativeTools_getJ
 JNIEXPORT jint JNICALL Java_io_silverspoon_bulldog_linux_jni_NativeTools_open
 (JNIEnv * env, jclass clazz, jstring path, jint flags) {
 	char fileName[256];
-	int len = (*env)->GetStringLength(env, path);
+	int len = (*env)->GetStringLength(env, path), fd = 0;
+
 	(*env)->GetStringUTFRegion(env, path, 0, len, fileName);
-	return open(fileName, flags);
+	fd = open(fileName, flags);
+	if (fd == -1) {
+	   perror(fileName);
+	}
+
+	return fd;
 
 }
 
