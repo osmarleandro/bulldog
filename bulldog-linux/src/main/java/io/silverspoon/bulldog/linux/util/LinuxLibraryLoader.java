@@ -34,10 +34,6 @@ public class LinuxLibraryLoader {
    public static void loadNativeLibrary(String board) {
       //Construct name of native library
       String libName = LIB_NAME + "-" + board;
-      // If on BBB append arch as well
-      if (board.equalsIgnoreCase("beagleboneblack")) {
-         libName += "-" + ARCH;
-      }
       // First, try to load library from classpath
       try {
          loadLibraryFromClasspath("/lib/" + libName + ".so");
