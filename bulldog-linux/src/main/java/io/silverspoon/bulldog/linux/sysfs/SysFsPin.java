@@ -53,7 +53,7 @@ public class SysFsPin {
    }
 
    public Path getPinDirectory() {
-      return Paths.get(directory, "/gpio", getPinString());
+      return Paths.get(directory, "/gpio" + getPinString());
    }
 
    public Path getValueFilePath() {
