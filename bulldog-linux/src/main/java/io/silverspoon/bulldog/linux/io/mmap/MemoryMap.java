@@ -2,6 +2,7 @@ package io.silverspoon.bulldog.linux.io.mmap;
 
 import io.silverspoon.bulldog.linux.jni.NativeMmap;
 import io.silverspoon.bulldog.linux.jni.NativeTools;
+import io.silverspoon.bulldog.linux.util.MMapFailedException;
 
 public class MemoryMap {
 
@@ -14,7 +15,13 @@ public class MemoryMap {
 
    public MemoryMap(String filename, long offset, long size, long address) {
       fileDescriptor = NativeTools.open(filename, NativeTools.OPEN_READ_WRITE);
+      if (fileDescriptor == -1) {
+         throw new MMapFailedException("Unable to open file " + filename);
+      }
       mmapPointer = NativeMmap.createMap(0, size, NativeMmap.READ | NativeMmap.WRITE, NativeMmap.SHARED, fileDescriptor, offset);
+      if (mmapPointer == 0x0) {
+         throw new MMapFailedException("Unable to map memory");
+      }
    }
 
    public void closeMap() {

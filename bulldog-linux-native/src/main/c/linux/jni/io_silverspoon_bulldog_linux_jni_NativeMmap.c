@@ -11,7 +11,14 @@
 JNIEXPORT jlong JNICALL Java_io_silverspoon_bulldog_linux_jni_NativeMmap_createMap
   (JNIEnv * env, jobject clazz, jlong address, jlong length, jint prot, jint flags, jint fileDescriptor, jlong offset) {
 	int * addrPointer = (int*)(intptr_t)address;
-	return (jlong)(intptr_t)mmap(addrPointer, length, prot, flags, fileDescriptor, offset);
+	void *retval = NULL;
+
+	retval = mmap(addrPointer, length, prot, flags, fileDescriptor, offset);
+	if (retval == MAP_FAILED) {
+	   perror("mmap");
+	   return (jlong)(intptr_t)0x0;
+	}
+	return (jlong)(intptr_t)retval;
 }
 
 /*

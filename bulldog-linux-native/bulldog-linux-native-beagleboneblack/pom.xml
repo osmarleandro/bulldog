@@ -4,7 +4,7 @@
    <parent>
       <groupId>io.silverspoon</groupId>
       <artifactId>bulldog-linux-native</artifactId>
-      <version>0.1.2</version>
+      <version>0.2.0</version>
       <relativePath>../pom.xml</relativePath>
    </parent>
    <artifactId>bulldog-linux-native-beagleboneblack</artifactId>
@@ -24,16 +24,35 @@
                   <id>javah-linux</id>
                   <phase/>
                </execution>
-               <execution>
-                  <id>javah-bbb</id>
-                  <phase/>
-               </execution>
-            </executions>
+             <execution>
+                 <id>javah-bbb</id>
+                 <inherited>false</inherited>
+                 <phase>generate-sources</phase>
+                 <goals>
+                     <goal>javah</goal>
+                 </goals>
+                 <configuration>
+                     <javahClassNames>
+                         <javahClassName>io.silverspoon.bulldog.beagleboneblack.jni.NativeAdc</javahClassName>
+                         <javahClassName>io.silverspoon.bulldog.beagleboneblack.jni.NativeGpio</javahClassName>
+                         <javahClassName>io.silverspoon.bulldog.beagleboneblack.jni.NativePwm</javahClassName>
+                     </javahClassNames>
+                     <javahVerbose>true</javahVerbose>
+                     <javahOutputDirectory>src/main/c/beagleboneblack/jni</javahOutputDirectory>
+                 </configuration>
+             </execution>
+             </executions>
             <!-- Default execution to compile native library -->
             <configuration>
                <sources>
                   <source>
                      <directory>../src/main/c</directory>
+                     <includes>
+                        <include>**/*.c</include>
+                     </includes>
+                  </source>
+                  <source>
+                     <directory>src/main/c</directory>
                      <includes>
                         <include>**/*.c</include>
                      </includes>
@@ -50,6 +69,7 @@
                </linkerStartOptions>
             </configuration>
          </plugin>
+
       </plugins>
    </build>
 </project>
