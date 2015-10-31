@@ -61,8 +61,8 @@ With the latest development version (0.2.0-SNAPSHOT) you can put all the board i
 If you don't want to use Maven, you can download our distribution (uber-jar) from [Maven Central](http://search.maven.org/#search|ga|1|g%3A%22io.silverspoon%22%20AND%20a%3A%22bulldog-distro%22).
 Afterward, just compile & execute your Java code from command line:
 
-    javac -cp bulldog-distro-0.1.2-<board>.jar:. BulldogLED.java
-    java -cp bulldog-distro-0.1.2-<board>.jar:. BulldogLED
+    javac -cp bulldog-distro-0.2.0-<board>.jar:. BulldogLED.java
+    java -cp bulldog-distro-0.2.0-<board>.jar:. BulldogLED
 
 ###Example
 
@@ -77,7 +77,7 @@ The following steps can all be performed on your target device (e.g. RaspberryPi
   <dependency>
     <groupId>io.silverspoon</groupId>
     <artifactId>bulldog-board-raspberrypi</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
   </dependency>
 </dependencies>
 ```
