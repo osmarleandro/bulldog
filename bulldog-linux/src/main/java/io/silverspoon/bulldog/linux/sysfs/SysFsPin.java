@@ -13,11 +13,24 @@ import java.nio.file.StandardOpenOption;
 
 public class SysFsPin {
 
-   private String directory = "/sys/class/gpio";
-   private int pin = 0;
+   private static final String directory = "/sys/class/gpio";
+   private int pin;
+   private String pinString;
+   private Path pinDirectory, valuePath, edgePath, directionPath;
+   private static Path exportPath = Paths.get(directory + "/export");
+   private static Path unexportPath = Paths.get(directory + "/unexport");
 
    public SysFsPin(int pin) {
       this.pin = pin;
+      updateValues();
+   }
+
+   private void updateValues(){
+      this.pinString = String.valueOf(pin);
+      this.pinDirectory = Paths.get(directory, "/gpio" + pinString);
+      this.valuePath = Paths.get(pinDirectory + "/value");
+      this.edgePath = Paths.get(pinDirectory + "/edge");
+      this.directionPath = Paths.get(pinDirectory + "/direction");
    }
 
    public boolean isExported() {
@@ -27,7 +40,7 @@ public class SysFsPin {
    public void exportIfNecessary() {
       if (!isExported()) {
          echoToFile(getPinString(), Paths.get(directory, "/export"));
-         
+
          long startTime = System.currentTimeMillis();
          while (!Files.exists(getValueFilePath())) {
             BulldogUtil.sleepMs(10);
@@ -45,23 +58,23 @@ public class SysFsPin {
    }
 
    public void setEdge(String edge) {
-      echoToFile(edge, Paths.get(getPinDirectory() + "/edge"));
+      echoToFile(edge, this.edgePath);
    }
 
    public void setDirection(String direction) {
-      echoToFile(direction, Paths.get(getPinDirectory() + "/direction"));
+      echoToFile(direction, this.directionPath);
    }
 
    public Path getPinDirectory() {
-      return Paths.get(directory, "/gpio" + getPinString());
+      return this.pinDirectory;
    }
 
    public Path getValueFilePath() {
-      return Paths.get(getPinDirectory() + "/value");
+      return this.valuePath;
    }
 
    private String getPinString() {
-      return String.valueOf(pin);
+      return pinString;
    }
 
    public String getBaseDirectory() {
