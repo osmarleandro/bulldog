@@ -21,11 +21,11 @@ public class RaspberryPi extends AbstractBoard {
       super();
       if (getRevision() >= 4) {
          createPinsRev2();
+         createIoPortsRev2();
       } else {
          createPinsRev1();
+         createIoPortsRev1();
       }
-
-      createIOPorts();
    }
 
    @Override
@@ -90,8 +90,14 @@ public class RaspberryPi extends AbstractBoard {
       return pin;
    }
 
-   private void createIOPorts() {
+   private void createIoPortsRev1() {
       getI2cBuses().add(new RaspberryPiI2cBus(RaspiNames.I2C_0, "/dev/i2c-0", getPin(RaspiNames.P1_3), getPin(RaspiNames.P1_5)));
+      getSpiBuses().add(new LinuxSpiBus(RaspiNames.SPI_0_CS0, "/dev/spidev0.0", this));
+      getSpiBuses().add(new LinuxSpiBus(RaspiNames.SPI_0_CS1, "/dev/spidev0.1", this));
+   }
+
+   private void createIoPortsRev2() {
+      getI2cBuses().add(new RaspberryPiI2cBus(RaspiNames.I2C_1, "/dev/i2c-1", getPin(RaspiNames.P1_3), getPin(RaspiNames.P1_5)));
       getSpiBuses().add(new LinuxSpiBus(RaspiNames.SPI_0_CS0, "/dev/spidev0.0", this));
       getSpiBuses().add(new LinuxSpiBus(RaspiNames.SPI_0_CS1, "/dev/spidev0.1", this));
    }
