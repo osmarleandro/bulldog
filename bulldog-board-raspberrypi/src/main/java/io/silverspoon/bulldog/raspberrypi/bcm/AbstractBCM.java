@@ -34,6 +34,10 @@ public abstract class AbstractBCM {
 
    public abstract int getGPIOClear();
 
+   public abstract int getGPIORead();
+
+   public abstract int getRegisterSize();
+
    public MemoryMap getGpioMemory() {
       if (gpioMemory == null) {
          gpioMemory = new MemoryMap("/dev/mem", this.getGPIOBase(), 4096, 0);
@@ -71,21 +75,21 @@ public abstract class AbstractBCM {
    }
 
    public void configureAsInput(int gpio) {
-      long address = (gpio / 10) * 4;
+      long address = (gpio / 10) * getRegisterSize();
       int value = this.getGpioMemory().getIntValueAt(address);
       value &= ~(7 << getGpioRegisterOffset(gpio));
       this.getGpioMemory().setIntValue(address, value);
    }
 
    public void configureAsOutput(int gpio) {
-      long address = (gpio / 10) * 4;
+      long address = (gpio / 10) * getRegisterSize();
       int value = this.getGpioMemory().getIntValueAt(address);
       value |= (1 << getGpioRegisterOffset(gpio));
       this.getGpioMemory().setIntValue(address, value);
    }
 
    public void configureAlternateFunction(int gpio, int alt) {
-      long address = (gpio / 10) * 4;
+      long address = (gpio / 10) * getRegisterSize();
       int value = this.getGpioMemory().getIntValueAt(address);
       value |= (((alt) <= 3 ? (alt) + 4 : (alt) == 4 ? 3 : 2) << (gpio % 10) * 3);
       this.getGpioMemory().setIntValue(address, value);

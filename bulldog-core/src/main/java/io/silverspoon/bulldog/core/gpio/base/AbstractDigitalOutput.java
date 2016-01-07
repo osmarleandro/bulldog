@@ -79,4 +79,8 @@ public abstract class AbstractDigitalOutput extends AbstractPinFeature implement
    }
 
    protected abstract void applySignalImpl(Signal signal);
+
+   protected void setSignal(Signal signal) {
+      this.signal = signal;
+   }
 }

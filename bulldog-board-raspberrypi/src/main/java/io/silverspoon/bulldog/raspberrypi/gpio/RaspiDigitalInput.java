@@ -27,7 +27,7 @@ public class RaspiDigitalInput extends LinuxDigitalInput implements LinuxEpollLi
 
    public Signal read() {
       int address = 1 << getRaspiPin().getGpioNumber();
-      return Signal.fromNumericValue(BCM.getGpioMemory().getIntValueAt(address));
+      return Signal.fromNumericValue(BCM.getGpioMemory().getIntValueAt(BCM.getGPIORead()) & address);
    }
 
    public void setup() {

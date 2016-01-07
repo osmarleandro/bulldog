@@ -19,6 +19,9 @@ public class RaspiDigitalOutput extends AbstractDigitalOutput {
       RaspberryPiPin pin = (RaspberryPiPin) getPin();
       BCM.configureAsInput(pin.getGpioNumber());
       BCM.configureAsOutput(pin.getGpioNumber());
+      int address = 1 << pin.getGpioNumber();
+      Signal s = Signal.fromNumericValue(BCM.getGpioMemory().getIntValueAt(BCM.getGPIORead()) & address);
+      setSignal(s);
    }
 
    @Override
