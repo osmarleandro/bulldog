@@ -13,7 +13,12 @@ public class BBBSysFs extends SysFs {
 
    private static final int WAIT_TIMEOUT_MS = 5000;
 
-   private String SYSFS_DEVICES_PATH = "/sys/devices";
+   private static final String[] SYSFS_DEVICES_SEARCH_PATH = {
+           "/sys/devices/platform",
+           "/sys/devices"
+   };
+
+   private String SYSFS_DEVICES_PATH = findValidPath(SYSFS_DEVICES_SEARCH_PATH);
 
    public BBBSysFs() {
 
