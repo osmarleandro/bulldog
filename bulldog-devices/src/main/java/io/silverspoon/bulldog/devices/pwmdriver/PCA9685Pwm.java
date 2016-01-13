@@ -1,7 +1,7 @@
 package io.silverspoon.bulldog.devices.pwmdriver;
 
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.core.gpio.base.AbstractPwm;
+import io.silverspoon.bulldog.core.pin.Pin;
+import io.silverspoon.bulldog.core.pwm.AbstractPwm;
 
 public class PCA9685Pwm extends AbstractPwm {
 

@@ -1,8 +1,8 @@
 package io.silverspoon.bulldog.linux.gpio;
 
 import io.silverspoon.bulldog.core.Signal;
-import io.silverspoon.bulldog.core.gpio.Pin;
 import io.silverspoon.bulldog.core.gpio.base.AbstractDigitalOutput;
+import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.linux.sysfs.SysFsPin;
 
 public class LinuxDigitalOutput extends AbstractDigitalOutput {

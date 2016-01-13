@@ -1,11 +1,11 @@
 package io.silverspoon.bulldog.core.io.bus.spi;
 
+import io.silverspoon.bulldog.core.gpio.DigitalOutput;
+import io.silverspoon.bulldog.core.io.bus.BusConnection;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import io.silverspoon.bulldog.core.gpio.DigitalOutput;
-import io.silverspoon.bulldog.core.io.bus.BusConnection;
 
 public class SpiConnection extends BusConnection {
 

@@ -1,7 +1,7 @@
-package io.silverspoon.bulldog.core.gpio.base;
+package io.silverspoon.bulldog.core.pwm;
 
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.core.gpio.Pwm;
+import io.silverspoon.bulldog.core.pin.AbstractPinFeature;
+import io.silverspoon.bulldog.core.pin.Pin;
 
 public abstract class AbstractPwm extends AbstractPinFeature implements Pwm {
 

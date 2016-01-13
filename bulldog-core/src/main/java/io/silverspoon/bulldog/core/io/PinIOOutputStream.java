@@ -1,11 +1,11 @@
 package io.silverspoon.bulldog.core.io;
 
-import java.io.IOException;
-import java.io.OutputStream;
-
 import io.silverspoon.bulldog.core.Signal;
 import io.silverspoon.bulldog.core.gpio.DigitalOutput;
 import io.silverspoon.bulldog.core.util.BitMagic;
+
+import java.io.IOException;
+import java.io.OutputStream;
 
 public class PinIOOutputStream extends OutputStream {
 

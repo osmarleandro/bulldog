@@ -1,7 +1,4 @@
-package io.silverspoon.bulldog.core.gpio.base;
-
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.core.gpio.PinFeature;
+package io.silverspoon.bulldog.core.pin;
 
 public abstract class AbstractPinFeature implements PinFeature {
 

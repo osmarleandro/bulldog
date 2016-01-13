@@ -1,15 +1,12 @@
 package io.silverspoon.bulldog.core.gpio.util;
 
-import junit.framework.TestCase;
-
-import io.silverspoon.bulldog.core.mocks.MockedDigitalOutput;
-
 import io.silverspoon.bulldog.core.Signal;
 import io.silverspoon.bulldog.core.gpio.DigitalOutput;
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.core.gpio.util.SoftPwm;
+import io.silverspoon.bulldog.core.mocks.MockedDigitalOutput;
+import io.silverspoon.bulldog.core.pin.Pin;
+import io.silverspoon.bulldog.core.pwm.SoftPwm;
 import io.silverspoon.bulldog.core.util.BulldogUtil;
-
+import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;

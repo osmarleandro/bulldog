@@ -1,21 +1,21 @@
 package io.silverspoon.bulldog.linux.io;
 
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import io.silverspoon.bulldog.core.gpio.DigitalOutput;
-import io.silverspoon.bulldog.core.gpio.Pin;
 import io.silverspoon.bulldog.core.io.bus.BusConnection;
 import io.silverspoon.bulldog.core.io.bus.spi.SpiBus;
 import io.silverspoon.bulldog.core.io.bus.spi.SpiConnection;
 import io.silverspoon.bulldog.core.io.bus.spi.SpiMessage;
 import io.silverspoon.bulldog.core.io.bus.spi.SpiMode;
+import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.core.platform.Board;
 import io.silverspoon.bulldog.core.util.BulldogUtil;
 import io.silverspoon.bulldog.linux.jni.NativeSpi;
+
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class LinuxSpiBus extends AbstractLinuxBus implements SpiBus {
 

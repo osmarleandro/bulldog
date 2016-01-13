@@ -1,9 +1,9 @@
 package io.silverspoon.bulldog.raspberrypi.io;
 
-import io.silverspoon.bulldog.core.gpio.Pin;
 import io.silverspoon.bulldog.core.io.bus.i2c.AbstractI2cPinFeature;
 import io.silverspoon.bulldog.core.io.bus.i2c.I2cBus;
 import io.silverspoon.bulldog.core.io.bus.i2c.I2cSignalType;
+import io.silverspoon.bulldog.core.pin.Pin;
 
 public class RaspberryPiI2cPinFeature extends AbstractI2cPinFeature {
 

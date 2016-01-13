@@ -1,10 +1,7 @@
 package io.silverspoon.bulldog.core.util;
 
 import junit.framework.TestCase;
-
 import org.junit.Test;
-
-import io.silverspoon.bulldog.core.util.BitMagic;
 
 public class TestBitMagic {
 

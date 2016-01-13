@@ -1,6 +1,6 @@
 package io.silverspoon.bulldog.beagleboneblack;
 
-import io.silverspoon.bulldog.core.gpio.Pin;
+import io.silverspoon.bulldog.core.pin.Pin;
 
 public class BeagleBonePin extends Pin {
 

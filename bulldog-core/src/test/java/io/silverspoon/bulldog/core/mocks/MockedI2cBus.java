@@ -1,10 +1,10 @@
 package io.silverspoon.bulldog.core.mocks;
 
-import java.io.IOException;
-
-import io.silverspoon.bulldog.core.gpio.Pin;
 import io.silverspoon.bulldog.core.io.bus.i2c.I2cBus;
 import io.silverspoon.bulldog.core.io.bus.i2c.I2cConnection;
+import io.silverspoon.bulldog.core.pin.Pin;
+
+import java.io.IOException;
 
 public class MockedI2cBus extends MockedBus implements I2cBus {
 

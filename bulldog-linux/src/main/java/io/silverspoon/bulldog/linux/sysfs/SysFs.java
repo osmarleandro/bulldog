@@ -1,11 +1,11 @@
 package io.silverspoon.bulldog.linux.sysfs;
 
+import io.silverspoon.bulldog.core.util.BulldogUtil;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileWriter;
-
-import io.silverspoon.bulldog.core.util.BulldogUtil;
 
 @Deprecated
 public class SysFs {

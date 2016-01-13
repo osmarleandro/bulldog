@@ -1,8 +1,8 @@
 package io.silverspoon.bulldog.core.mocks;
 
 import io.silverspoon.bulldog.core.Signal;
-import io.silverspoon.bulldog.core.gpio.Pin;
 import io.silverspoon.bulldog.core.gpio.base.AbstractDigitalOutput;
+import io.silverspoon.bulldog.core.pin.Pin;
 
 public class MockedDigitalOutput extends AbstractDigitalOutput {
 

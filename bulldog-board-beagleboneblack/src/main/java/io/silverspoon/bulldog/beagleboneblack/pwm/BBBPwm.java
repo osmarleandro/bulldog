@@ -1,16 +1,16 @@
-package io.silverspoon.bulldog.beagleboneblack.gpio;
+package io.silverspoon.bulldog.beagleboneblack.pwm;
+
+import io.silverspoon.bulldog.beagleboneblack.devicetree.DeviceTreeCompiler;
+import io.silverspoon.bulldog.beagleboneblack.sysfs.BBBSysFs;
+import io.silverspoon.bulldog.beagleboneblack.sysfs.SysFsPwm;
+import io.silverspoon.bulldog.core.pin.Pin;
+import io.silverspoon.bulldog.core.pwm.AbstractPwm;
+import io.silverspoon.bulldog.core.util.BulldogUtil;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-
-import io.silverspoon.bulldog.beagleboneblack.devicetree.DeviceTreeCompiler;
-import io.silverspoon.bulldog.beagleboneblack.sysfs.BBBSysFs;
-import io.silverspoon.bulldog.beagleboneblack.sysfs.SysFsPwm;
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.core.gpio.base.AbstractPwm;
-import io.silverspoon.bulldog.core.util.BulldogUtil;
 
 public class BBBPwm extends AbstractPwm {
 

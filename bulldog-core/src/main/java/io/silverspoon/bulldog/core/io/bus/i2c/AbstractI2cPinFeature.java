@@ -1,7 +1,7 @@
 package io.silverspoon.bulldog.core.io.bus.i2c;
 
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.core.gpio.base.AbstractPinFeature;
+import io.silverspoon.bulldog.core.pin.AbstractPinFeature;
+import io.silverspoon.bulldog.core.pin.Pin;
 
 public abstract class AbstractI2cPinFeature extends AbstractPinFeature implements I2cSda, I2cScl {
 

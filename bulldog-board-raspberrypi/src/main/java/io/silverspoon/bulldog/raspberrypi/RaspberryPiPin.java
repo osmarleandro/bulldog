@@ -1,6 +1,6 @@
 package io.silverspoon.bulldog.raspberrypi;
 
-import io.silverspoon.bulldog.core.gpio.Pin;
+import io.silverspoon.bulldog.core.pin.Pin;
 
 public class RaspberryPiPin extends Pin {
 

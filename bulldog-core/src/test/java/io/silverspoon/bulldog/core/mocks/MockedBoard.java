@@ -1,6 +1,6 @@
 package io.silverspoon.bulldog.core.mocks;
 
-import io.silverspoon.bulldog.core.gpio.Pin;
+import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.core.platform.AbstractBoard;
 
 public class MockedBoard extends AbstractBoard {

@@ -1,12 +1,12 @@
 package io.silverspoon.bulldog.core.platform;
 
-import java.util.List;
-import java.util.Properties;
-
 import io.silverspoon.bulldog.core.io.IOPort;
 import io.silverspoon.bulldog.core.io.bus.i2c.I2cBus;
 import io.silverspoon.bulldog.core.io.bus.spi.SpiBus;
 import io.silverspoon.bulldog.core.io.serial.SerialPort;
+
+import java.util.List;
+import java.util.Properties;
 
 public interface Board extends PinProvider {
 

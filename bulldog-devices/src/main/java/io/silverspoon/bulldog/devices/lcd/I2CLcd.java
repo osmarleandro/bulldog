@@ -1,10 +1,10 @@
 package io.silverspoon.bulldog.devices.lcd;
 
-import java.io.IOException;
-
 import io.silverspoon.bulldog.core.io.bus.i2c.I2cBus;
 import io.silverspoon.bulldog.core.io.bus.i2c.I2cConnection;
 import io.silverspoon.bulldog.core.util.BulldogUtil;
+
+import java.io.IOException;
 
 /**
  * This class represents a HD44780 compatible lcd which is driven

@@ -1,17 +1,17 @@
 package io.silverspoon.bulldog.devices.portexpander;
 
-import java.io.IOException;
-
 import io.silverspoon.bulldog.core.Signal;
+import io.silverspoon.bulldog.core.event.InterruptEventArgs;
+import io.silverspoon.bulldog.core.event.InterruptListener;
 import io.silverspoon.bulldog.core.gpio.DigitalInput;
-import io.silverspoon.bulldog.core.gpio.Pin;
 import io.silverspoon.bulldog.core.gpio.base.DigitalIOFeature;
-import io.silverspoon.bulldog.core.gpio.event.InterruptEventArgs;
-import io.silverspoon.bulldog.core.gpio.event.InterruptListener;
 import io.silverspoon.bulldog.core.io.bus.i2c.I2cBus;
 import io.silverspoon.bulldog.core.io.bus.i2c.I2cConnection;
+import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.core.platform.AbstractPinProvider;
 import io.silverspoon.bulldog.core.util.BitMagic;
+
+import java.io.IOException;
 
 /**
  * This class represents the popular PCF8574(A) I2C Port Expander family.

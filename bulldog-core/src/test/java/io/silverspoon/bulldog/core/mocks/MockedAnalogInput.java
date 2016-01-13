@@ -1,9 +1,9 @@
 package io.silverspoon.bulldog.core.mocks;
 
-import java.util.concurrent.Future;
+import io.silverspoon.bulldog.core.pin.Pin;
+import io.silverspoon.bulldog.core.pwm.AbstractAnalogInput;
 
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.core.gpio.base.AbstractAnalogInput;
+import java.util.concurrent.Future;
 
 public class MockedAnalogInput extends AbstractAnalogInput {
 

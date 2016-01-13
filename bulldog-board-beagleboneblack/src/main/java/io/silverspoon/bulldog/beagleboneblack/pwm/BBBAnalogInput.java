@@ -1,4 +1,8 @@
-package io.silverspoon.bulldog.beagleboneblack.gpio;
+package io.silverspoon.bulldog.beagleboneblack.pwm;
+
+import io.silverspoon.bulldog.beagleboneblack.jni.NativeAdc;
+import io.silverspoon.bulldog.core.pin.Pin;
+import io.silverspoon.bulldog.core.pwm.AbstractAnalogInput;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -7,10 +11,6 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-
-import io.silverspoon.bulldog.beagleboneblack.jni.NativeAdc;
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.core.gpio.base.AbstractAnalogInput;
 
 public class BBBAnalogInput extends AbstractAnalogInput {
 

@@ -1,8 +1,8 @@
 package io.silverspoon.bulldog.cubieboard.gpio;
 
 import io.silverspoon.bulldog.core.Signal;
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.core.gpio.event.InterruptListener;
+import io.silverspoon.bulldog.core.event.InterruptListener;
+import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.cubieboard.CubieboardPin;
 import io.silverspoon.bulldog.linux.gpio.LinuxDigitalInput;
 import io.silverspoon.bulldog.linux.io.LinuxEpollListener;

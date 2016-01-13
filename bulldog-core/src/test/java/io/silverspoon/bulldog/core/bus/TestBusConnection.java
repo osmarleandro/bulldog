@@ -1,13 +1,11 @@
 package io.silverspoon.bulldog.core.bus;
 
-import java.io.IOException;
-
-import io.silverspoon.bulldog.core.mocks.MockedBus;
-
 import io.silverspoon.bulldog.core.io.bus.BusConnection;
+import io.silverspoon.bulldog.core.mocks.MockedBus;
 import junit.framework.TestCase;
-
 import org.junit.Test;
+
+import java.io.IOException;
 
 public class TestBusConnection {
 

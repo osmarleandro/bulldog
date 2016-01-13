@@ -1,9 +1,6 @@
 package io.silverspoon.bulldog.core;
 
 import junit.framework.TestCase;
-
-import io.silverspoon.bulldog.core.Signal;
-
 import org.junit.Test;
 
 

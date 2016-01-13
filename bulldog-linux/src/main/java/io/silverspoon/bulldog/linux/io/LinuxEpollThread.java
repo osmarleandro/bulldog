@@ -1,11 +1,11 @@
 package io.silverspoon.bulldog.linux.io;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import io.silverspoon.bulldog.core.util.BulldogUtil;
 import io.silverspoon.bulldog.linux.jni.NativeEpoll;
 import io.silverspoon.bulldog.linux.jni.NativePollResult;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LinuxEpollThread implements Runnable {
 

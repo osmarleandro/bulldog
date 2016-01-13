@@ -1,13 +1,13 @@
 package io.silverspoon.bulldog.linux.io;
 
-import java.io.IOException;
-
-import io.silverspoon.bulldog.core.gpio.Pin;
 import io.silverspoon.bulldog.core.io.bus.BusConnection;
 import io.silverspoon.bulldog.core.io.bus.i2c.I2cBus;
 import io.silverspoon.bulldog.core.io.bus.i2c.I2cConnection;
+import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.core.util.BulldogUtil;
 import io.silverspoon.bulldog.linux.jni.NativeI2c;
+
+import java.io.IOException;
 
 public class LinuxI2cBus extends AbstractLinuxBus implements I2cBus {
 

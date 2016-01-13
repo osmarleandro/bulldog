@@ -1,11 +1,8 @@
 package io.silverspoon.bulldog.core.platform;
 
-import junit.framework.TestCase;
-
 import io.silverspoon.bulldog.core.mocks.MockedBoard;
-
-import io.silverspoon.bulldog.core.gpio.Pin;
-
+import io.silverspoon.bulldog.core.pin.Pin;
+import junit.framework.TestCase;
 import org.junit.Test;
 
 public class TestAbstractPinProvider {

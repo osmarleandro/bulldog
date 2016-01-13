@@ -1,7 +1,7 @@
 package io.silverspoon.bulldog.devices.led;
 
-import io.silverspoon.bulldog.core.gpio.Pwm;
-import io.silverspoon.bulldog.core.gpio.util.PwmController;
+import io.silverspoon.bulldog.core.pwm.Pwm;
+import io.silverspoon.bulldog.core.pwm.PwmController;
 import io.silverspoon.bulldog.core.util.easing.Easing;
 import io.silverspoon.bulldog.core.util.easing.EasingOptions;
 import io.silverspoon.bulldog.core.util.easing.SineEasing;

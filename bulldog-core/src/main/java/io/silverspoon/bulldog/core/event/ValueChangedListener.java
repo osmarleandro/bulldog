@@ -1,4 +1,4 @@
-package io.silverspoon.bulldog.core.gpio.event;
+package io.silverspoon.bulldog.core.event;
 
 public interface ValueChangedListener<T> {
 

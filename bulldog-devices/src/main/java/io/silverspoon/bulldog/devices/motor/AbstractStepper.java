@@ -1,11 +1,11 @@
 package io.silverspoon.bulldog.devices.motor;
 
+import io.silverspoon.bulldog.devices.actuators.Actuator;
+import io.silverspoon.bulldog.devices.actuators.movement.Move;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-
-import io.silverspoon.bulldog.devices.actuators.Actuator;
-import io.silverspoon.bulldog.devices.actuators.movement.Move;
 
 public abstract class AbstractStepper implements Actuator {
 

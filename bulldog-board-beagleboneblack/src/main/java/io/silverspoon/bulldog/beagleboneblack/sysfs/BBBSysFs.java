@@ -1,13 +1,13 @@
 package io.silverspoon.bulldog.beagleboneblack.sysfs;
 
+import io.silverspoon.bulldog.core.util.BulldogUtil;
+import io.silverspoon.bulldog.linux.sysfs.SysFs;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
-
-import io.silverspoon.bulldog.core.util.BulldogUtil;
-import io.silverspoon.bulldog.linux.sysfs.SysFs;
 
 public class BBBSysFs extends SysFs {
 

@@ -1,12 +1,9 @@
 package io.silverspoon.bulldog.core.platform;
 
-import junit.framework.TestCase;
-
-import io.silverspoon.bulldog.core.mocks.MockedBoard;
-
 import io.silverspoon.bulldog.core.io.IOPort;
 import io.silverspoon.bulldog.core.io.bus.i2c.I2cBus;
-
+import io.silverspoon.bulldog.core.mocks.MockedBoard;
+import junit.framework.TestCase;
 import org.junit.Test;
 
 public class TestAbstractBoard {

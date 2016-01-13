@@ -1,16 +1,5 @@
 package io.silverspoon.bulldog.linux.io;
 
-import java.io.FileDescriptor;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import io.silverspoon.bulldog.core.Parity;
 import io.silverspoon.bulldog.core.io.serial.SerialDataEventArgs;
 import io.silverspoon.bulldog.core.io.serial.SerialDataListener;
@@ -19,6 +8,12 @@ import io.silverspoon.bulldog.core.util.BulldogUtil;
 import io.silverspoon.bulldog.linux.jni.NativePollResult;
 import io.silverspoon.bulldog.linux.jni.NativeSerial;
 import io.silverspoon.bulldog.linux.jni.NativeTools;
+
+import java.io.*;
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class LinuxSerialPort implements SerialPort, LinuxEpollListener {
 

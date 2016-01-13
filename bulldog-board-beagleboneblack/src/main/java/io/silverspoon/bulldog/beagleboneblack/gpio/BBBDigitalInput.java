@@ -3,7 +3,7 @@ package io.silverspoon.bulldog.beagleboneblack.gpio;
 import io.silverspoon.bulldog.beagleboneblack.BeagleBonePin;
 import io.silverspoon.bulldog.beagleboneblack.jni.NativeGpio;
 import io.silverspoon.bulldog.core.Signal;
-import io.silverspoon.bulldog.core.gpio.Pin;
+import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.linux.gpio.LinuxDigitalInput;
 
 public class BBBDigitalInput extends LinuxDigitalInput {

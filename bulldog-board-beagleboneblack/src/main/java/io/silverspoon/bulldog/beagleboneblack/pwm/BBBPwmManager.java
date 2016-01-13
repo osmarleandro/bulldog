@@ -1,4 +1,4 @@
-package io.silverspoon.bulldog.beagleboneblack.gpio;
+package io.silverspoon.bulldog.beagleboneblack.pwm;
 
 import java.util.ArrayList;
 import java.util.HashSet;

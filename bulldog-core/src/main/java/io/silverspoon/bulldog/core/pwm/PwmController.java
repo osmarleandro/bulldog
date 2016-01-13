@@ -1,6 +1,5 @@
-package io.silverspoon.bulldog.core.gpio.util;
+package io.silverspoon.bulldog.core.pwm;
 
-import io.silverspoon.bulldog.core.gpio.Pwm;
 import io.silverspoon.bulldog.core.util.easing.Easing;
 import io.silverspoon.bulldog.core.util.easing.EasingOptions;
 

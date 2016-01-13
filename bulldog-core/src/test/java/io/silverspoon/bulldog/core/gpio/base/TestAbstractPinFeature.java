@@ -1,13 +1,10 @@
 package io.silverspoon.bulldog.core.gpio.base;
 
-import junit.framework.TestCase;
-
+import io.silverspoon.bulldog.core.gpio.DigitalOutput;
 import io.silverspoon.bulldog.core.mocks.MockedDigitalOutput;
 import io.silverspoon.bulldog.core.mocks.MockedPinFeature1;
-
-import io.silverspoon.bulldog.core.gpio.DigitalOutput;
-import io.silverspoon.bulldog.core.gpio.Pin;
-
+import io.silverspoon.bulldog.core.pin.Pin;
+import junit.framework.TestCase;
 import org.junit.Test;
 
 public class TestAbstractPinFeature {

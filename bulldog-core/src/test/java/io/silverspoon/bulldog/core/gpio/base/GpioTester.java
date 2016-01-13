@@ -1,18 +1,17 @@
 package io.silverspoon.bulldog.core.gpio.base;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import io.silverspoon.bulldog.core.mocks.MockedDigitalInput;
-
 import io.silverspoon.bulldog.core.Edge;
 import io.silverspoon.bulldog.core.Signal;
+import io.silverspoon.bulldog.core.event.InterruptEventArgs;
+import io.silverspoon.bulldog.core.event.InterruptListener;
 import io.silverspoon.bulldog.core.gpio.DigitalInput;
 import io.silverspoon.bulldog.core.gpio.DigitalOutput;
-import io.silverspoon.bulldog.core.gpio.event.InterruptEventArgs;
-import io.silverspoon.bulldog.core.gpio.event.InterruptListener;
+import io.silverspoon.bulldog.core.mocks.MockedDigitalInput;
 import io.silverspoon.bulldog.core.util.BulldogUtil;
 import junit.framework.TestCase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public final class GpioTester {
 

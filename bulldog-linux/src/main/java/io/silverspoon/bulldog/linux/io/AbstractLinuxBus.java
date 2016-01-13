@@ -1,12 +1,12 @@
 package io.silverspoon.bulldog.linux.io;
 
+import io.silverspoon.bulldog.core.io.bus.Bus;
+import io.silverspoon.bulldog.linux.jni.NativeTools;
+
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
-import io.silverspoon.bulldog.core.io.bus.Bus;
-import io.silverspoon.bulldog.linux.jni.NativeTools;
 
 public abstract class AbstractLinuxBus implements Bus {
 

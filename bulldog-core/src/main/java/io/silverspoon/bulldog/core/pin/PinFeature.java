@@ -1,4 +1,5 @@
-package io.silverspoon.bulldog.core.gpio;
+package io.silverspoon.bulldog.core.pin;
+
 
 public interface PinFeature {
 

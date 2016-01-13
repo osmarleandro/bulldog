@@ -1,10 +1,10 @@
 package io.silverspoon.bulldog.core.mocks;
 
+import io.silverspoon.bulldog.core.io.IOPort;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-
-import io.silverspoon.bulldog.core.io.IOPort;
 
 public class MockedIOPort implements IOPort {
 	

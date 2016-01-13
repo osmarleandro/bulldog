@@ -1,7 +1,7 @@
 package io.silverspoon.bulldog.core.io.uart;
 
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.core.gpio.base.AbstractPinFeature;
+import io.silverspoon.bulldog.core.pin.AbstractPinFeature;
+import io.silverspoon.bulldog.core.pin.Pin;
 
 public abstract class AbstractUartPinFeature extends AbstractPinFeature implements UartRx, UartTx {
 

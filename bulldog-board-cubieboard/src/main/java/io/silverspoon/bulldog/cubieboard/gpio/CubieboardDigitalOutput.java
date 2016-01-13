@@ -1,7 +1,7 @@
 package io.silverspoon.bulldog.cubieboard.gpio;
 
 import io.silverspoon.bulldog.core.Signal;
-import io.silverspoon.bulldog.core.gpio.Pin;
+import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.cubieboard.CubieboardPin;
 import io.silverspoon.bulldog.linux.gpio.LinuxDigitalOutput;
 import io.silverspoon.bulldog.linux.sysfs.SysFsPin;

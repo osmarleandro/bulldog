@@ -1,13 +1,6 @@
 package io.silverspoon.bulldog.devices.servo;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-
-import io.silverspoon.bulldog.core.gpio.Pwm;
+import io.silverspoon.bulldog.core.pwm.Pwm;
 import io.silverspoon.bulldog.core.util.DaemonThreadFactory;
 import io.silverspoon.bulldog.core.util.easing.SineEasing;
 import io.silverspoon.bulldog.devices.actuators.Actuator;
@@ -15,6 +8,13 @@ import io.silverspoon.bulldog.devices.actuators.movement.DirectMove;
 import io.silverspoon.bulldog.devices.actuators.movement.EasedMove;
 import io.silverspoon.bulldog.devices.actuators.movement.LinearMove;
 import io.silverspoon.bulldog.devices.actuators.movement.Move;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class Servo implements Actuator {
 

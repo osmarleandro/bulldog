@@ -1,7 +1,7 @@
 package io.silverspoon.bulldog.raspberrypi;
 
-import io.silverspoon.bulldog.core.gpio.Pin;
 import io.silverspoon.bulldog.core.gpio.base.DigitalIOFeature;
+import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.core.platform.AbstractBoard;
 import io.silverspoon.bulldog.linux.io.LinuxSpiBus;
 import io.silverspoon.bulldog.linux.sysinfo.CpuInfo;
@@ -9,8 +9,8 @@ import io.silverspoon.bulldog.raspberrypi.bcm.AbstractBCM;
 import io.silverspoon.bulldog.raspberrypi.bcm.BCMFactory;
 import io.silverspoon.bulldog.raspberrypi.gpio.RaspiDigitalInput;
 import io.silverspoon.bulldog.raspberrypi.gpio.RaspiDigitalOutput;
-import io.silverspoon.bulldog.raspberrypi.gpio.RaspiPwm;
 import io.silverspoon.bulldog.raspberrypi.io.RaspberryPiI2cBus;
+import io.silverspoon.bulldog.raspberrypi.pwm.RaspiPwm;
 
 public class RaspberryPi extends AbstractBoard {
 
