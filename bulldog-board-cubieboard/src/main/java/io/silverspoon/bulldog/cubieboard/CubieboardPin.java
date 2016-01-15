@@ -1,6 +1,6 @@
 package io.silverspoon.bulldog.cubieboard;
 
-import io.silverspoon.bulldog.core.gpio.Pin;
+import io.silverspoon.bulldog.core.pin.Pin;
 
 public class CubieboardPin extends Pin {
 

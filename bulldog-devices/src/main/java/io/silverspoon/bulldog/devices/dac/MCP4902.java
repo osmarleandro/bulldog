@@ -1,12 +1,12 @@
 package io.silverspoon.bulldog.devices.dac;
 
-import java.io.IOException;
-
 import io.silverspoon.bulldog.core.gpio.DigitalOutput;
 import io.silverspoon.bulldog.core.io.bus.spi.SpiBus;
 import io.silverspoon.bulldog.core.io.bus.spi.SpiConnection;
 import io.silverspoon.bulldog.core.io.bus.spi.SpiDevice;
 import io.silverspoon.bulldog.core.util.BitMagic;
+
+import java.io.IOException;
 
 public class MCP4902 extends SpiDevice {
 

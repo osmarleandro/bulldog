@@ -2,10 +2,10 @@ package io.silverspoon.bulldog.linux.gpio;
 
 import io.silverspoon.bulldog.core.Edge;
 import io.silverspoon.bulldog.core.Signal;
-import io.silverspoon.bulldog.core.gpio.Pin;
+import io.silverspoon.bulldog.core.event.InterruptEventArgs;
+import io.silverspoon.bulldog.core.event.InterruptListener;
 import io.silverspoon.bulldog.core.gpio.base.AbstractDigitalInput;
-import io.silverspoon.bulldog.core.gpio.event.InterruptEventArgs;
-import io.silverspoon.bulldog.core.gpio.event.InterruptListener;
+import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.linux.io.LinuxEpollListener;
 import io.silverspoon.bulldog.linux.io.LinuxEpollThread;
 import io.silverspoon.bulldog.linux.jni.NativePollResult;

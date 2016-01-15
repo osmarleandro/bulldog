@@ -1,13 +1,13 @@
 package io.silverspoon.bulldog.devices.lcd;
 
-import java.io.IOException;
-
 import io.silverspoon.bulldog.core.Signal;
 import io.silverspoon.bulldog.core.gpio.DigitalIO;
 import io.silverspoon.bulldog.core.gpio.DigitalOutput;
 import io.silverspoon.bulldog.core.io.PinIOGroup;
 import io.silverspoon.bulldog.core.util.BitMagic;
 import io.silverspoon.bulldog.core.util.BulldogUtil;
+
+import java.io.IOException;
 
 public class HD44780Compatible implements Lcd {
 

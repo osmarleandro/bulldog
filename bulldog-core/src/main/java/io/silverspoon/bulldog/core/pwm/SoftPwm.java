@@ -1,16 +1,15 @@
-package io.silverspoon.bulldog.core.gpio.util;
+package io.silverspoon.bulldog.core.pwm;
+
+import io.silverspoon.bulldog.core.Signal;
+import io.silverspoon.bulldog.core.gpio.DigitalOutput;
+import io.silverspoon.bulldog.core.pin.Pin;
+import io.silverspoon.bulldog.core.util.BulldogUtil;
+import io.silverspoon.bulldog.core.util.DaemonThreadFactory;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-
-import io.silverspoon.bulldog.core.Signal;
-import io.silverspoon.bulldog.core.gpio.DigitalOutput;
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.core.gpio.base.AbstractPwm;
-import io.silverspoon.bulldog.core.util.BulldogUtil;
-import io.silverspoon.bulldog.core.util.DaemonThreadFactory;
 
 public class SoftPwm extends AbstractPwm implements Runnable {
 

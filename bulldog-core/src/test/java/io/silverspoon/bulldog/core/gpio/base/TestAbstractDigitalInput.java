@@ -1,12 +1,9 @@
 package io.silverspoon.bulldog.core.gpio.base;
 
-import junit.framework.TestCase;
-
-import io.silverspoon.bulldog.core.mocks.MockedDigitalInput;
-
 import io.silverspoon.bulldog.core.gpio.DigitalInput;
-import io.silverspoon.bulldog.core.gpio.Pin;
-
+import io.silverspoon.bulldog.core.mocks.MockedDigitalInput;
+import io.silverspoon.bulldog.core.pin.Pin;
+import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 

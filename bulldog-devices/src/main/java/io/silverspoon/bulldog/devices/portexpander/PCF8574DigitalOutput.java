@@ -1,8 +1,8 @@
 package io.silverspoon.bulldog.devices.portexpander;
 
 import io.silverspoon.bulldog.core.Signal;
-import io.silverspoon.bulldog.core.gpio.Pin;
 import io.silverspoon.bulldog.core.gpio.base.AbstractDigitalOutput;
+import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.core.util.BitMagic;
 
 public class PCF8574DigitalOutput extends AbstractDigitalOutput {

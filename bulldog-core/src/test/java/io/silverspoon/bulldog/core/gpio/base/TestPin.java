@@ -1,21 +1,19 @@
 package io.silverspoon.bulldog.core.gpio.base;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import io.silverspoon.bulldog.core.event.FeatureActivationEventArgs;
+import io.silverspoon.bulldog.core.event.FeatureActivationListener;
 import io.silverspoon.bulldog.core.mocks.MockedPinFeature1;
 import io.silverspoon.bulldog.core.mocks.MockedPinFeature2;
 import io.silverspoon.bulldog.core.mocks.MockedPinFeature3;
-
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.core.gpio.PinBlockedException;
-import io.silverspoon.bulldog.core.gpio.PinFeature;
-import io.silverspoon.bulldog.core.gpio.event.FeatureActivationEventArgs;
-import io.silverspoon.bulldog.core.gpio.event.FeatureActivationListener;
+import io.silverspoon.bulldog.core.pin.Pin;
+import io.silverspoon.bulldog.core.pin.PinBlockedException;
+import io.silverspoon.bulldog.core.pin.PinFeature;
 import junit.framework.TestCase;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestPin {
 	

@@ -1,11 +1,11 @@
 package io.silverspoon.bulldog.core.io;
 
-import java.io.IOException;
-import java.io.InputStream;
-
 import io.silverspoon.bulldog.core.Signal;
 import io.silverspoon.bulldog.core.gpio.DigitalInput;
 import io.silverspoon.bulldog.core.util.BitMagic;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public class PinIOInputStream extends InputStream {
 

@@ -1,8 +1,8 @@
 package io.silverspoon.bulldog.core.platform;
 
-import java.util.List;
+import io.silverspoon.bulldog.core.pin.Pin;
 
-import io.silverspoon.bulldog.core.gpio.Pin;
+import java.util.List;
 
 public interface PinProvider {
 

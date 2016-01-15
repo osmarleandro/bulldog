@@ -1,14 +1,14 @@
 package io.silverspoon.bulldog.devices.switches;
 
+import io.silverspoon.bulldog.core.Edge;
+import io.silverspoon.bulldog.core.Signal;
+import io.silverspoon.bulldog.core.event.InterruptEventArgs;
+import io.silverspoon.bulldog.core.event.InterruptListener;
+import io.silverspoon.bulldog.core.gpio.DigitalInput;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import io.silverspoon.bulldog.core.Edge;
-import io.silverspoon.bulldog.core.Signal;
-import io.silverspoon.bulldog.core.gpio.DigitalInput;
-import io.silverspoon.bulldog.core.gpio.event.InterruptEventArgs;
-import io.silverspoon.bulldog.core.gpio.event.InterruptListener;
 
 public class Button implements InterruptListener {
 

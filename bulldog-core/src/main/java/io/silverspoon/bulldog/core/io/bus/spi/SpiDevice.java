@@ -1,8 +1,8 @@
 package io.silverspoon.bulldog.core.io.bus.spi;
 
-import java.io.IOException;
-
 import io.silverspoon.bulldog.core.io.bus.BusDevice;
+
+import java.io.IOException;
 
 public class SpiDevice extends BusDevice {
 

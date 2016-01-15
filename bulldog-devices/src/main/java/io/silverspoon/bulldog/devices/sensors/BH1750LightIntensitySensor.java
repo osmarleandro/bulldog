@@ -1,12 +1,12 @@
 package io.silverspoon.bulldog.devices.sensors;
 
-import java.io.IOException;
-
 import io.silverspoon.bulldog.core.io.bus.i2c.I2cBus;
 import io.silverspoon.bulldog.core.io.bus.i2c.I2cConnection;
 import io.silverspoon.bulldog.core.io.bus.i2c.I2cDevice;
 import io.silverspoon.bulldog.core.util.BitMagic;
 import io.silverspoon.bulldog.core.util.BulldogUtil;
+
+import java.io.IOException;
 
 public class BH1750LightIntensitySensor extends I2cDevice {
 

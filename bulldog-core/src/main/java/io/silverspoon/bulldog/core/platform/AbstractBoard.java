@@ -1,14 +1,14 @@
 package io.silverspoon.bulldog.core.platform;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
-
-import io.silverspoon.bulldog.core.gpio.Pin;
 import io.silverspoon.bulldog.core.io.IOPort;
 import io.silverspoon.bulldog.core.io.bus.i2c.I2cBus;
 import io.silverspoon.bulldog.core.io.bus.spi.SpiBus;
 import io.silverspoon.bulldog.core.io.serial.SerialPort;
+import io.silverspoon.bulldog.core.pin.Pin;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
 
 public abstract class AbstractBoard extends AbstractPinProvider implements Board {
 

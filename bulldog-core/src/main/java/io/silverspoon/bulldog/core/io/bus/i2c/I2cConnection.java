@@ -1,8 +1,8 @@
 package io.silverspoon.bulldog.core.io.bus.i2c;
 
-import java.io.IOException;
-
 import io.silverspoon.bulldog.core.io.bus.BusConnection;
+
+import java.io.IOException;
 
 public class I2cConnection extends BusConnection {
 

@@ -1,7 +1,7 @@
-package io.silverspoon.bulldog.core.gpio.event;
+package io.silverspoon.bulldog.core.event;
 
 import io.silverspoon.bulldog.core.Edge;
-import io.silverspoon.bulldog.core.gpio.Pin;
+import io.silverspoon.bulldog.core.pin.Pin;
 
 public class InterruptEventArgs {
 

@@ -1,6 +1,6 @@
-package io.silverspoon.bulldog.core.gpio.event;
+package io.silverspoon.bulldog.core.event;
 
-import io.silverspoon.bulldog.core.gpio.PinFeature;
+import io.silverspoon.bulldog.core.pin.PinFeature;
 
 public class FeatureActivationEventArgs {
 

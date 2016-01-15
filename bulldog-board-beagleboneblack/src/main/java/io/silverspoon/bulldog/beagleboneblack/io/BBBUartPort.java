@@ -1,14 +1,14 @@
 package io.silverspoon.bulldog.beagleboneblack.io;
 
-import java.io.IOException;
-
 import io.silverspoon.bulldog.beagleboneblack.sysfs.BBBSysFs;
-import io.silverspoon.bulldog.core.gpio.Pin;
 import io.silverspoon.bulldog.core.io.uart.UartPort;
 import io.silverspoon.bulldog.core.io.uart.UartRx;
 import io.silverspoon.bulldog.core.io.uart.UartSignalType;
 import io.silverspoon.bulldog.core.io.uart.UartTx;
+import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.linux.io.LinuxSerialPort;
+
+import java.io.IOException;
 
 public class BBBUartPort extends LinuxSerialPort implements UartPort {
 

@@ -1,13 +1,13 @@
-package io.silverspoon.bulldog.core.gpio.base;
+package io.silverspoon.bulldog.core.pwm;
+
+import io.silverspoon.bulldog.core.event.ThresholdListener;
+import io.silverspoon.bulldog.core.pin.AbstractPinFeature;
+import io.silverspoon.bulldog.core.pin.Pin;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-
-import io.silverspoon.bulldog.core.gpio.AnalogInput;
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.core.gpio.event.ThresholdListener;
 
 public abstract class AbstractAnalogInput extends AbstractPinFeature implements AnalogInput {
 

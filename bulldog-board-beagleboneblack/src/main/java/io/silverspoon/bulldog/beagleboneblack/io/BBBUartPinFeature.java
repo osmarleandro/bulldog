@@ -1,9 +1,9 @@
 package io.silverspoon.bulldog.beagleboneblack.io;
 
-import io.silverspoon.bulldog.core.gpio.Pin;
 import io.silverspoon.bulldog.core.io.uart.AbstractUartPinFeature;
 import io.silverspoon.bulldog.core.io.uart.UartPort;
 import io.silverspoon.bulldog.core.io.uart.UartSignalType;
+import io.silverspoon.bulldog.core.pin.Pin;
 
 public class BBBUartPinFeature extends AbstractUartPinFeature {
 

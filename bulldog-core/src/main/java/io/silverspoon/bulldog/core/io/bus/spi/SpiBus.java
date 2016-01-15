@@ -1,11 +1,11 @@
 package io.silverspoon.bulldog.core.io.bus.spi;
 
+import io.silverspoon.bulldog.core.gpio.DigitalOutput;
+import io.silverspoon.bulldog.core.io.bus.Bus;
+import io.silverspoon.bulldog.core.pin.Pin;
+
 import java.io.IOException;
 import java.util.List;
-
-import io.silverspoon.bulldog.core.gpio.DigitalOutput;
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.core.io.bus.Bus;
 
 public interface SpiBus extends Bus {
 

@@ -1,11 +1,11 @@
 package io.silverspoon.bulldog.core.mocks;
 
+import io.silverspoon.bulldog.core.io.bus.Bus;
+import io.silverspoon.bulldog.core.io.bus.BusConnection;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
-import io.silverspoon.bulldog.core.io.bus.Bus;
-import io.silverspoon.bulldog.core.io.bus.BusConnection;
 
 public class MockedBus implements Bus {
 

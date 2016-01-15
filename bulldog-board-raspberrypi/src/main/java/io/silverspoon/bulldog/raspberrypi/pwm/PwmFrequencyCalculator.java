@@ -1,4 +1,4 @@
-package io.silverspoon.bulldog.raspberrypi.gpio;
+package io.silverspoon.bulldog.raspberrypi.pwm;
 
 public class PwmFrequencyCalculator {
 

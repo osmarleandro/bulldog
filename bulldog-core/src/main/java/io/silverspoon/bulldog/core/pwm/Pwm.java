@@ -1,4 +1,6 @@
-package io.silverspoon.bulldog.core.gpio;
+package io.silverspoon.bulldog.core.pwm;
+
+import io.silverspoon.bulldog.core.pin.PinFeature;
 
 public interface Pwm extends PinFeature {
 

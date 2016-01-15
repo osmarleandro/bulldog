@@ -1,12 +1,10 @@
 package io.silverspoon.bulldog.cubieboard.gpio;
 
 import io.silverspoon.bulldog.core.Signal;
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.cubieboard.CubieboardPin;
-import io.silverspoon.bulldog.linux.gpio.LinuxDigitalOutput;
-import io.silverspoon.bulldog.linux.sysfs.SysFsPin;
+import io.silverspoon.bulldog.core.gpio.base.AbstractDigitalOutput;
+import io.silverspoon.bulldog.core.pin.Pin;
 
-public class CubieboardDigitalOutput extends LinuxDigitalOutput {
+public class CubieboardDigitalOutput extends AbstractDigitalOutput {
 
    private final CubieboardGpioMemory gpioMemory;
    private final int pinIndex;
@@ -20,15 +18,18 @@ public class CubieboardDigitalOutput extends LinuxDigitalOutput {
       this.portIndex = portIndex;
    }
 
-   @Override
-   protected SysFsPin createSysFsPin(Pin pin) {
-      return new CubieboardSysFsPin(pin.getAddress(), ((CubieboardPin) pin).getFsName(), false);
+   @Override protected void setupImpl() {
+      gpioMemory.setPinDirection(portIndex, pinIndex, 1);
+      int res = gpioMemory.getPinValue(portIndex, pinIndex);
+      if (res != 0) {
+         setSignal(Signal.High);
+      } else {
+         setSignal(Signal.Low);
+      }
+
    }
 
-   @Override
-   public void setup() {
-      super.setup();
-      gpioMemory.setPinDirection(portIndex, pinIndex, 1);
+   @Override protected void teardownImpl() {
    }
 
    @Override

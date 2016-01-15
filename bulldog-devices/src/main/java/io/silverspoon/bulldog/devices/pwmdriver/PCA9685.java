@@ -1,16 +1,16 @@
 package io.silverspoon.bulldog.devices.pwmdriver;
 
+import io.silverspoon.bulldog.core.io.bus.i2c.I2cBus;
+import io.silverspoon.bulldog.core.io.bus.i2c.I2cConnection;
+import io.silverspoon.bulldog.core.io.bus.i2c.I2cDevice;
+import io.silverspoon.bulldog.core.pin.Pin;
+import io.silverspoon.bulldog.core.pwm.Pwm;
+import io.silverspoon.bulldog.core.util.BulldogUtil;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.core.gpio.Pwm;
-import io.silverspoon.bulldog.core.io.bus.i2c.I2cBus;
-import io.silverspoon.bulldog.core.io.bus.i2c.I2cConnection;
-import io.silverspoon.bulldog.core.io.bus.i2c.I2cDevice;
-import io.silverspoon.bulldog.core.util.BulldogUtil;
 
 public class PCA9685 extends I2cDevice {
 

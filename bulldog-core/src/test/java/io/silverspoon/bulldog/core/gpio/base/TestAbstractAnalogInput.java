@@ -1,13 +1,10 @@
 package io.silverspoon.bulldog.core.gpio.base;
 
-import junit.framework.TestCase;
-
+import io.silverspoon.bulldog.core.event.ThresholdListener;
 import io.silverspoon.bulldog.core.mocks.MockedAnalogInput;
-
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.core.gpio.event.ThresholdListener;
+import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.core.util.BulldogUtil;
-
+import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 

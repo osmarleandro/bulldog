@@ -1,9 +1,9 @@
 package io.silverspoon.bulldog.core.io.bus.i2c;
 
-import java.io.IOException;
-
-import io.silverspoon.bulldog.core.gpio.Pin;
 import io.silverspoon.bulldog.core.io.bus.Bus;
+import io.silverspoon.bulldog.core.pin.Pin;
+
+import java.io.IOException;
 
 public interface I2cBus extends Bus {
 

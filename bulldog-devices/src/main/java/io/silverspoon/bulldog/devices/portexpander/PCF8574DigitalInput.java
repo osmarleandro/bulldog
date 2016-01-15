@@ -2,9 +2,9 @@ package io.silverspoon.bulldog.devices.portexpander;
 
 import io.silverspoon.bulldog.core.Edge;
 import io.silverspoon.bulldog.core.Signal;
-import io.silverspoon.bulldog.core.gpio.Pin;
+import io.silverspoon.bulldog.core.event.InterruptEventArgs;
 import io.silverspoon.bulldog.core.gpio.base.AbstractDigitalInput;
-import io.silverspoon.bulldog.core.gpio.event.InterruptEventArgs;
+import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.core.util.BitMagic;
 
 public class PCF8574DigitalInput extends AbstractDigitalInput {

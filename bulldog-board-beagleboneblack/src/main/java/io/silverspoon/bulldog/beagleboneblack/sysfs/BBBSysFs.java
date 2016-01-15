@@ -1,31 +1,33 @@
 package io.silverspoon.bulldog.beagleboneblack.sysfs;
 
+import io.silverspoon.bulldog.core.util.BulldogUtil;
+import io.silverspoon.bulldog.linux.sysfs.SysFs;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.silverspoon.bulldog.core.util.BulldogUtil;
-import io.silverspoon.bulldog.linux.sysfs.SysFs;
-
 public class BBBSysFs extends SysFs {
 
    private static final int WAIT_TIMEOUT_MS = 5000;
 
    private static final String[] SYSFS_DEVICES_SEARCH_PATH = {
-           "/sys/devices/platform",
-           "/sys/devices"
+         "/sys/devices",
+         "/sys/devices/platform"
    };
 
-   private String SYSFS_DEVICES_PATH = findValidPath(SYSFS_DEVICES_SEARCH_PATH);
+   private static final String SEARCH_PATTERN = "bone_capemgr";
+
+   private String SYSFS_DEVICES_PATH = findValidPath(SYSFS_DEVICES_SEARCH_PATH, SEARCH_PATTERN);
 
    public BBBSysFs() {
 
    }
 
    public File getCapeManager() {
-      return getFilesInPath(SYSFS_DEVICES_PATH, "bone_capemgr")[0];
+      return getFilesInPath(SYSFS_DEVICES_PATH, SEARCH_PATTERN)[0];
    }
 
    public File getCapeManagerSlots() {

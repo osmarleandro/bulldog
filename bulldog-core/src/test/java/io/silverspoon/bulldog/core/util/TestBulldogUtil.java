@@ -1,17 +1,9 @@
 package io.silverspoon.bulldog.core.util;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-
-import io.silverspoon.bulldog.core.util.BulldogUtil;
-
 import junit.framework.TestCase;
-
 import org.junit.Test;
+
+import java.io.*;
 
 public class TestBulldogUtil {
 

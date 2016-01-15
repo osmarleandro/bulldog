@@ -1,7 +1,7 @@
 package io.silverspoon.bulldog.beagleboneblack.gpio;
 
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.core.gpio.base.AbstractPinFeature;
+import io.silverspoon.bulldog.core.pin.AbstractPinFeature;
+import io.silverspoon.bulldog.core.pin.Pin;
 
 public class BBBEmmc extends AbstractPinFeature {
 

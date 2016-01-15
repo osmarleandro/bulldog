@@ -1,9 +1,9 @@
 package io.silverspoon.bulldog.core.platform;
 
+import io.silverspoon.bulldog.core.pin.Pin;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import io.silverspoon.bulldog.core.gpio.Pin;
 
 public class AbstractPinProvider implements PinProvider {
 

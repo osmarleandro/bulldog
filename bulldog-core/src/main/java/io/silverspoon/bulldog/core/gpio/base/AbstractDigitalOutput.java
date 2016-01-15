@@ -2,8 +2,9 @@ package io.silverspoon.bulldog.core.gpio.base;
 
 import io.silverspoon.bulldog.core.Signal;
 import io.silverspoon.bulldog.core.gpio.DigitalOutput;
-import io.silverspoon.bulldog.core.gpio.Pin;
 import io.silverspoon.bulldog.core.gpio.util.Blinker;
+import io.silverspoon.bulldog.core.pin.AbstractPinFeature;
+import io.silverspoon.bulldog.core.pin.Pin;
 
 public abstract class AbstractDigitalOutput extends AbstractPinFeature implements DigitalOutput {
 

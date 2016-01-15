@@ -1,7 +1,7 @@
 package io.silverspoon.bulldog.core.io.uart;
 
-import io.silverspoon.bulldog.core.gpio.Pin;
 import io.silverspoon.bulldog.core.io.serial.SerialPort;
+import io.silverspoon.bulldog.core.pin.Pin;
 
 public interface UartPort extends SerialPort {
 

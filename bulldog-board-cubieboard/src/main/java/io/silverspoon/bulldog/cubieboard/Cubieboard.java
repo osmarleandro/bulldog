@@ -1,7 +1,7 @@
 package io.silverspoon.bulldog.cubieboard;
 
-import io.silverspoon.bulldog.core.gpio.Pin;
 import io.silverspoon.bulldog.core.gpio.base.DigitalIOFeature;
+import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.core.platform.AbstractBoard;
 import io.silverspoon.bulldog.cubieboard.gpio.CubieboardDigitalInput;
 import io.silverspoon.bulldog.cubieboard.gpio.CubieboardDigitalOutput;

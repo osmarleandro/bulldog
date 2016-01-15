@@ -1,12 +1,12 @@
-package io.silverspoon.bulldog.raspberrypi.gpio;
+package io.silverspoon.bulldog.raspberrypi.pwm;
 
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.core.gpio.base.AbstractPwm;
+import io.silverspoon.bulldog.core.pin.Pin;
+import io.silverspoon.bulldog.core.pwm.AbstractPwm;
 import io.silverspoon.bulldog.core.util.BitMagic;
 import io.silverspoon.bulldog.core.util.BulldogUtil;
+import io.silverspoon.bulldog.raspberrypi.RaspberryPiPin;
 import io.silverspoon.bulldog.raspberrypi.bcm.AbstractBCM;
 import io.silverspoon.bulldog.raspberrypi.bcm.BCMFactory;
-import io.silverspoon.bulldog.raspberrypi.RaspberryPiPin;
 
 public class RaspiPwm extends AbstractPwm {
 

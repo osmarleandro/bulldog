@@ -1,15 +1,16 @@
 package io.silverspoon.bulldog.core.gpio.base;
 
+import io.silverspoon.bulldog.core.Edge;
+import io.silverspoon.bulldog.core.Signal;
+import io.silverspoon.bulldog.core.event.InterruptEventArgs;
+import io.silverspoon.bulldog.core.event.InterruptListener;
+import io.silverspoon.bulldog.core.gpio.DigitalInput;
+import io.silverspoon.bulldog.core.pin.AbstractPinFeature;
+import io.silverspoon.bulldog.core.pin.Pin;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import io.silverspoon.bulldog.core.Edge;
-import io.silverspoon.bulldog.core.Signal;
-import io.silverspoon.bulldog.core.gpio.DigitalInput;
-import io.silverspoon.bulldog.core.gpio.Pin;
-import io.silverspoon.bulldog.core.gpio.event.InterruptEventArgs;
-import io.silverspoon.bulldog.core.gpio.event.InterruptListener;
 
 public abstract class AbstractDigitalInput extends AbstractPinFeature implements DigitalInput {
 

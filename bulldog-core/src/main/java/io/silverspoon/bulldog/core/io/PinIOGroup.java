@@ -1,12 +1,12 @@
 package io.silverspoon.bulldog.core.io;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 import io.silverspoon.bulldog.core.Signal;
 import io.silverspoon.bulldog.core.gpio.DigitalIO;
 import io.silverspoon.bulldog.core.util.BulldogUtil;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 public class PinIOGroup implements IOPort {
 

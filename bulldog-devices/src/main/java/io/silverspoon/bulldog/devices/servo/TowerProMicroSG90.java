@@ -1,6 +1,6 @@
 package io.silverspoon.bulldog.devices.servo;
 
-import io.silverspoon.bulldog.core.gpio.Pwm;
+import io.silverspoon.bulldog.core.pwm.Pwm;
 
 public class TowerProMicroSG90 extends Servo {
 

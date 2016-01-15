@@ -1,8 +1,8 @@
 package io.silverspoon.bulldog.core.io.bus;
 
-import java.io.IOException;
-
 import io.silverspoon.bulldog.core.io.IOPort;
+
+import java.io.IOException;
 
 public interface Bus extends IOPort {
 
