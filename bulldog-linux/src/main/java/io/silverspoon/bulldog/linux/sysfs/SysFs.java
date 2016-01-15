@@ -19,20 +19,23 @@ public class SysFs {
    /**
     * Returns the first valid path from a given array, or throws IllegalArgumentException
     * @param paths
+    * @param pattern Pattern of searched directory
     * @return first valid (exists) path
     * @throws IllegalArgumentException if no paths exist
      */
-   public static String findValidPath(String[] paths) {
+   public static String findValidPath(String[] paths, String pattern) {
       for (String path : paths) {
          File f = new File(path);
          if (f.exists() && f.isDirectory()) {
-            return path;
+            if (getFilesInPath(path, pattern).length != 0) {
+               return path;
+            }
          }
       }
       throw new IllegalArgumentException("No valid paths");
    }
 
-   public File[] getFilesInPath(String path, final String namePattern) {
+   public static File[] getFilesInPath(String path, final String namePattern) {
       File root = new File(path);
       File[] files = root.listFiles(new FileFilter() {
          public boolean accept(File pathname) {
