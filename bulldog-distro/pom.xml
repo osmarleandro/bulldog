@@ -51,38 +51,14 @@
             <artifactId>maven-assembly-plugin</artifactId>
             <executions>
                <execution>
-                  <id>distro-cubieboard-assembly</id>
+                  <id>bulldog-distro-assembly</id>
                   <phase>package</phase>
                   <goals>
                      <goal>single</goal>
                   </goals>
                   <configuration>
                      <descriptors>
-                        <descriptor>src/assembly/cubieboard.xml</descriptor>
-                     </descriptors>
-                  </configuration>
-               </execution>
-               <execution>
-                  <id>distro-raspberrypi-assembly</id>
-                  <phase>package</phase>
-                  <goals>
-                     <goal>single</goal>
-                  </goals>
-                  <configuration>
-                     <descriptors>
-                        <descriptor>src/assembly/raspberrypi.xml</descriptor>
-                     </descriptors>
-                  </configuration>
-               </execution>
-               <execution>
-                  <id>distro-beagleboneblack-assembly</id>
-                  <phase>package</phase>
-                  <goals>
-                     <goal>single</goal>
-                  </goals>
-                  <configuration>
-                     <descriptors>
-                        <descriptor>src/assembly/beagleboneblack.xml</descriptor>
+                        <descriptor>src/assembly/full.xml</descriptor>
                      </descriptors>
                   </configuration>
                </execution>
