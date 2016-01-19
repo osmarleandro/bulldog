@@ -4,7 +4,6 @@
 - [Summary](#summary)
 - [Usage](#usage)
   - [Maven](#maven)
-  - [Distribution Jar](#distribution-jar)
   - [Example](#example)
 - [Building Bulldog (x86, x86_64)](#building-bulldog-x86-x86_64)
 - [Building Bulldog (ARM)](#building-bulldog-arm)
@@ -30,7 +29,7 @@ Bulldog currently supports the following features:
 
 ###Maven
 
-Stable versions are synced with Maven Central. You just need to add a dependency to bulldog distro and Bulldog will automatically select the correct platform implementation:
+Stable versions are synced with Maven Central. You just need to add a dependency to appropriate board implementation and Bulldog will automatically select the correct platform implementation:
 
 ```xml
 <dependencies>
@@ -125,7 +124,7 @@ mvn exec:java
 
 - If you have done everything well, your LED diode should come on, and after 1 second go off again.
 
-_Note: For more see bulldog-examples project._
+_Note: For more see [bulldog-examples](https://github.com/px3/bulldog-examples) project._
 
 ##Building Bulldog (x86, x86_64)
 
