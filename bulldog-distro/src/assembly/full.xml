@@ -27,7 +27,7 @@
             <include>io.silverspoon:bulldog-board-raspberrypi</include>
          </includes>
          <useProjectArtifact>false</useProjectArtifact>
-         <unpack>true</unpack>
+         <unpack>false</unpack>
       </dependencySet>
    </dependencySets>
 </assembly>
