@@ -4,10 +4,10 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.silverspoon</groupId>
   <artifactId>bulldog-parent</artifactId>
-  <version>0.2.0</version>
+  <version>0.2.1</version>
   <packaging>pom</packaging>
   <name>${project.groupId}:${project.artifactId}</name>
-  <description>Java GPIO Library for BeagleBonBlack, Raspberry Pi and CubieBoard.</description>
+  <description>Java GPIO Library for BeagleBoneBlack, Raspberry Pi and CubieBoard.</description>
   <url>http://silverspoon.io</url>
   <licenses>
     <license>
@@ -20,6 +20,7 @@
     <name>silverspoon.io</name>
     <url>http://silverspoon.io</url>
   </organization>
+  <inceptionYear>2015</inceptionYear>
   <developers>
     <developer>
       <id>sbunciak</id>
@@ -32,6 +33,12 @@
       <name>Pavel Macik</name>
       <email>pavel.macik@gmail.com</email>
       <url>https://github.com/pmacik</url>
+    </developer>
+    <developer>
+      <id>mjaros</id>
+      <name>Miroslav Jaros</name>
+      <email>miroslav.jaros91@gmail.com</email>
+      <url>https://github.com/xjaros1</url>
     </developer>
   </developers>
   <scm>
@@ -80,7 +87,6 @@
     <module>bulldog-board-cubieboard</module>
     <module>bulldog-board-raspberrypi</module>
     <module>bulldog-board-beagleboneblack</module>
-    <module>bulldog-distro</module>
   </modules>
   <dependencyManagement>
     <dependencies>
@@ -96,11 +102,6 @@
         <artifactId>slf4j-api</artifactId>
         <version>${version.slf4j}</version>
       </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-log4j12</artifactId>
-        <version>${version.slf4j}</version>
-      </dependency>
     </dependencies>
   </dependencyManagement>
   <build>
@@ -111,8 +112,8 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${version.compiler.plugin}</version>
           <configuration>
-            <source>1.7</source>
-            <target>1.7</target>
+            <source>1.8</source>
+            <target>1.8</target>
             <compilerArgument>-g:none</compilerArgument>
           </configuration>
         </plugin>
@@ -120,18 +121,6 @@
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>native-maven-plugin</artifactId>
           <version>${version.native.plugin}</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-assembly-plugin</artifactId>
-          <version>${version.assembly.plugin}</version>
-          <configuration>
-            <archive>
-              <manifest>
-                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-              </manifest>
-            </archive>
-          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -199,6 +188,9 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>${version.javadoc.plugin}</version>
+          <configuration>
+            <additionalparam>-Xdoclint:none</additionalparam>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>

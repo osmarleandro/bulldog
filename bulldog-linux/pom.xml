@@ -4,7 +4,7 @@
    <parent>
       <groupId>io.silverspoon</groupId>
       <artifactId>bulldog-parent</artifactId>
-      <version>0.2.0</version>
+      <version>0.2.1</version>
       <relativePath>../pom.xml</relativePath>
    </parent>
    <artifactId>bulldog-linux</artifactId>
@@ -19,5 +19,10 @@
          <artifactId>bulldog-core</artifactId>
          <version>${project.version}</version>
       </dependency>
+          <!-- Logging -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
    </dependencies>
 </project>

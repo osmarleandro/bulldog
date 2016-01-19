@@ -1,3 +1,18 @@
+/*******************************************************************************
+ * Copyright (c) 2016 Silverspoon.io (silverspoon@silverware.io)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *******************************************************************************/
 package io.silverspoon.bulldog.linux.sysfs;
 
 import io.silverspoon.bulldog.core.Signal;
@@ -13,11 +28,24 @@ import java.nio.file.StandardOpenOption;
 
 public class SysFsPin {
 
-   private String directory = "/sys/class/gpio";
-   private int pin = 0;
+   private static final String directory = "/sys/class/gpio";
+   private int pin;
+   private String pinString;
+   private Path pinDirectory, valuePath, edgePath, directionPath;
+   private static Path exportPath = Paths.get(directory + "/export");
+   private static Path unexportPath = Paths.get(directory + "/unexport");
 
    public SysFsPin(int pin) {
       this.pin = pin;
+      updateValues();
+   }
+
+   private void updateValues(){
+      this.pinString = String.valueOf(pin);
+      this.pinDirectory = Paths.get(directory, "/gpio" + pinString);
+      this.valuePath = Paths.get(pinDirectory + "/value");
+      this.edgePath = Paths.get(pinDirectory + "/edge");
+      this.directionPath = Paths.get(pinDirectory + "/direction");
    }
 
    public boolean isExported() {
@@ -27,7 +55,7 @@ public class SysFsPin {
    public void exportIfNecessary() {
       if (!isExported()) {
          echoToFile(getPinString(), Paths.get(directory, "/export"));
-         
+
          long startTime = System.currentTimeMillis();
          while (!Files.exists(getValueFilePath())) {
             BulldogUtil.sleepMs(10);
@@ -45,23 +73,23 @@ public class SysFsPin {
    }
 
    public void setEdge(String edge) {
-      echoToFile(edge, Paths.get(getPinDirectory() + "/edge"));
+      echoToFile(edge, this.edgePath);
    }
 
    public void setDirection(String direction) {
-      echoToFile(direction, Paths.get(getPinDirectory() + "/direction"));
+      echoToFile(direction, this.directionPath);
    }
 
    public Path getPinDirectory() {
-      return Paths.get(directory, "/gpio", getPinString());
+      return this.pinDirectory;
    }
 
    public Path getValueFilePath() {
-      return Paths.get(getPinDirectory() + "/value");
+      return this.valuePath;
    }
 
    private String getPinString() {
-      return String.valueOf(pin);
+      return pinString;
    }
 
    public String getBaseDirectory() {
