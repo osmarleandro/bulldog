@@ -30,19 +30,19 @@ Bulldog currently supports the following features:
 
 ###Maven
 
-Stable versions are synced with Maven Central. You just need to add a dependency to bulldog board implementation (dependening on the target device):
+Stable versions are synced with Maven Central. You just need to add a dependency to bulldog distro and Bulldog will automatically select the correct platform implementation:
 
 ```xml
 <dependencies>
   <dependency>
     <groupId>io.silverspoon</groupId>
-    <artifactId>bulldog-board-${board}</artifactId>
+    <artifactId>bulldog-distro</artifactId>
     <version>${version.bulldog}</version>
   </dependency>
 </dependencies>
 ```
 
-With the latest development version (0.2.0-SNAPSHOT) you can put all the board implementations on your classpath and Bulldog will automatically select the correct one according to the platform you are using! To use our development (SNAPSHOT) versions you also need to add the following repository to your settings.xml:
+To use our development (SNAPSHOT) versions you need to add the following repository to your settings.xml:
 
 ```xml
 <repositories>
@@ -61,8 +61,8 @@ With the latest development version (0.2.0-SNAPSHOT) you can put all the board i
 If you don't want to use Maven, you can download our distribution (uber-jar) from [Maven Central](http://search.maven.org/#search|ga|1|g%3A%22io.silverspoon%22%20AND%20a%3A%22bulldog-distro%22).
 Afterward, just compile & execute your Java code from command line:
 
-    javac -cp bulldog-distro-0.2.0-<board>.jar:. BulldogLED.java
-    java -cp bulldog-distro-0.2.0-<board>.jar:. BulldogLED
+    javac -cp bulldog-distro-0.2.1-full.jar:. BulldogLED.java
+    java -cp bulldog-distro-0.2.1-full.jar:. BulldogLED
 
 ###Example
 
@@ -76,8 +76,8 @@ The following steps can all be performed on your target device (e.g. RaspberryPi
 <dependencies>
   <dependency>
     <groupId>io.silverspoon</groupId>
-    <artifactId>bulldog-board-raspberrypi</artifactId>
-    <version>0.2.0</version>
+    <artifactId>bulldog-distro</artifactId>
+    <version>0.2.1</version>
   </dependency>
 </dependencies>
 ```
