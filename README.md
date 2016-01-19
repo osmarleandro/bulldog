@@ -36,7 +36,7 @@ Stable versions are synced with Maven Central. You just need to add a dependency
 <dependencies>
   <dependency>
     <groupId>io.silverspoon</groupId>
-    <artifactId>bulldog-distro</artifactId>
+    <artifactId>bulldog-board-${board-name}</artifactId>
     <version>${version.bulldog}</version>
   </dependency>
 </dependencies>
@@ -56,14 +56,6 @@ To use our development (SNAPSHOT) versions you need to add the following reposit
 </repositories>
 ```
 
-###Distribution Jar
-
-If you don't want to use Maven, you can download our distribution (uber-jar) from [Maven Central](http://search.maven.org/#search|ga|1|g%3A%22io.silverspoon%22%20AND%20a%3A%22bulldog-distro%22).
-Afterward, just compile & execute your Java code from command line:
-
-    javac -cp bulldog-distro-0.2.1-full.jar:. BulldogLED.java
-    java -cp bulldog-distro-0.2.1-full.jar:. BulldogLED
-
 ###Example
 
 The following steps can all be performed on your target device (e.g. RaspberryPi).
@@ -76,7 +68,7 @@ The following steps can all be performed on your target device (e.g. RaspberryPi
 <dependencies>
   <dependency>
     <groupId>io.silverspoon</groupId>
-    <artifactId>bulldog-distro</artifactId>
+    <artifactId>bulldog-board-raspberrypi</artifactId>
     <version>0.2.1</version>
   </dependency>
 </dependencies>
