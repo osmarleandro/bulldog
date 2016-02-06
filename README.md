@@ -1,5 +1,7 @@
 #Bulldog GPIO Library for Java
 
+<img src="https://raw.githubusercontent.com/px3/px3.github.io/master/img/g5896.png" width="100" align="middle" />
+
 ##Table of Contents
 - [Summary](#summary)
 - [Usage](#usage)
