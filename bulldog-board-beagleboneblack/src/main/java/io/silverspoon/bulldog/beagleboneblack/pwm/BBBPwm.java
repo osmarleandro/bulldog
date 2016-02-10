@@ -99,7 +99,7 @@ public class BBBPwm extends AbstractPwm {
    }
 
    private String createOverlay(long period, long duty) throws IOException {
-      InputStream stream = this.getClass().getResourceAsStream("/org/bulldog/beagleboneblack/devicetree/resources/pwm.dts.template");
+      InputStream stream = this.getClass().getResourceAsStream("/io/silverspoon/bulldog/beagleboneblack/devicetree/pwm.dts.template");
       String overlay = BulldogUtil.convertStreamToString(stream);
       stream.close();
 
