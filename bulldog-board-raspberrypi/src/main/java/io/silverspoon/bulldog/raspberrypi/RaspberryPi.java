@@ -29,12 +29,16 @@ import io.silverspoon.bulldog.raspberrypi.pwm.RaspiPwm;
 
 public class RaspberryPi extends AbstractBoard {
 
-   private static final String NAME = "Raspberry Pi";
    public static final AbstractBCM BCM = BCMFactory.getBCM();
+   private static final String NAME = "Raspberry Pi";
 
    RaspberryPi() {
       super();
-      if (getRevision() >= 4) {
+      if (getRevision() >= 0xd) {
+         createPinsPlus();
+         createIoPortsRev2();
+      }
+      else if (getRevision() >= 4 ) {
          createPinsRev2();
          createIoPortsRev2();
       } else {
@@ -97,6 +101,35 @@ public class RaspberryPi extends AbstractBoard {
 
       Pin pwmPin = getPin(RaspiNames.P1_12);
       pwmPin.addFeature(new RaspiPwm(pwmPin));
+   }
+
+   private void createPinsPlus() {
+      getPins().add(createDigitalIOPin(RaspiNames.P1_3, "P1", 3, 2));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_5, "P1", 5, 3));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_7, "P1", 7, 4));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_8, "P1", 8, 14));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_10, "P1", 10, 15));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_11, "P1", 11, 17));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_12, "P1", 12, 18));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_13, "P1", 13, 27));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_15, "P1", 15, 22));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_16, "P1", 16, 23));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_18, "P1", 18, 24));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_19, "P1", 19, 10));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_21, "P1", 21, 9));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_22, "P1", 22, 25));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_23, "P1", 23, 11));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_24, "P1", 24, 8));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_26, "P1", 26, 7));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_29, "P1", 29, 5));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_31, "P1", 31, 6));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_32, "P1", 32, 12));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_33, "P1", 33, 13));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_35, "P1", 35, 19));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_36, "P1", 36, 16));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_37, "P1", 37, 37));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_38, "P1", 38, 38));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_40, "P1", 40, 40));
    }
 
    private Pin createDigitalIOPin(String name, String port, int portIndex, int gpioAddress) {
