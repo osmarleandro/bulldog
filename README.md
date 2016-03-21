@@ -1,8 +1,8 @@
-#Bulldog GPIO Library for Java
+# Bulldog - Java GPIO Library
 
-<img src="https://raw.githubusercontent.com/px3/px3.github.io/master/img/g5896.png" width="100" align="middle" />
+![Bulldog](https://raw.githubusercontent.com/px3/px3.github.io/master/img/bulldog-logo.png)
 
-##Table of Contents
+## Table of Contents
 - [Summary](#summary)
 - [Usage](#usage)
   - [Maven](#maven)
@@ -12,7 +12,7 @@
 - [Continuous Integration](#continuous-integration)
 - [Contribution Guidelines](#contribution-guidelines)
 
-##Summary
+## Summary
 
 Bulldog is a Java library providing Java (IoT) Developers with GPIO and low-level IO capabilities of embedded linux platforms (RaspberryPi, CubieBoard, BeagleBoneBlack).
 
