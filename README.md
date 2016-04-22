@@ -125,6 +125,7 @@ mvn exec:java
 ```
 
 - If you have done everything well, your LED diode should come on, and after 1 second go off again.
+- Please note that the JVM must be started with root privileges or user need to be in appropriate group for ```/dev/mem``` access e.g. _kmem_
 
 _Note: For more see [bulldog-examples](https://github.com/px3/bulldog-examples) project._
 
