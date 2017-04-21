@@ -94,6 +94,16 @@ public class RaspberryPi extends AbstractBoard {
       getPins().add(createDigitalIOPin(RaspiNames.P1_24, "P1", 24, 8));
       getPins().add(createDigitalIOPin(RaspiNames.P1_26, "P1", 26, 7));
 
+      getPins().add(createDigitalIOPin(RaspiNames.P1_29, "P1", 29, 5));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_31, "P1", 31, 6));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_32, "P1", 32, 12));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_33, "P1", 33, 13));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_35, "P1", 35, 19));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_36, "P1", 36, 16));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_37, "P1", 37, 26));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_38, "P1", 38, 20));
+      getPins().add(createDigitalIOPin(RaspiNames.P1_40, "P1", 40, 21));
+
       getPins().add(createDigitalIOPin(RaspiNames.P5_3, "P5", 3, 28));
       getPins().add(createDigitalIOPin(RaspiNames.P5_4, "P5", 4, 29));
       getPins().add(createDigitalIOPin(RaspiNames.P5_5, "P5", 5, 30));
