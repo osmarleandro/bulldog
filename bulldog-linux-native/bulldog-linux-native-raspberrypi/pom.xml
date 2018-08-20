@@ -43,7 +43,7 @@
                <linkerExecutable>${linker.exec}</linkerExecutable>
                <compilerStartOptions>
                   <compilerStartOption>${compiler.includes}</compilerStartOption>
-                  <compilerStartOption>-std=gnu11 -O3 -fPIC -fgnu89-inline -mfloat-abi=hard -mlittle-endian -DARM -DARCH="ARM"
+                  <compilerStartOption>-std=gnu11 -O3 -fPIC -fgnu89-inline -mfloat-abi=soft -mlittle-endian -DARM -DARCH="ARM"
               -marm -mtune=arm1176jzf-s</compilerStartOption>
                </compilerStartOptions>
                <linkerStartOptions>

@@ -62,7 +62,7 @@
                <linkerExecutable>${linker.exec}</linkerExecutable>
                <compilerStartOptions>
                   <compilerStartOption>${compiler.includes}</compilerStartOption>
-                  <compilerStartOption>-std=gnu11 -O3 -fPIC -fgnu89-inline -mfloat-abi=hard -mtune=cortex-a8</compilerStartOption>
+                  <compilerStartOption>-std=gnu11 -O3 -fPIC -fgnu89-inline -mfloat-abi=soft -mtune=cortex-a8</compilerStartOption>
                </compilerStartOptions>
                <linkerStartOptions>
                   <linkerStartOption>${linker.options}</linkerStartOption>
