@@ -34,6 +34,15 @@ public class RaspiNames {
    public static final String P1_23 = "P1_23";
    public static final String P1_24 = "P1_24";
    public static final String P1_26 = "P1_26";
+   public static final String P1_29 = "P1_29";
+   public static final String P1_31 = "P1_31";
+   public static final String P1_32 = "P1_32";
+   public static final String P1_33 = "P1_33";
+   public static final String P1_35 = "P1_35";
+   public static final String P1_36 = "P1_36";
+   public static final String P1_37 = "P1_37";
+   public static final String P1_38 = "P1_38";
+   public static final String P1_40 = "P1_40";
 
    public static final String P5_3 = "P5_3";
    public static final String P5_4 = "P5_4";

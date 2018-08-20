@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.silverspoon</groupId>
   <artifactId>bulldog-parent</artifactId>
-  <version>0.2.1</version>
+  <version>0.3.0</version>
   <packaging>pom</packaging>
   <name>${project.groupId}:${project.artifactId}</name>
   <description>Java GPIO Library for BeagleBoneBlack, Raspberry Pi and CubieBoard.</description>
@@ -42,9 +41,10 @@
     </developer>
   </developers>
   <scm>
-    <connection>scm:git:git@github.com:px3/Bulldog.git</connection>
-    <developerConnection>scm:git:git@github.com:px3/Bulldog.git</developerConnection>
-    <url>git@github.com:px3/Bulldog.git</url>
+    <connection>scm:git:git@github.com:SilverThings/Bulldog.git</connection>
+    <developerConnection>scm:git:git@github.com:SilverThings/Bulldog.git</developerConnection>
+    <url>git@github.com:SilverThings/Bulldog.git</url>
+    <tag>v0.3.0</tag>
   </scm>
   <distributionManagement>
     <snapshotRepository>

@@ -4,7 +4,7 @@
    <parent>
       <groupId>io.silverspoon</groupId>
       <artifactId>bulldog-linux-native</artifactId>
-      <version>0.2.1</version>
+      <version>0.3.0</version>
       <relativePath>../pom.xml</relativePath>
    </parent>
    <artifactId>bulldog-linux-native-raspberrypi</artifactId>
@@ -22,11 +22,11 @@
                <!-- Disable parent executions -->
                <execution>
                   <id>javah-linux</id>
-                  <phase/>
+                  <phase />
                </execution>
                <execution>
                   <id>javah-bbb</id>
-                  <phase/>
+                  <phase />
                </execution>
             </executions>
             <!-- Default execution to compile native library -->
@@ -43,7 +43,7 @@
                <linkerExecutable>${linker.exec}</linkerExecutable>
                <compilerStartOptions>
                   <compilerStartOption>${compiler.includes}</compilerStartOption>
-                  <compilerStartOption>-std=gnu11 -O3 -fPIC -fgnu89-inline -mfloat-abi=hard -mlittle-endian -DARM -DARCH="ARM"
+                  <compilerStartOption>-std=gnu11 -O3 -fPIC -fgnu89-inline -mfloat-abi=soft -mlittle-endian -DARM -DARCH="ARM"
               -marm -mtune=arm1176jzf-s</compilerStartOption>
                </compilerStartOptions>
                <linkerStartOptions>

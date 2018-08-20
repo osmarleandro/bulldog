@@ -101,6 +101,6 @@ public class BCM2835 extends AbstractBCM {
 
    @Override
    public int getRegisterSize() {
-      return 0;
+      return REGISTER_SIZE;
    }
 }

@@ -27,6 +27,7 @@ branches:
   only:
     - master
     - devel
+    - minnowboard_suppor
 
 env:
   global:
