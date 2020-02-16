@@ -17,7 +17,9 @@ package io.silverspoon.bulldog.beagleboneblack.jni;
 
 public class NativePwm {
 
-   public static native int setup();
+    public static final int BBBIO_ADC_STEP_MODE_SW_ONE_SHOOT = 0x0;
+
+    public static native int setup();
 
    public static native void teardown();
 

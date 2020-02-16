@@ -19,7 +19,6 @@ import java.nio.IntBuffer;
 
 public class NativeAdc {
 
-   public static final int BBBIO_ADC_STEP_MODE_SW_ONE_SHOOT = 0x0;
    public static final int BBBIO_ADC_STEP_MODE_SW_CONTINUOUS = 0x1;
    public static final int BBBIO_ADC_STEP_MODE_HW_ONE_SHOOT = 0x2;
    public static final int BBBIO_ADC_STEP_MODE_HW_CONTINUOUS = 0x3;
