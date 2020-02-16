@@ -53,4 +53,6 @@ public class NativePwm {
          isInitialized = false;
       }
    }
+
+public static final int BBBIO_ADC_STEP_MODE_SW_ONE_SHOOT = 0x0;
 }
