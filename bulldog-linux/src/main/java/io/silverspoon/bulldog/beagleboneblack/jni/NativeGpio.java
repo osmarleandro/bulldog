@@ -15,8 +15,8 @@
  *******************************************************************************/
 package io.silverspoon.bulldog.beagleboneblack.jni;
 
-public class NativeGpio {
-
+public class NativeGpio extends SuperclassExtracted {
+   
    public static final int DIRECTION_OUT = 1;
    public static final int DIRECTION_IN = 0;
 
