@@ -64,14 +64,18 @@ public static final int BBBIO_ADC_STEP_MODE_SW_ONE_SHOOT = NativePwm.BBBIO_ADC_S
          return;
       }
       setup();
-      isInitialized = true;
+      extracted();
+   }
+
+private static void extracted() {
+	isInitialized = true;
       Runtime.getRuntime().addShutdownHook(new Thread() {
          @Override
          public void run() {
             deinitialize();
          }
       });
-   }
+}
 
    public static void deinitialize() {
       if (isInitialized) {
