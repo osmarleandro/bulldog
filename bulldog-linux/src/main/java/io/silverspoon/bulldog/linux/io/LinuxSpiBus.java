@@ -34,7 +34,8 @@ import java.util.List;
 
 public class LinuxSpiBus extends AbstractLinuxBus implements SpiBus {
 
-   private List<DigitalOutput> slaveSelectPins = new ArrayList<DigitalOutput>();
+    protected int selectedSlaveAddress;
+    private List<DigitalOutput> slaveSelectPins = new ArrayList<DigitalOutput>();
    private Board board;
 
    private int speed = 10000;

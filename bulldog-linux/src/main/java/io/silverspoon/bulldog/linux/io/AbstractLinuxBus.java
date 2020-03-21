@@ -31,7 +31,6 @@ public abstract class AbstractLinuxBus implements Bus {
    protected static final String ERROR_WRITING_BYTE = "Byte could not be written to bus";
    protected static final String ERROR_READING_BYTE = "Byte could not be read from bus";
    protected static final String ERROR_BUS_NOT_OPENED = "Bus has not been opened!";
-   protected int selectedSlaveAddress;
 
    private String deviceFilePath;
    private boolean isOpen = false;
