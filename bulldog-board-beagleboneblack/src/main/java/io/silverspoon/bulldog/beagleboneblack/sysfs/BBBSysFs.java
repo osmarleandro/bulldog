@@ -17,6 +17,7 @@ package io.silverspoon.bulldog.beagleboneblack.sysfs;
 
 import io.silverspoon.bulldog.core.util.BulldogUtil;
 import io.silverspoon.bulldog.linux.sysfs.SysFs;
+import io.silverspoon.bulldog.linux.sysfs.SysFsPin;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -35,7 +36,7 @@ public class BBBSysFs extends SysFs {
 
    private static final String SEARCH_PATTERN = "bone_capemgr";
 
-   private String SYSFS_DEVICES_PATH = findValidPath(SYSFS_DEVICES_SEARCH_PATH, SEARCH_PATTERN);
+   private String SYSFS_DEVICES_PATH = SysFsPin.findValidPath(SYSFS_DEVICES_SEARCH_PATH, SEARCH_PATTERN);
 
    public BBBSysFs() {
 

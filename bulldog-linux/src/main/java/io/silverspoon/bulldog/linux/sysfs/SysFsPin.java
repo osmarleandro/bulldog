@@ -19,6 +19,7 @@ import io.silverspoon.bulldog.core.Signal;
 import io.silverspoon.bulldog.core.util.BulldogUtil;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -40,7 +41,26 @@ public class SysFsPin {
       updateValues();
    }
 
-   private void updateValues(){
+    /**
+     * Returns the first valid path from a given array, or throws IllegalArgumentException
+     * @param paths
+     * @param pattern Pattern of searched directory
+     * @return first valid (exists) path
+     * @throws IllegalArgumentException if no paths exist
+      */
+    public static String findValidPath(String[] paths, String pattern) {
+       for (String path : paths) {
+          File f = new File(path);
+          if (f.exists() && f.isDirectory()) {
+             if (SysFs.getFilesInPath(path, pattern).length != 0) {
+                return path;
+             }
+          }
+       }
+       throw new IllegalArgumentException("No valid paths");
+    }
+
+    private void updateValues(){
       this.pinString = String.valueOf(pin);
       this.pinDirectory = Paths.get(directory, "/gpio" + pinString);
       this.valuePath = Paths.get(pinDirectory + "/value");
