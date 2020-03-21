@@ -16,12 +16,14 @@
 package io.silverspoon.bulldog.linux.io;
 
 import io.silverspoon.bulldog.core.io.bus.Bus;
+import io.silverspoon.bulldog.core.io.bus.spi.SpiMessage;
 import io.silverspoon.bulldog.linux.jni.NativeTools;
 
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.ByteBuffer;
 
 public abstract class AbstractLinuxBus implements Bus {
 
@@ -174,5 +176,14 @@ public abstract class AbstractLinuxBus implements Bus {
             + ((deviceFilePath == null) ? 0 : deviceFilePath
             .hashCode());
       return result;
+   }
+
+   protected SpiMessage createSpiMessage(ByteBuffer buffer, byte[] sentBytes) {
+      SpiMessage message = new SpiMessage();
+      byte[] rxBytes = new byte[sentBytes.length];
+      buffer.get(rxBytes);
+      message.setReceivedBytes(rxBytes);
+      message.setSentBytes(sentBytes);
+      return message;
    }
 }
