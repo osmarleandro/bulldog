@@ -37,18 +37,11 @@ public class SysFs {
     * @param pattern Pattern of searched directory
     * @return first valid (exists) path
     * @throws IllegalArgumentException if no paths exist
+ * @deprecated Use {@link SysFsPin#findValidPath(String[],String)} instead
      */
    public static String findValidPath(String[] paths, String pattern) {
-      for (String path : paths) {
-         File f = new File(path);
-         if (f.exists() && f.isDirectory()) {
-            if (getFilesInPath(path, pattern).length != 0) {
-               return path;
-            }
-         }
-      }
-      throw new IllegalArgumentException("No valid paths");
-   }
+	return SysFsPin.findValidPath(paths, pattern);
+}
 
    public static File[] getFilesInPath(String path, final String namePattern) {
       File root = new File(path);
