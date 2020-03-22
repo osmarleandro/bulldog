@@ -17,6 +17,7 @@ package io.silverspoon.bulldog.cubieboard;
 
 import io.silverspoon.bulldog.core.platform.Board;
 import io.silverspoon.bulldog.core.platform.BoardFactory;
+import io.silverspoon.bulldog.cubieboard.gpio.Cubieboard;
 import io.silverspoon.bulldog.linux.sysinfo.CpuInfo;
 
 public class CubieboardBoardFactory implements BoardFactory {

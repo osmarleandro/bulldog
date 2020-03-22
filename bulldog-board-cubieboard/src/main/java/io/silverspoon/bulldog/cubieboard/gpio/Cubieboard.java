@@ -13,14 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-package io.silverspoon.bulldog.cubieboard;
+package io.silverspoon.bulldog.cubieboard.gpio;
 
 import io.silverspoon.bulldog.core.gpio.base.DigitalIOFeature;
 import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.core.platform.AbstractBoard;
-import io.silverspoon.bulldog.cubieboard.gpio.CubieboardDigitalInput;
-import io.silverspoon.bulldog.cubieboard.gpio.CubieboardDigitalOutput;
-import io.silverspoon.bulldog.cubieboard.gpio.CubieboardGpioMemory;
+import io.silverspoon.bulldog.cubieboard.CubieboardNames;
+import io.silverspoon.bulldog.cubieboard.CubieboardPin;
 import io.silverspoon.bulldog.linux.util.LinuxLibraryLoader;
 
 public class Cubieboard extends AbstractBoard {
