@@ -26,8 +26,6 @@ import java.io.IOException;
 
 public class LinuxI2cBus extends AbstractLinuxBus implements I2cBus {
 
-   private int selectedSlaveAddress;
-
    public LinuxI2cBus(String name, String deviceFilePath) {
       super(name, deviceFilePath);
    }

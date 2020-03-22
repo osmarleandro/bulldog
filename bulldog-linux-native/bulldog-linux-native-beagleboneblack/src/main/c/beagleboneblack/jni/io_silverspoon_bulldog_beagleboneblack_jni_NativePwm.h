@@ -7,6 +7,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+#undef io_silverspoon_bulldog_beagleboneblack_jni_NativePwm_BBBIO_ADC_STEP_MODE_SW_ONE_SHOOT
+#define io_silverspoon_bulldog_beagleboneblack_jni_NativePwm_BBBIO_ADC_STEP_MODE_SW_ONE_SHOOT 0L
 /*
  * Class:     io_silverspoon_bulldog_beagleboneblack_jni_NativePwm
  * Method:    setup
