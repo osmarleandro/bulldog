@@ -26,7 +26,7 @@ import io.silverspoon.bulldog.linux.io.LinuxEpollThread;
 import io.silverspoon.bulldog.linux.jni.NativePollResult;
 import io.silverspoon.bulldog.linux.sysfs.SysFsPin;
 
-public class LinuxDigitalInput extends AbstractDigitalInput implements LinuxEpollListener {
+public class LinuxDigitalInput extends AbstractDigitalInput implements LinuxEpollListener, ExtractedInterface {
 
    private LinuxEpollThread interruptControl;
    private SysFsPin sysFsPin;
