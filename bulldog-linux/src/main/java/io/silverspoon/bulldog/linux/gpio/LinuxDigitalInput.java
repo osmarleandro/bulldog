@@ -111,7 +111,7 @@ public class LinuxDigitalInput extends AbstractDigitalInput implements LinuxEpol
    @Override
    public void processEpollResults(NativePollResult[] results) {
       for (NativePollResult result : results) {
-         Edge edge = getEdge(result);
+         Edge edge = getEdgeRenamed(result);
          if (lastEdge != null && lastEdge.equals(edge)) {
             continue;
          }
@@ -127,7 +127,7 @@ public class LinuxDigitalInput extends AbstractDigitalInput implements LinuxEpol
       }
    }
 
-   private Edge getEdge(NativePollResult result) {
+   private Edge getEdgeRenamed(NativePollResult result) {
       if (result.getData() == null) {
          return null;
       }
