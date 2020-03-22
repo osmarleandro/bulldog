@@ -40,9 +40,7 @@ public abstract class AbstractLinuxBus implements Bus {
    private FileInputStream inputStream;
    private FileOutputStream outputStream;
    private FileDescriptor streamDescriptor;
-protected int selectedSlaveAddress;
-
-   public AbstractLinuxBus(String name, String deviceFilePath) {
+public AbstractLinuxBus(String name, String deviceFilePath) {
       this.deviceFilePath = deviceFilePath;
       this.name = name;
    }

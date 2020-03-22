@@ -42,6 +42,7 @@ public class LinuxSpiBus extends AbstractLinuxBus implements SpiBus {
    private int delayMicroSeconds = 0;
    private SpiMode mode = SpiMode.Mode0;
    private boolean lsbFirst = false;
+protected int selectedSlaveAddress;
 
    public LinuxSpiBus(String name, String deviceFilePath, Board board) {
       super(name, deviceFilePath);
