@@ -20,11 +20,11 @@ import io.silverspoon.bulldog.core.gpio.base.AbstractDigitalOutput;
 import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.linux.sysfs.SysFsPin;
 
-public class LinuxDigitalOutput extends AbstractDigitalOutput {
+public class LinuxDigitalOutputRenamed extends AbstractDigitalOutput {
 
    private SysFsPin sysFsPin;
 
-   public LinuxDigitalOutput(Pin pin) {
+   public LinuxDigitalOutputRenamed(Pin pin) {
       super(pin);
       sysFsPin = createSysFsPin(pin);
    }

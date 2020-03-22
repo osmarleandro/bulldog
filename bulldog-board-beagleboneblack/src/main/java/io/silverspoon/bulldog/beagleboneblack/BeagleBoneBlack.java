@@ -30,7 +30,7 @@ import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.core.platform.AbstractBoard;
 import io.silverspoon.bulldog.core.util.BulldogUtil;
 import io.silverspoon.bulldog.linux.gpio.LinuxDigitalInput;
-import io.silverspoon.bulldog.linux.gpio.LinuxDigitalOutput;
+import io.silverspoon.bulldog.linux.gpio.LinuxDigitalOutputRenamed;
 import io.silverspoon.bulldog.linux.io.LinuxI2cBus;
 import io.silverspoon.bulldog.linux.io.LinuxSpiBus;
 
@@ -160,7 +160,7 @@ public class BeagleBoneBlack extends AbstractBoard implements FeatureActivationL
 
    private Pin createSysFsDigitalIOPin(String name, String internalName, int bank, int pinIndex, String port, int portIndex) {
       BeagleBonePin pin = new BeagleBonePin(name, internalName, bank, pinIndex, port, portIndex);
-      pin.addFeature(new DigitalIOFeature(pin, new LinuxDigitalInput(pin), new LinuxDigitalOutput(pin)));
+      pin.addFeature(new DigitalIOFeature(pin, new LinuxDigitalInput(pin), new LinuxDigitalOutputRenamed(pin)));
       return pin;
    }
 
