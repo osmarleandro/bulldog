@@ -18,11 +18,13 @@ package io.silverspoon.bulldog.linux.io;
 import io.silverspoon.bulldog.core.io.bus.BusConnection;
 import io.silverspoon.bulldog.core.io.bus.i2c.I2cBus;
 import io.silverspoon.bulldog.core.io.bus.i2c.I2cConnection;
+import io.silverspoon.bulldog.core.io.bus.spi.SpiMessage;
 import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.core.util.BulldogUtil;
 import io.silverspoon.bulldog.linux.jni.NativeI2c;
 
 import java.io.IOException;
+import java.nio.ByteBuffer;
 
 public class LinuxI2cBus extends AbstractLinuxBus implements I2cBus {
 
@@ -137,6 +139,15 @@ public LinuxI2cBus(String name, String deviceFilePath) {
    @Override
    public boolean isSlaveSelected(int address) {
       return selectedSlaveAddress == address;
+   }
+
+protected SpiMessage createSpiMessage(ByteBuffer buffer, byte[] sentBytes) {
+      SpiMessage message = new SpiMessage();
+      byte[] rxBytes = new byte[sentBytes.length];
+      buffer.get(rxBytes);
+      message.setReceivedBytes(rxBytes);
+      message.setSentBytes(sentBytes);
+      return message;
    }
 
 }

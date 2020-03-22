@@ -301,4 +301,13 @@ protected int selectedSlaveAddress;
       return !lsbFirst;
    }
 
+protected SpiMessage createSpiMessage(ByteBuffer buffer, byte[] sentBytes) {
+      SpiMessage message = new SpiMessage();
+      byte[] rxBytes = new byte[sentBytes.length];
+      buffer.get(rxBytes);
+      message.setReceivedBytes(rxBytes);
+      message.setSentBytes(sentBytes);
+      return message;
+   }
+
 }
