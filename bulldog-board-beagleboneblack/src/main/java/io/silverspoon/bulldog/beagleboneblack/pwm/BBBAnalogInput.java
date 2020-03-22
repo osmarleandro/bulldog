@@ -15,7 +15,7 @@
  *******************************************************************************/
 package io.silverspoon.bulldog.beagleboneblack.pwm;
 
-import io.silverspoon.bulldog.beagleboneblack.jni.NativeAdc;
+import io.silverspoon.bulldog.beagleboneblack.NativeAdc;
 import io.silverspoon.bulldog.core.pin.Pin;
 import io.silverspoon.bulldog.core.pwm.AbstractAnalogInput;
 

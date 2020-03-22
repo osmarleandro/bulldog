@@ -33,7 +33,7 @@
                  </goals>
                  <configuration>
                      <javahClassNames>
-                         <javahClassName>io.silverspoon.bulldog.beagleboneblack.jni.NativeAdc</javahClassName>
+                         <javahClassName>io.silverspoon.bulldog.beagleboneblack.NativeAdc</javahClassName>
                          <javahClassName>io.silverspoon.bulldog.beagleboneblack.jni.NativeGpio</javahClassName>
                          <javahClassName>io.silverspoon.bulldog.beagleboneblack.jni.NativePwm</javahClassName>
                      </javahClassNames>
